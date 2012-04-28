@@ -1,0 +1,259 @@
+<Grupo3Si1.handles.ControladorDeNegociacoes>
+  <sugestoesDeCarona>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>9</idCarona>
+      <idSessao>16</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Hiper Bompreco</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>4</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>14</idCarona>
+      <idSessao>26</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>[Acude Velho;Hiper Bompreco]</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>10</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+  </sugestoesDeCarona>
+  <pontosDeEmbarque>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho;Parque da Crianca</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>2</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho;Parque da Crianca</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>5</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+  </pontosDeEmbarque>
+  <solicitacoesDeCarona/>
+  <solicitacoesPendentes class="tree-map">
+    <entry>
+      <string>22</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>22</idCarona>
+        <idSessao>11</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>9</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>43</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>43</idCarona>
+        <idSessao></idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>17</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+  </solicitacoesPendentes>
+  <solicitacoesConfirmadas class="tree-map">
+    <entry>
+      <string>10</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>21</idCarona>
+        <idSessao>11</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>8</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>13</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>26</idCarona>
+        <idSessao>14</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>11</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>15</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>32</idCarona>
+        <idSessao>16</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>13</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>18</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>34</idCarona>
+        <idSessao>19</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>15</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>29</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>43</idCarona>
+        <idSessao></idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>16</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>8</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>15</idCarona>
+        <idSessao>9</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome>Acude Velho</nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>3</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+  </solicitacoesConfirmadas>
+  <blackList>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../sugestoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro"/>
+  </blackList>
+  <userRep>
+    <userRep class="tree-map">
+      <entry>
+        <string>mark</string>
+        <Usuario>
+          <perfil>
+            <nome>Mark Zuckerberg</nome>
+            <endereco>Palo Alto, California</endereco>
+            <historicoDeCaronas class="linked-list">
+              <Carona>
+                <origem>Cajazeiras</origem>
+                <destino>Patos</destino>
+                <data>20/07/2012</data>
+                <hora>14:00</hora>
+                <vagas>4</vagas>
+                <id>25</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+              <Carona>
+                <origem>S√£o Francisco</origem>
+                <destino>Palo Alto</destino>
+                <data>12/09/2012</data>
+                <hora>21:00</hora>
+                <vagas>1</vagas>
+                <id>26</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+              <Carona>
+                <origem>Campina Grande</origem>
+                <destino>Jo√£o Pessoa</destino>
+                <data>01/06/2012</data>
+                <hora>12:00</hora>
+                <vagas>1</vagas>
+                <id>27</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+            </historicoDeCaronas>
+            <email>mark@facebook.com</email>
+            <historicoEmVagasDeCaronas class="linked-list"/>
+            <caronasSeguras>0</caronasSeguras>
+            <caronaFulerada>0</caronaFulerada>
+            <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
+            <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
+          </perfil>
+          <userID>13</userID>
+          <login>mark</login>
+          <senha>m@rk</senha>
+        </Usuario>
+      </entry>
+      <entry>
+        <string>steve</string>
+        <Usuario>
+          <perfil>
+            <nome>Steven Paul Jobs</nome>
+            <endereco>Palo Alto, California</endereco>
+            <historicoDeCaronas class="linked-list">
+              <Carona>
+                <origem>Campina Grande</origem>
+                <destino>Jo√£o Pessoa</destino>
+                <data>02/06/2012</data>
+                <hora>12:00</hora>
+                <vagas>3</vagas>
+                <id>28</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+              <Carona>
+                <origem>Campina Grande</origem>
+                <destino>Jo√£o Pessoa</destino>
+                <data>04/06/2012</data>
+                <hora>16:00</hora>
+                <vagas>2</vagas>
+                <id>29</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+              <Carona>
+                <origem>Leeds</origem>
+                <destino>Londres</destino>
+                <data>10/02/2013</data>
+                <hora>10:00</hora>
+                <vagas>3</vagas>
+                <id>30</id>
+                <ehMunicipal>false</ehMunicipal>
+              </Carona>
+            </historicoDeCaronas>
+            <email>jobs@apple.com</email>
+            <historicoEmVagasDeCaronas class="linked-list"/>
+            <caronasSeguras>0</caronasSeguras>
+            <caronaFulerada>0</caronaFulerada>
+            <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
+            <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
+          </perfil>
+          <userID>14</userID>
+          <login>steve</login>
+          <senha>5t3v3</senha>
+        </Usuario>
+      </entry>
+    </userRep>
+  </userRep>
+</Grupo3Si1.handles.ControladorDeNegociacoes>
