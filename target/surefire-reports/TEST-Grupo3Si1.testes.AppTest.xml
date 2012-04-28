@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite failures="1" time="3.294" errors="0" skipped="0" tests="1" name="Grupo3Si1.testes.AppTest">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
+    <property name="java.vm.version" value="20.6-b01-415"/>
+    <property name="awt.nativeDoubleBuffering" value="true"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="mrj.build" value="10M3635"/>
+    <property name="java.vm.vendor" value="Apple Inc."/>
+    <property name="java.vendor.url" value="http://www.apple.com/"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.country" value="BR"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/thiagoalmeida/git/SigaBemCaroneiro"/>
+    <property name="java.runtime.version" value="1.6.0_31-b04-415-10M3635"/>
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
+    <property name="basedir" value="/Users/thiagoalmeida/git/SigaBemCaroneiro"/>
+    <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="surefire.real.class.path" value="/Users/thiagoalmeida/git/SigaBemCaroneiro/target/surefire/surefirebooter6583481844075871372.jar"/>
+    <property name="java.io.tmpdir" value="/var/folders/b-/b-Z+YA9zEtixt9+yNi78zE+++TI/-Tmp-/"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="sun.jnu.encoding" value="MacRoman"/>
+    <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
+    <property name="surefire.test.class.path" value="/Users/thiagoalmeida/git/SigaBemCaroneiro/target/test-classes:/Users/thiagoalmeida/git/SigaBemCaroneiro/target/classes:/Users/thiagoalmeida/.m2/repository/org/mockito/mockito-all/1.8.5/mockito-all-1.8.5.jar:/Users/thiagoalmeida/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/Users/thiagoalmeida/.m2/repository/ufcg/edu/br/easyaccept/1.0.0/easyaccept-1.0.0.jar:/Users/thiagoalmeida/.m2/repository/com/thoughtworks/xstream/xstream/1.4.2/xstream-1.4.2.jar:/Users/thiagoalmeida/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/Users/thiagoalmeida/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/Users/thiagoalmeida/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="50.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.6.8"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="user.home" value="/Users/thiagoalmeida"/>
+    <property name="user.timezone" value="GMT-03:00"/>
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob"/>
+    <property name="java.specification.version" value="1.6"/>
+    <property name="file.encoding" value="MacRoman"/>
+    <property name="user.name" value="thiagoalmeida"/>
+    <property name="java.class.path" value="/Users/thiagoalmeida/git/SigaBemCaroneiro/target/test-classes:/Users/thiagoalmeida/git/SigaBemCaroneiro/target/classes:/Users/thiagoalmeida/.m2/repository/org/mockito/mockito-all/1.8.5/mockito-all-1.8.5.jar:/Users/thiagoalmeida/.m2/repository/junit/junit/4.8.2/junit-4.8.2.jar:/Users/thiagoalmeida/.m2/repository/ufcg/edu/br/easyaccept/1.0.0/easyaccept-1.0.0.jar:/Users/thiagoalmeida/.m2/repository/com/thoughtworks/xstream/xstream/1.4.2/xstream-1.4.2.jar:/Users/thiagoalmeida/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/Users/thiagoalmeida/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/Users/thiagoalmeida/.m2/repository/xpp3/xpp3/1.1.4c/xpp3-1.1.4c.jar:"/>
+    <property name="java.vm.specification.version" value="1.0"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
+    <property name="sun.java.command" value="/Users/thiagoalmeida/git/SigaBemCaroneiro/target/surefire/surefirebooter6583481844075871372.jar /Users/thiagoalmeida/git/SigaBemCaroneiro/target/surefire/surefire9174219169432417135tmp /Users/thiagoalmeida/git/SigaBemCaroneiro/target/surefire/surefire2142115927968498588tmp"/>
+    <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
+    <property name="user.language" value="pt"/>
+    <property name="awt.toolkit" value="apple.awt.CToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.6.0_31"/>
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext"/>
+    <property name="sun.boot.class.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar"/>
+    <property name="java.vendor" value="Apple Inc."/>
+    <property name="localRepository" value="/Users/thiagoalmeida/.m2/repository"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="mrj.version" value="1060.1.6.0_31-415"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase time="3.234" classname="Grupo3Si1.testes.EasyAcceptTests" name="testarEasyAcceptScript">
+    <failure message="null" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: null
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.assertTrue(Assert.java:20)
+	at junit.framework.Assert.assertTrue(Assert.java:27)
+	at Grupo3Si1.testes.EasyAcceptTests.testarEasyAcceptScript(EasyAcceptTests.java:47)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at junit.framework.TestCase.runTest(TestCase.java:168)
+	at junit.framework.TestCase.runBare(TestCase.java:134)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:124)
+	at junit.framework.TestSuite.runTest(TestSuite.java:243)
+	at junit.framework.TestSuite.run(TestSuite.java:238)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:83)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:35)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:146)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:97)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.apache.maven.surefire.booter.ProviderFactory$ClassLoaderProxy.invoke(ProviderFactory.java:103)
+	at $Proxy0.invoke(Unknown Source)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:145)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcess(SurefireStarter.java:87)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:69)
+</failure>
+    <system-out>@HL
+@HL-------------------------------------------------------
+@HL T E S T S
+@HL-------------------------------------------------------
+@SLRunning Grupo3Si1.testes.AppTest
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US01.txt | Passed Tests: 15 | Not Passed Tests: 18
+
+FAILURES:
+   At line 26: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 27: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 28: Expected the error message &lt;Nome inv√°lido&gt;, but the error message was &lt;Nome inválido&gt;
+   At line 29: Expected the error message &lt;Nome inv√°lido&gt;, but the error message was &lt;Nome inválido&gt;
+   At line 30: Expected the error message &lt;Email inv√°lido&gt;, but the error message was &lt;Email inválido&gt;
+   At line 31: Expected the error message &lt;Email inv√°lido&gt;, but the error message was &lt;Email inválido&gt;
+   At line 32: Expected the error message &lt;J√° existe um usu√°rio com este email&gt;, but the error message was &lt;Já existe um usuário com este email&gt;
+   At line 33: Expected the error message &lt;J√° existe um usu√°rio com este login&gt;, but the error message was &lt;Já existe um usuário com este login&gt;
+   At line 34: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 35: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 36: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 37: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 38: Expected the error message &lt;Usu√°rio inexistente&gt;, but the error message was &lt;Usuário inexistente&gt;
+   At line 40: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 41: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+   At line 42: Expected the error message &lt;Usu√°rio inexistente&gt;, but the error message was &lt;Usuário inexistente&gt;
+   At line 43: Expected the error message &lt;Atributo inv√°lido&gt;, but the error message was &lt;Atributo inválido&gt;
+   At line 44: Expected the error message &lt;Atributo inv√°lido&gt;, but the error message was &lt;Atributo inválido&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US02.txt | Passed Tests: 33 | Not Passed Tests: 31
+
+FAILURES:
+   At line 55: Expected the error message &lt;Sess√£o inv√°lida&gt;, but the error message was &lt;Sessão inválida&gt;
+   At line 56: Expected the error message &lt;Sess√£o inv√°lida&gt;, but the error message was &lt;Sessão inválida&gt;
+   At line 57: Expected the error message &lt;Sess√£o inexistente&gt;, but the error message was &lt;Sessão inexistente&gt;
+   At line 59: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 60: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 62: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+   At line 63: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+   At line 65: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 66: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 67: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 68: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 69: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 70: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Data inválida&gt;
+   At line 73: Expected the error message &lt;Hora inv√°lida&gt;, but the error message was &lt;Hora inválida&gt;
+   At line 74: Expected the error message &lt;Hora inv√°lida&gt;, but the error message was &lt;Hora inválida&gt;
+   At line 75: Expected the error message &lt;Hora inv√°lida&gt;, but the error message was &lt;Hora inválida&gt;
+   At line 77: Expected the error message &lt;Vaga inv√°lida&gt;, but the error message was &lt;Vaga inválida&gt;
+   At line 78: Expected the error message &lt;Vaga inv√°lida&gt;, but the error message was &lt;Vaga inválida&gt;
+   At line 80: Expected the error message &lt;Identificador do carona √© inv√°lido&gt;, but the error message was &lt;Identificador do carona é inválido&gt;
+   At line 81: Expected the error message &lt;Identificador do carona √© inv√°lido&gt;, but the error message was &lt;Identificador do carona é inválido&gt;
+   At line 83: Expected the error message &lt;Atributo inv√°lido&gt;, but the error message was &lt;Atributo inválido&gt;
+   At line 84: Expected the error message &lt;Atributo inv√°lido&gt;, but the error message was &lt;Atributo inválido&gt;
+   At line 87: Expected the error message &lt;Carona Inv√°lida&gt;, but the error message was &lt;Carona Inválida&gt;
+   At line 90: Expected the error message &lt;Trajeto Inv√°lida&gt;, but the error message was &lt;Trajeto Inválida&gt;
+   At line 94: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 95: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 96: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 97: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 98: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+   At line 99: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+   At line 100: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US03.txt | Passed Tests: 16 | Not Passed Tests: 5
+
+FAILURES:
+   At line 36: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 37: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 38: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Origem inválida&gt;
+   At line 39: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+   At line 40: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Destino inválido&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US04.txt | Passed Tests: 37 | Not Passed Tests: 5
+
+FAILURES:
+   At line 58: Unexpected error: Item inexistente
+   At line 62: Expected the error message &lt;Solicita√ß√£o inexistente&gt;, but the error message was &lt;Solicitação inexistente&gt;
+   At line 76: Expected the error message &lt;Ponto Inv√°lido&gt;, but the error message was &lt;Ponto Inválido&gt;
+   At line 77: Expected the error message &lt;Ponto Inv√°lido&gt;, but the error message was &lt;Ponto Inválido&gt;
+   At line 78: Expected the error message &lt;Ponto Inv√°lido&gt;, but the error message was &lt;Ponto Inválido&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US05.txt | Passed Tests: 30 | Not Passed Tests: 2
+
+FAILURES:
+   At line 48: Expected the error message &lt;Solicita√ß√£o inexistente&gt;, but the error message was &lt;Solicitação inexistente&gt;
+   At line 63: Expected the error message &lt;Solicita√ß√£o inexistente&gt;, but the error message was &lt;Solicitação inexistente&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US06.txt | Passed Tests: 18 | Not Passed Tests: 8
+
+FAILURES:
+   At line 19: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 20: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 22: Unexpected error: Atributo inexistente
+   At line 24: Unexpected error: Atributo inexistente
+   At line 33: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 35: Unexpected error: Atributo inexistente
+   At line 37: Unexpected error: Atributo inexistente
+   At line 41: Expected the error message &lt;Login inv√°lido&gt;, but the error message was &lt;Login inválido&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US07.txt | Passed Tests: 48 | Not Passed Tests: 13
+
+FAILURES:
+   At line 49: Expected &lt;Campina Grande&gt;, but was &lt;S√£o Francisco&gt;
+   At line 50: Expected &lt;Jo√£o Pessoa&gt;, but was &lt;Palo Alto&gt;
+   At line 52: Expected &lt;William Henry Gates III&gt;, but was &lt;Steven Paul Jobs&gt;
+   At line 56: Expected &lt;2&gt;, but was &lt;3&gt;
+   At line 91: exception = java.lang.NullPointerException)
+   At line 95: exception = java.lang.NullPointerException)
+   At line 99: exception = java.lang.NullPointerException)
+   At line 104: Expected &lt;{carona1ID,carona2ID,carona3ID}&gt;, but was &lt;[25, 26, 27]&gt;
+   At line 105: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 108: Expected &lt;{solicitacao1ID}&gt;, but was &lt;[14]&gt;
+   At line 109: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 110: Expected &lt;[Acude Velho;Hiper Bompreco]&gt;, but was &lt;[]&gt;
+   At line 113: Unexpected error: Line 113: Unknown command: getPontosEncontro idSessao=13 idCarona=26
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US08.txt | Passed Tests: 29 | Not Passed Tests: 19
+
+FAILURES:
+   At line 27: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 28: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 29: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 30: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 38: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 39: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 40: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 41: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 53: Expected &lt;[31,32]&gt;, but was &lt;&gt;
+   At line 54: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 56: Unexpected error: Atributo inexistente
+   At line 58: Unexpected error: Atributo inexistente
+   At line 60:Opção inválida.
+   At line 65: Expected &lt;[31,32]&gt;, but was &lt;&gt;
+   At line 66: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 68: Unexpected error: Atributo inexistente
+   At line 70: Unexpected error: Atributo inexistente
+   At line 73: Expected the error message &lt;Op√ß√£o inv√°lida.&gt;, but the error message was &lt;Opção inválida.&gt;
+   At line 78: Expected the error message &lt;Usu√°rio n√£o possui vaga na carona.&gt;, but the error message was &lt;Usuário não possui vaga na carona.&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US09.txt | Passed Tests: 27 | Not Passed Tests: 19
+
+FAILURES:
+   At line 27: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 28: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 29: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 30: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 38: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 39: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 40: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 41: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 49: exception = java.lang.NullPointerException)
+   At line 53: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 55: Unexpected error: Atributo inexistente
+   At line 57: Unexpected error: Atributo inexistente
+   At line 59:Opção inválida.
+   At line 60: exception = java.lang.NullPointerException)
+   At line 64: Expected &lt;[]&gt;, but was &lt;&gt;
+   At line 66: Unexpected error: Atributo inexistente
+   At line 68: Unexpected error: Atributo inexistente
+   At line 70: Expected the error message &lt;Op√ß√£o inv√°lida.&gt;, but the error message was &lt;Opção inválida.&gt;
+   At line 75: Expected the error message &lt;Usu√°rio n√£o possui vaga na carona.&gt;, but the error message was &lt;Usuário não possui vaga na carona.&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US10.txt | Passed Tests: 17 | Not Passed Tests: 7
+
+FAILURES:
+   At line 21:Hora inválida
+   At line 28: Unexpected error: Identificador do carona é inválido
+   At line 36: Expected &lt;35&gt;, but was &lt;{}&gt;
+   At line 37: Unexpected error: Line 37: Unknown command: localizarCaronaMunicipal idSessao=22 cidade=&quot;Campina Grande&quot; origem=&quot;A√ßude Velho&quot; destino=&quot;Shopping Boulevard&quot;
+   At line 38: Unexpected error: Line 38: Unknown command: localizarCaronaMunicipal idSessao=21 cidade=&quot;Jo√£o Pessoa&quot;
+   At line 41: Expected the error message &lt;Cidade inexistente&gt;, but the error message was &lt;Line 41: Unknown command: localizarCaronaMunicipal idSessao=22 origem=&quot;A√ßude Velho&quot; destino=&quot;Shopping Boulevard&quot;&gt;
+   At line 42: Expected the error message &lt;Cidade inexistente&gt;, but the error message was &lt;Line 42: Unknown command: localizarCaronaMunicipal idSessao=22 cidade= origem=&quot;A√ßude Velho&quot; destino=&quot;Shopping Boulevard&quot;&gt;
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US11.txt | Passed Tests: 19 | Not Passed Tests: 14
+
+FAILURES:
+   At line 30: Unknown command: idInteresse1=cadastrarInteresse idSessao=24 origem=&quot;Jo√£o Pessoa&quot; destino=&quot;Campina Grande&quot; data=23/06/2012 horaInicio=06:00 horaFim=16:00
+   At line 31: Unknown command: idInteresse2=cadastrarInteresse idSessao=25 origem=&quot;Campina Grande&quot; destino=&quot;Jo√£o Pessoa&quot; data=25/06/2012 horaInicio=11:00 horaFim=18:00
+   At line 32: Unknown command: idInteresse3=cadastrarInteresse idSessao=27 origem=&quot;Campina Grande&quot; destino=&quot;Jo√£o Pessoa&quot; data=23/06/2012 horaInicio= horaFim=18:00
+   At line 33: Unknown command: idInteresse4=cadastrarInteresse idSessao=28 origem=&quot;Campina Grande&quot; destino=&quot;Jo√£o Pessoa&quot; data= horaInicio= horaFim=18:00
+   At line 37: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Line 37: Unknown command: cadastrarInteresse idSessao=24 origem=- destino=&quot;Jo√£o Pessoa&quot; data=23/06/2012 horaInicio=06:00 horaFim=16:00&gt;
+   At line 38: Expected the error message &lt;Origem inv√°lida&gt;, but the error message was &lt;Line 38: Unknown command: cadastrarInteresse idSessao=24 origem=! destino=&quot;Jo√£o Pessoa&quot; data=23/06/2012 horaInicio=06:00 horaFim=16:00&gt;
+   At line 39: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Line 39: Unknown command: cadastrarInteresse idSessao=24 origem=&quot;Campina Grande&quot; destino=! data=23/06/2012 horaInicio=06:00 horaFim=16:00&gt;
+   At line 40: Expected the error message &lt;Destino inv√°lido&gt;, but the error message was &lt;Line 40: Unknown command: cadastrarInteresse idSessao=24 origem=&quot;Campina Grande&quot; destino=- data=23/06/2012 horaInicio=06:00 horaFim=16:00&gt;
+   At line 41: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Line 41: Unknown command: cadastrarInteresse idSessao=24 origem=&quot;Campina Grande&quot; destino=- data= horaInicio=06:00 horaFim=16:00&gt;
+   At line 42: Expected the error message &lt;Data inv√°lida&gt;, but the error message was &lt;Line 42: Unknown command: cadastrarInteresse idSessao=24 origem=&quot;Campina Grande&quot; destino=- data= horaInicio=06:00 horaFim=16:00&gt;
+   At line 51: Unexpected error: Line 51: Unknown command: verificarMensagensPerfil idSessao=24
+   At line 52: Unexpected error: Line 52: Unknown command: verificarMensagensPerfil idSessao=25
+   At line 53: Unexpected error: Line 53: Unknown command: verificarMensagensPerfil idSessao=27
+   At line 54: Unexpected error: Line 54: Unknown command: verificarMensagensPerfil idSessao=28
+======================== 
+
+Test file: /Users/thiagoalmeida/git/SigaBemCaroneiro/src/test/resources/Grupo3Si1/US12.txt | Passed Tests: 11 | Not Passed Tests: 15
+
+FAILURES:
+   At line 20:Login inválido
+   At line 24: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 25: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 26: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 27: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 31: Unexpected error: Line 31: Unknown command: enviarEmail idSessao=29 destino=bill@gmail.com message=&quot;A solicita√ß√£o foi recebida&quot;
+   At line 35: Expected &lt;2&gt;, but was &lt;0&gt;
+   At line 38: Unexpected error: Line 38: Unknown command: enviarEmail idSessao=29 destino=bill@gmail.com message=&quot;A carona foi confirmada&quot;
+   At line 43: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 44: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 45: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 46: Unexpected error: (no message: exception = java.lang.NullPointerException)
+   At line 49: Unexpected error: Line 49: Unknown command: enviarEmail idSessao=29 destino=bill@gmail.com message=&quot;A solicita√ß√£o foi recebida&quot;
+   At line 53: Expected &lt;0&gt;, but was &lt;2&gt;
+   At line 56: Unexpected error: Line 56: Unknown command: enviarEmail idSessao=29 destino=bill@gmail.com message=&quot;A carona foi rejeitada por falta de vaga&quot;
+======================== 
+
+
+</system-out>
+  </testcase>
+</testsuite>
