@@ -13,7 +13,7 @@
         <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
       </perfil>
-      <userID>16</userID>
+      <userID>2</userID>
       <login>bill</login>
       <senha>bilz@o</senha>
     </Usuario>
@@ -31,7 +31,7 @@
             <data>02/06/2012</data>
             <hora>12:00</hora>
             <vagas>2</vagas>
-            <id>31</id>
+            <id>1</id>
             <ehMunicipal>false</ehMunicipal>
           </Carona>
           <Carona>
@@ -40,7 +40,7 @@
             <data>04/06/2012</data>
             <hora>16:00</hora>
             <vagas>1</vagas>
-            <id>32</id>
+            <id>2</id>
             <ehMunicipal>false</ehMunicipal>
           </Carona>
         </historicoDeCaronas>
@@ -51,7 +51,7 @@
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>15</userID>
+      <userID>1</userID>
       <login>mark</login>
       <senha>m@rk</senha>
     </Usuario>
@@ -70,7 +70,7 @@
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>17</userID>
+      <userID>3</userID>
       <login>vader</login>
       <senha>d4rth</senha>
     </Usuario>

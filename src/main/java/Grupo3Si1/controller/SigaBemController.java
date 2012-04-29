@@ -148,6 +148,7 @@ public class SigaBemController {
 	public void aceitarSolicitacaoPontoEncontro(String idSessao, String idSolicitacao) throws Exception{
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
+		
 		Carona carona = rep.getCarona(solicitacao.getIdCarona());
 		if(rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)){
 			carona.preencheVagas();
@@ -168,14 +169,14 @@ public class SigaBemController {
 	public Carona getCaronaUsuario(String idSessao, int index){
 		return rep.getUserPorId(idSessao).getPerfil().getCaronas().get(index - 1);//index - 1,pois o array comeca em 0.
 	}
-	public List<Carona> getTodasCaronasUsuario(String idSessao){
+	public String getTodasCaronasUsuario(String idSessao){
 		List<String> listaIdsCarona = new ArrayList<String>();
 		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil().getCaronas();
 		
 		for (Carona caronas : listaCaronas) {
 			listaIdsCarona.add(caronas.getId());
 		}
-		return listaCaronas;
+		return listaCaronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
 	}
 
 	public List<String> getSolicitacoesPendentes(String idCarona){
@@ -209,11 +210,11 @@ public class SigaBemController {
 	/**
 	 * Método que reinicia sistema e carrega os dados de um arquivo XML
 	 */
-	public void reiniciarSistema(){
-		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
-		rep.setRepositorio(gerenciaDadosEmXML.getRepositorioUsuarios("usuarios.xml"));
-		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes("negociacoes.xml");
-	}
+//	public void reiniciarSistema(){
+//		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
+//		rep.setRepositorio(gerenciaDadosEmXML.getRepositorioUsuarios("usuarios.xml"));
+//		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes("negociacoes.xml");
+//	}
 
 	public String abrirSessao(String login, String senha)
 			throws Exception {
@@ -305,6 +306,7 @@ public class SigaBemController {
 	}
 	
 	public void reviewVagaEmCarona(String idSessao, String idCarona, String loginCaroneiro, String review) throws Exception{
+		
 		Usuario userReview = rep.getUser(loginCaroneiro);
 		List<String> vagasConfirmadas = controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao, idCarona);
 
