@@ -49,7 +49,10 @@ public class RepositorioDeUsuarios {
 		
 		while(userIt.hasNext()){
 			Usuario nextUsuario = userIt.next();
-			if(idUsuario.equals(nextUsuario.getUserID())) usuario = nextUsuario; break;
+			if(idUsuario.equals(nextUsuario.getUserID())){
+				usuario = nextUsuario; 
+				break;
+			}
 		}
 		return usuario;
 		
