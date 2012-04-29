@@ -162,7 +162,7 @@ public class SigaBemController {
 		
 		if(rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)){
 			carona.preencheVagas();
-			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
+//			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
 			controladorDeNegociacoes.removerSolicitacoesPendentes(carona.getId());
 			controladorDeNegociacoes.addSolicitacoesConfirmadas(idSessao,solicitacao);
 		}else
