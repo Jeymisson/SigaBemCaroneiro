@@ -56,6 +56,10 @@ public class SigaBemController {
 		if(idCarona == null || idCarona.equals("")) throw new IdentificadorCaronaInvalidoException();
 		if(!idCarona.matches("\\d+")) throw new InexistenteItemException();
 
+		if(AtributosDeCarona.PONTO_DE_ENCONTRO.getatribute().equalsIgnoreCase(atributo)){
+			return controladorDeNegociacoes.getPontosDeEmbarque(idCarona);
+		}
+		
 		Carona carona = rep.getCarona(idCarona);
 		return carona.getAtributo(atributo);
 

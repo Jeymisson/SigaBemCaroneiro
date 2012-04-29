@@ -179,5 +179,18 @@ public class ControladorDeNegociacoes {
 	public void addSolicitacoesConfirmadas(String idSessao,NegociacaoDePontoDeEncontro solicitacao) {
 		solicitacoesConfirmadas.put(idSessao, solicitacao);
 	}
+	
+	public String getPontosDeEmbarque(String idCarona) {
+		String result = "";
+		for(NegociacaoDePontoDeEncontro npe : solicitacoesConfirmadas.values()){
+			if(npe.getIdCarona().equals(idCarona)){
+				for(PontoDeEncontro pe : npe.getPontosDeEncontro()){
+					result += pe.getNome() + ", ";
+				}
+				break;
+			}
+		}
+		return result.length() > 0 ? result.substring(0, result.length()-2) : result;
+	}
 
 }

@@ -1,24 +1,126 @@
 <Grupo3Si1.handles.ControladorDeNegociacoes>
-  <sugestoesDeCarona/>
-  <pontosDeEmbarque/>
-  <solicitacoesDeCarona/>
-  <solicitacoesPendentes class="tree-map"/>
-  <solicitacoesConfirmadas class="tree-map">
+  <sugestoesDeCarona>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>9</idCarona>
+      <idSessao>16</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Hiper Bompreco</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>4</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>14</idCarona>
+      <idSessao>26</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>[Acude Velho;Hiper Bompreco]</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>10</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+  </sugestoesDeCarona>
+  <pontosDeEmbarque>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho;Parque da Crianca</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>2</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome>Acude Velho;Parque da Crianca</nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>5</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+  </pontosDeEmbarque>
+  <solicitacoesDeCarona>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+      <idCarona>32</idCarona>
+      <idSessao>16</idSessao>
+      <pontosDeEncontro>
+        <Grupo3Si1.handles.PontoDeEncontro>
+          <nome></nome>
+        </Grupo3Si1.handles.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>13</id>
+    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+  </solicitacoesDeCarona>
+  <solicitacoesPendentes class="tree-map">
     <entry>
-      <string>1</string>
+      <string>22</string>
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-        <idCarona>2</idCarona>
-        <idSessao>2</idSessao>
+        <idCarona>22</idCarona>
+        <idSessao>11</idSessao>
         <pontosDeEncontro>
           <Grupo3Si1.handles.PontoDeEncontro>
             <nome></nome>
           </Grupo3Si1.handles.PontoDeEncontro>
         </pontosDeEncontro>
-        <id>2</id>
+        <id>9</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>26</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>26</idCarona>
+        <idSessao>14</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>11</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+  </solicitacoesPendentes>
+  <solicitacoesConfirmadas class="tree-map">
+    <entry>
+      <string>10</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>21</idCarona>
+        <idSessao>11</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome></nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>8</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>15</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro"/>
+    </entry>
+    <entry>
+      <string>8</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>15</idCarona>
+        <idSessao>9</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome>Acude Velho</nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>3</id>
       </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     </entry>
   </solicitacoesConfirmadas>
-  <blackList/>
+  <blackList>
+    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../sugestoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro"/>
+  </blackList>
   <userRep>
     <userRep class="tree-map">
       <entry>
@@ -36,7 +138,7 @@
                 <data>02/06/2012</data>
                 <hora>12:00</hora>
                 <vagas>2</vagas>
-                <id>1</id>
+                <id>31</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
@@ -45,7 +147,7 @@
                 <data>04/06/2012</data>
                 <hora>16:00</hora>
                 <vagas>1</vagas>
-                <id>2</id>
+                <id>32</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
             </historicoEmVagasDeCaronas>
@@ -54,7 +156,7 @@
             <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
             <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
           </perfil>
-          <userID>2</userID>
+          <userID>16</userID>
           <login>bill</login>
           <senha>bilz@o</senha>
         </Usuario>
@@ -76,7 +178,7 @@
             <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
             <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
           </perfil>
-          <userID>1</userID>
+          <userID>15</userID>
           <login>mark</login>
           <senha>m@rk</senha>
         </Usuario>
@@ -95,7 +197,7 @@
             <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
             <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
           </perfil>
-          <userID>3</userID>
+          <userID>17</userID>
           <login>vader</login>
           <senha>d4rth</senha>
         </Usuario>
