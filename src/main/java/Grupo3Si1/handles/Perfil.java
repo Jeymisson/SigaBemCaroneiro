@@ -97,9 +97,10 @@ public class Perfil {
 		}
 			
 		if(historicoEmVagasDeCaronas.size() > 1){
-			resp = "[";
-			for(int index = 0;index<historicoEmVagasDeCaronas.size()-1;index++){
-				resp +=", "+historicoEmVagasDeCaronas.get(index)+"";
+			resp = "["+historicoEmVagasDeCaronas.get(0);
+			
+			for(int index = 1;index<historicoEmVagasDeCaronas.size();index++){
+				resp +=","+historicoEmVagasDeCaronas.get(index)+"";
 			}
 			resp+="]";
 		}

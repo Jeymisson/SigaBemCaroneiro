@@ -149,7 +149,11 @@ public class SigaBemController {
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
 		
+		Usuario usuarioDonoDaSolicitacao = rep.getUserPorId(solicitacao.getIdSessao());
 		Carona carona = rep.getCarona(solicitacao.getIdCarona());
+		
+		usuarioDonoDaSolicitacao.getPerfil().addMeuHistorico(carona);
+		
 		if(rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)){
 			carona.preencheVagas();
 			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
