@@ -1,8 +1,8 @@
 <Grupo3Si1.handles.ControladorDeNegociacoes>
   <sugestoesDeCarona>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-      <idCarona>64</idCarona>
-      <idSessao>22</idSessao>
+      <idCarona>9</idCarona>
+      <idSessao>16</idSessao>
       <pontosDeEncontro>
         <Grupo3Si1.handles.PontoDeEncontro>
           <nome>Acude Velho</nome>
@@ -14,8 +14,8 @@
       <id>4</id>
     </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-      <idCarona>69</idCarona>
-      <idSessao>32</idSessao>
+      <idCarona>14</idCarona>
+      <idSessao>26</idSessao>
       <pontosDeEncontro>
         <Grupo3Si1.handles.PontoDeEncontro>
           <nome>[Acude Velho;Hiper Bompreco]</nome>
@@ -26,8 +26,8 @@
   </sugestoesDeCarona>
   <pontosDeEmbarque>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-      <idCarona>63</idCarona>
-      <idSessao>21</idSessao>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
       <pontosDeEncontro>
         <Grupo3Si1.handles.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
@@ -36,8 +36,8 @@
       <id>2</id>
     </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-      <idCarona>63</idCarona>
-      <idSessao>21</idSessao>
+      <idCarona>8</idCarona>
+      <idSessao>15</idSessao>
       <pontosDeEncontro>
         <Grupo3Si1.handles.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
@@ -49,10 +49,10 @@
   <solicitacoesDeCarona/>
   <solicitacoesPendentes class="tree-map">
     <entry>
-      <string>28</string>
+      <string>22</string>
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-        <idCarona>28</idCarona>
-        <idSessao>66</idSessao>
+        <idCarona>22</idCarona>
+        <idSessao>11</idSessao>
         <pontosDeEncontro>
           <Grupo3Si1.handles.PontoDeEncontro>
             <nome></nome>
@@ -64,23 +64,10 @@
   </solicitacoesPendentes>
   <solicitacoesConfirmadas class="tree-map">
     <entry>
-      <string>63</string>
+      <string>10</string>
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
         <idCarona>21</idCarona>
-        <idSessao>64</idSessao>
-        <pontosDeEncontro>
-          <Grupo3Si1.handles.PontoDeEncontro>
-            <nome>Acude Velho</nome>
-          </Grupo3Si1.handles.PontoDeEncontro>
-        </pontosDeEncontro>
-        <id>3</id>
-      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    </entry>
-    <entry>
-      <string>65</string>
-      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-        <idCarona>27</idCarona>
-        <idSessao>66</idSessao>
+        <idSessao>11</idSessao>
         <pontosDeEncontro>
           <Grupo3Si1.handles.PontoDeEncontro>
             <nome></nome>
@@ -90,10 +77,10 @@
       </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     </entry>
     <entry>
-      <string>68</string>
+      <string>13</string>
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-        <idCarona>32</idCarona>
-        <idSessao>69</idSessao>
+        <idCarona>26</idCarona>
+        <idSessao>14</idSessao>
         <pontosDeEncontro>
           <Grupo3Si1.handles.PontoDeEncontro>
             <nome></nome>
@@ -103,16 +90,29 @@
       </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     </entry>
     <entry>
-      <string>70</string>
+      <string>15</string>
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-        <idCarona>38</idCarona>
-        <idSessao>71</idSessao>
+        <idCarona>32</idCarona>
+        <idSessao>16</idSessao>
         <pontosDeEncontro>
           <Grupo3Si1.handles.PontoDeEncontro>
             <nome></nome>
           </Grupo3Si1.handles.PontoDeEncontro>
         </pontosDeEncontro>
         <id>13</id>
+      </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </entry>
+    <entry>
+      <string>8</string>
+      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+        <idCarona>15</idCarona>
+        <idSessao>9</idSessao>
+        <pontosDeEncontro>
+          <Grupo3Si1.handles.PontoDeEncontro>
+            <nome>Acude Velho</nome>
+          </Grupo3Si1.handles.PontoDeEncontro>
+        </pontosDeEncontro>
+        <id>3</id>
       </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
     </entry>
   </solicitacoesConfirmadas>
@@ -134,25 +134,25 @@
                 <data>20/07/2012</data>
                 <hora>14:00</hora>
                 <vagas>4</vagas>
-                <id>31</id>
+                <id>25</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
-                <origem>São Francisco</origem>
+                <origem>SÃ£o Francisco</origem>
                 <destino>Palo Alto</destino>
                 <data>12/09/2012</data>
                 <hora>21:00</hora>
                 <vagas>1</vagas>
-                <id>32</id>
+                <id>26</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>João Pessoa</destino>
+                <destino>JoÃ£o Pessoa</destino>
                 <data>01/06/2012</data>
                 <hora>12:00</hora>
                 <vagas>1</vagas>
-                <id>33</id>
+                <id>27</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
             </historicoDeCaronas>
@@ -163,7 +163,7 @@
             <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
             <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
           </perfil>
-          <userID>68</userID>
+          <userID>13</userID>
           <login>mark</login>
           <senha>m@rk</senha>
         </Usuario>
@@ -177,20 +177,20 @@
             <historicoDeCaronas class="linked-list">
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>João Pessoa</destino>
+                <destino>JoÃ£o Pessoa</destino>
                 <data>02/06/2012</data>
                 <hora>12:00</hora>
                 <vagas>3</vagas>
-                <id>34</id>
+                <id>28</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>João Pessoa</destino>
+                <destino>JoÃ£o Pessoa</destino>
                 <data>04/06/2012</data>
                 <hora>16:00</hora>
                 <vagas>2</vagas>
-                <id>35</id>
+                <id>29</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
@@ -199,7 +199,7 @@
                 <data>10/02/2013</data>
                 <hora>10:00</hora>
                 <vagas>3</vagas>
-                <id>36</id>
+                <id>30</id>
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
             </historicoDeCaronas>
@@ -210,7 +210,7 @@
             <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
             <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
           </perfil>
-          <userID>69</userID>
+          <userID>14</userID>
           <login>steve</login>
           <senha>5t3v3</senha>
         </Usuario>
