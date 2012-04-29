@@ -138,7 +138,7 @@
                 <ehMunicipal>false</ehMunicipal>
               </Carona>
               <Carona>
-                <origem>SÃ£o Francisco</origem>
+                <origem>São Francisco</origem>
                 <destino>Palo Alto</destino>
                 <data>12/09/2012</data>
                 <hora>21:00</hora>
@@ -148,7 +148,7 @@
               </Carona>
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>JoÃ£o Pessoa</destino>
+                <destino>João Pessoa</destino>
                 <data>01/06/2012</data>
                 <hora>12:00</hora>
                 <vagas>1</vagas>
@@ -177,7 +177,7 @@
             <historicoDeCaronas class="linked-list">
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>JoÃ£o Pessoa</destino>
+                <destino>João Pessoa</destino>
                 <data>02/06/2012</data>
                 <hora>12:00</hora>
                 <vagas>3</vagas>
@@ -186,7 +186,7 @@
               </Carona>
               <Carona>
                 <origem>Campina Grande</origem>
-                <destino>JoÃ£o Pessoa</destino>
+                <destino>João Pessoa</destino>
                 <data>04/06/2012</data>
                 <hora>16:00</hora>
                 <vagas>2</vagas>

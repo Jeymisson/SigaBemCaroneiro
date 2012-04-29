@@ -63,11 +63,12 @@ public class Perfil {
 	public String getHistoricoDeCaronas() {
 		String resp = "";
 		
-		if(historicoDeCaronas.size() == 1){
+		if(historicoDeCaronas.size()==0) return"[]";
+		else if(historicoDeCaronas.size() == 1){
 			resp += "[" + historicoDeCaronas.get(0) + "]";
 		}
 	
-		if(historicoDeCaronas.size() > 1){
+		else if(historicoDeCaronas.size() > 1){
 			resp = "[";
 			for(int index = 0;index<historicoDeCaronas.size()-1;index++){
 				resp +=", "+historicoDeCaronas.get(index)+"";
@@ -91,11 +92,12 @@ public class Perfil {
 
 	public String getHistoricoEmVagasDeCaronas() {
 		String resp = "";
-		if(historicoEmVagasDeCaronas.size() == 1){
+		if(historicoEmVagasDeCaronas.size()==0) return"[]";
+		else if(historicoEmVagasDeCaronas.size() == 1){
 			resp += "[" + historicoEmVagasDeCaronas.get(0) + "]";
 		}
 			
-		if(historicoEmVagasDeCaronas.size() > 1){
+		else if(historicoEmVagasDeCaronas.size() > 1){
 			resp = "[";
 			for(int index = 0;index<historicoEmVagasDeCaronas.size()-1;index++){
 				resp +=", "+historicoEmVagasDeCaronas.get(index)+"";
