@@ -14,7 +14,9 @@ public class SigaBemController {
 	Usuario user;
 	RepositorioDeUsuarios rep;
 	ControladorDeNegociacoes controladorDeNegociacoes;
-
+	private final String USERS_FILE = "src/main/resources/usuarios.xml";
+	private final String NEGOCIACOES_FILE = "src/main/resources/negociacoes.xml";
+	
 	//Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
 	//GetAtributos getAtb;
@@ -202,7 +204,8 @@ public class SigaBemController {
 	public void zerarSistema(){
 		rep.clear();
 		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
-		gerenciaDadosEmXML.zeraArquivo("dados.xml");
+		gerenciaDadosEmXML.zeraArquivo(USERS_FILE);
+		gerenciaDadosEmXML.zeraArquivo(NEGOCIACOES_FILE);
 
 	}
 
@@ -211,18 +214,18 @@ public class SigaBemController {
 	 */
 	public void encerrarSistema(){
 		GerenciaDadosEmXML gerenciadorDeDados = new GerenciaDadosEmXML();
-		gerenciadorDeDados.salvaUsuariosXML("usuarios.xml", rep.getRepositorio());
-		gerenciadorDeDados.salvaNegociacoesXML("negociacoes.xml", controladorDeNegociacoes);
+		gerenciadorDeDados.salvaUsuariosXML(USERS_FILE, rep.getRepositorio());
+		gerenciadorDeDados.salvaNegociacoesXML(NEGOCIACOES_FILE, controladorDeNegociacoes);
 	}
 
 	/**
 	 * Método que reinicia sistema e carrega os dados de um arquivo XML
 	 */
-//	public void reiniciarSistema(){
-//		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
-//		rep.setRepositorio(gerenciaDadosEmXML.getRepositorioUsuarios("usuarios.xml"));
-//		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes("negociacoes.xml");
-//	}
+	public void reiniciarSistema(){
+		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
+		rep.setRepositorio(gerenciaDadosEmXML.getRepositorioUsuarios(USERS_FILE));
+		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes(NEGOCIACOES_FILE);
+	}
 
 	public String abrirSessao(String login, String senha)
 			throws Exception {
