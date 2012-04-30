@@ -22,7 +22,7 @@ public class ControladorDeNegociacoes {
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesConfirmadas;
 
 	/**
-	 * 
+	 * Construtor do Controlador de Negociacoes
 	 */
 	public ControladorDeNegociacoes() {
 		this.sugestoesPontoDeEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
