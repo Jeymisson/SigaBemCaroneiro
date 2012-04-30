@@ -21,7 +21,9 @@ public class SigaBemController {
 	//Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
 	//GetAtributos getAtb;
-
+	/**
+	 * Construtor de SigaBemController
+	 */
 	public SigaBemController() {
 		rep = RepositorioDeUsuarios.getInstance();
 		sessoesAbertas  = new TreeMap<String, Usuario>();
@@ -29,7 +31,15 @@ public class SigaBemController {
 		//getAtb = new GetAtributos();
 	}
 
-	//Metodos Construtores de usuario
+	/**
+	 * 	Metodo que cria um usuario e adiciona no repositorio.
+	 * @param login
+	 * @param senha
+	 * @param nome
+	 * @param endereco
+	 * @param email
+	 * @throws Exception
+	 */
 	public void criarUsuario(String login, String senha, String nome,
 			String endereco, String email)throws Exception{
 
@@ -38,14 +48,27 @@ public class SigaBemController {
 		rep.addUser(login, user);
 
 	}
-
+	/**
+	 * Metodo que cria um usuario e adiciona no repositorio.
+	 * @param login
+	 * @param nome
+	 * @param endereco
+	 * @param email
+	 * @throws Exception
+	 */
 	public void criarUsuario(String login, String nome,
 			String endereco, String email) throws Exception{
 
 		criarUsuario(login,"",nome,endereco,email);
 
 	}
-
+	/**
+	 * Metodo que cria um usuario sem senha e adiciona no repositorio
+	 * @param login
+	 * @param nome
+	 * @param endereco
+	 * @throws Exception
+	 */
 	public void criarUsuario(String login, String nome,
 			String endereco) throws Exception{
 
@@ -53,7 +76,13 @@ public class SigaBemController {
 
 	}
 
-	//Metodos Get's
+	/**
+	 * Metodo que retorna os atributos da classe carona.
+	 * @param idCarona
+	 * @param atributo
+	 * @return String atributo
+	 * @throws Exception
+	 */
 	public String getAtributoCarona(String idCarona, String atributo)throws Exception {
 
 		if(idCarona == null || idCarona.equals("")) throw new IdentificadorCaronaInvalidoException();
@@ -67,13 +96,25 @@ public class SigaBemController {
 		return carona.getAtributo(atributo);
 
 	}
-
+	/**
+	 * Metodo que retorna os atributos da classe usuario
+	 * @param login
+	 * @param atributo
+	 * @return String atributo
+	 * @throws Exception
+	 */
 	public String getAtributoUsuario(String login, String atributo) throws Exception {
 		Usuario user = rep.getUser(login);
 		return user.getAtributo(atributo);
 
 	}
-
+	
+	/**
+	 * Metodo que retorna o trajeto que uma carona vai fazer.
+	 * @param idCarona
+	 * @return String trajeto
+	 * @throws Exception
+	 */
 	public String getTrajeto(String idCarona) throws Exception {
 
 		if(idCarona == null) throw new TrajetoInvalidoException();
@@ -83,6 +124,12 @@ public class SigaBemController {
 		return carona.getTrajeto();
 	}
 
+	/**
+	 * Metodo que retorna o ID de uma carona
+	 * @param idCarona
+	 * @return String Carona
+	 * @throws Exception
+	 */
 	public String getCarona(String idCarona) throws Exception {
 
 		if(idCarona == null) throw new CaronaInvalidaException();
@@ -92,32 +139,76 @@ public class SigaBemController {
 		return carona.getCarona();
 	}
 
-
-	//Métodos de negociação de carona
+	/**
+	 * Metodo que retorna os atributos de uma solicitação.
+	 * @param idSolicitacao
+	 * @param atributo
+	 * @return String Atributo
+	 * @throws Exception
+	 */
 	public String getAtributoSolicitacao(String idSolicitacao, String atributo)throws Exception {
 		return controladorDeNegociacoes.getAtributoSolicitacao(idSolicitacao, atributo);
 	}
-
+	
+	
+	/**
+	 * Metodo que sugeri um ponto de encontro.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param pontos
+	 * @return String sugestao
+	 * @throws Exception
+	 */
 	public String sugerirPontoEncontro(String idSessao, String idCarona, String pontos) throws Exception {
 		//Carona carona = rep.getCarona(idCarona);
 		return controladorDeNegociacoes.addSugestaoPontoDeEncontro(idSessao, idCarona, pontos);
 	}
-
+	
+	/**
+	 * Metodo que responde a uma sugestão de ponto de encontro.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param idSugestao
+	 * @param pontos
+	 * @return String resposta
+	 * @throws PontoInvalidoException
+	 */
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) throws PontoInvalidoException {
 		if(pontos.equals("")) throw new PontoInvalidoException();
 
 		//Carona carona = rep.getCarona(idCarona);	
 		return controladorDeNegociacoes.responderSugestaoPontoEncontro(idSessao, idCarona, idSugestao, pontos);
 	}
-
+	
+	/**
+	 * Metodo que solicita uma vaga em um ponto de encontro determinado.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param ponto
+	 * @return String solicitacao
+	 * @throws Exception
+	 */
 	public String solicitarVagaPontoEncontro(String idSessao, String idCarona, String ponto)throws Exception {
 		//Carona carona = rep.getCarona(idCarona);
 		return controladorDeNegociacoes.addSolicitacaoDeCarona(idSessao, idCarona, ponto);
 	}
 
+	/**
+	 * Metodo que solicita vaga em uma carona.
+	 * @param idSessao
+	 * @param idCarona
+	 * @return String solicitacao
+	 * @throws PontoInvalidoException
+	 */
 	public String solicitarVaga(String idSessao, String idCarona) throws PontoInvalidoException{
-		return controladorDeNegociacoes.addSolicitacaoDeCarona(idSessao, idCarona, "");//TODO VER UM JEITO BONITO PRA ESSE PONTO VAZIO.
+		return controladorDeNegociacoes.addSolicitacaoDeCarona(idSessao, idCarona, "");
 	}
+	/**
+	 * Metodo que aceita uma solicitação feita.
+	 * @param idSessao
+	 * @param idSolicitacao
+	 * @throws Exception
+	 */
 	public void aceitarSolicitacao(String idSessao, String idSolicitacao) throws Exception{
 		aceitarSolicitacaoPontoEncontro(idSessao, idSolicitacao);
 	}
@@ -133,6 +224,11 @@ public class SigaBemController {
 		return listaPontos(listaPontosSugeridos);	
 	}
 
+	/**
+	 * Metodo auxiliar que gera pontos de encontros.
+	 * @param listaPontosDeEncontro
+	 * @return String lista de pontos
+	 */
 	private String listaPontos(List<PontoDeEncontro> listaPontosDeEncontro) {
 		String respPontos = "";
 		Iterator<PontoDeEncontro> pontosIt = listaPontosDeEncontro.iterator();
@@ -145,14 +241,25 @@ public class SigaBemController {
 		}
 		return respPontos;
 	}
-
-	//TODO Método para passar em teste errado, remover depois.
+	
+	/**
+	 * Metodo que retorna uma string com pontos de encontro.
+	 * @param idSessao
+	 * @param idCarona
+	 * @return String pontos
+	 * @throws Exception
+	 */
 	public String getPontosEncontro(String idSessao, String idCarona)throws Exception{
-
 		return getPontosSugeridos(idSessao, idCarona);
 
 	}
 
+	/**
+	 * Metodo que rejeita uma solicitação feita.
+	 * @param idSessao
+	 * @param idSolicitacao
+	 * @throws SolicaticaoInexistenteException
+	 */
 	public void rejeitarSolicitacao(String idSessao, String idSolicitacao) throws SolicaticaoInexistenteException{
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
@@ -161,6 +268,13 @@ public class SigaBemController {
 
 
 	}
+	
+	/**
+	 * Metodo que aceita uma solicitação em um ponto de encontro.
+	 * @param idSessao
+	 * @param idSolicitacao
+	 * @throws Exception
+	 */
 	public void aceitarSolicitacaoPontoEncontro(String idSessao, String idSolicitacao) throws Exception{
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
@@ -178,16 +292,32 @@ public class SigaBemController {
 			throw new SolicaticaoInexistenteException();
 
 	}
-
+	/**
+	 * Metodo que resiste de uma vaga em carona.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param idSugestao
+	 */
 	public void desistirRequisicao(String idSessao, String idCarona, String idSugestao){
 		controladorDeNegociacoes.desistirRequisicao(idSessao, idCarona, idSugestao);
 	}
 
 
-
+	/**
+	 * Metodo que retorna uma carona de um usuario.
+	 * @param idSessao
+	 * @param index
+	 * @return String de caronas
+	 */
 	public Carona getCaronaUsuario(String idSessao, int index){
 		return rep.getUserPorId(idSessao).getPerfil().getCaronas().get(index - 1);//index - 1,pois o array comeca em 0.
 	}
+	
+	/**
+	 * Metodo que retorna uma String formatada com todas as carona de um usuario.
+	 * @param idSessao
+	 * @return String Caronas
+	 */
 	public String getTodasCaronasUsuario(String idSessao){
 		List<String> listaIdsCarona = new ArrayList<String>();
 		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil().getCaronas();
@@ -197,11 +327,22 @@ public class SigaBemController {
 		}
 		return listaCaronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
 	}
-
+	
+	/**
+	 * Metodo que retorna as solicitaçoes pendentes de uma carona.
+	 * @param idCarona
+	 * @return String solicitações pendentes
+	 */
 	public String getSolicitacoesPendentes(String idCarona){
 		return (controladorDeNegociacoes.getSolicitacoesPendentes(idCarona).toString()).replace("[", "{").replace("]", "}");
 	}
 
+	/**
+	 * Metodo que retorna as solicitaçoes confirmadas de uam carona.
+	 * @param idSessao
+	 * @param idCarona
+	 * @return String solicitações confirmadas
+	 */
 	public String  getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		return (controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao,idCarona ).toString()).replace("[","").replace("]","");
 	}
@@ -239,6 +380,13 @@ public class SigaBemController {
 		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes(NEGOCIACOES_FILE);
 	}
 
+	/**
+	 * Metodo que abre uma sessão.
+	 * @param login
+	 * @param senha
+	 * @return String id
+	 * @throws Exception
+	 */
 	public String abrirSessao(String login, String senha)
 			throws Exception {
 
@@ -255,6 +403,11 @@ public class SigaBemController {
 		return id;
 	}
 
+	/**
+	 * Metodo que encerra uma sessão.
+	 * @param login
+	 * @throws Exception
+	 */
 	public void encerrarSessao(String login) throws Exception {
 		Usuario user = rep.getUser(login);
 		sessoesAbertas.remove(user.getUserID());
@@ -282,12 +435,27 @@ public class SigaBemController {
 		return user.cadastraCarona(origem,destino,data,hora,Integer.valueOf(vagas));
 	}
 
+	/**
+	 * Metodo que localiza uma carona 
+	 * @param idSessao
+	 * @param origem
+	 * @param destino
+	 * @return String caronas
+	 * @throws Exception
+	 */
 	public String localizarCarona(String idSessao, String origem, String destino) throws Exception{
 		Usuario user = sessoesAbertas.get(idSessao);
 		List<Carona> caronas = user.localizaCarona(origem, destino);
 		return caronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
 	}
 
+	/**
+	 * Metodo que retorna os atributos de uma carona.
+	 * @param login
+	 * @param atributo
+	 * @return String atributo
+	 * @throws Exception
+	 */
 	public String getAtributoPerfil(String login, String atributo) throws Exception{
 		Usuario user = rep.getUser(login);
 		if(user == null){
@@ -297,12 +465,26 @@ public class SigaBemController {
 		return user.getPerfil().getAtributoPerfil(atributo);
 	}
 
+	/**
+	 *Metodo que vizualiza um perfil. 
+	 * @param idsessao
+	 * @param login
+	 * @throws InvalidLoginException
+	 */
 	public void visualizarPerfil(String idsessao, String login) throws InvalidLoginException{
 		Usuario user = rep.getUserPorId(idsessao);
 		if(!user.getLogin().trim().equals(login.trim())){
 			throw new InvalidLoginException();
 		}
 	}
+	
+	/**
+	 * Metodo que adiciona um comentario sobre uma carona.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param review
+	 * @throws Exception
+	 */
 	public void reviewCarona(String idSessao, String idCarona, String review) throws Exception{
 
 		Usuario usuario = rep.getDonoDe(idCarona);
@@ -316,6 +498,14 @@ public class SigaBemController {
 		}
 	}
 
+	/**
+	 * Metodo que adiciona um comentario em uma carona que o usuario pegou.
+	 * @param idSessao
+	 * @param idCarona
+	 * @param loginCaroneiro
+	 * @param review
+	 * @throws Exception
+	 */
 	public void reviewVagaEmCarona(String idSessao, String idCarona, String loginCaroneiro, String review) throws Exception{
 
 		Usuario userReview = rep.getUser(loginCaroneiro);
@@ -333,6 +523,18 @@ public class SigaBemController {
 
 	}
 
+	/**
+	 * Metodo que cadastra uma carona Municipal
+	 * @param idSessao
+	 * @param origem
+	 * @param destino
+	 * @param cidade
+	 * @param data
+	 * @param hora
+	 * @param vagas
+	 * @return String id
+	 * @throws Exception
+	 */
 	public int cadastrarCaronaMunicipal(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
 		if (idSessao == null || idSessao.equals("")){
 			throw new SessaoInvalidaException();
