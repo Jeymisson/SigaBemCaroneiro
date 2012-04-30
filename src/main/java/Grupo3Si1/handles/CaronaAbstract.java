@@ -1,5 +1,8 @@
 package Grupo3Si1.handles;
 
+import org.mockito.internal.matchers.InstanceOf;
+import org.omg.CosNaming.IstringHelper;
+
 import Grupo3Si1.exceptions.*;
 
 
@@ -144,7 +147,7 @@ public abstract class CaronaAbstract implements Carona {
 	}
 	
 	//Metodos privados
-	private void verificaDados(String origem, String destino, String data, String hora, int vagas) throws Exception {
+	private void verificaDados(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		if(origem == null || origem.trim().equals("")){
 			throw new OrigemInvalidaException();
 		}
@@ -157,8 +160,14 @@ public abstract class CaronaAbstract implements Carona {
 		if(!Data.isHoraValida(hora)){
 			throw new HoraInvalidaException();
 		}
+		if(vagas==null || vagas<=0){
+			throw new VagaInvalidaException();
+		}
+		
 		
 	}
+	
+
 	
 	private boolean checaDataHora(String data, String hora) {
 		return Data.isDataValida(data, hora);
