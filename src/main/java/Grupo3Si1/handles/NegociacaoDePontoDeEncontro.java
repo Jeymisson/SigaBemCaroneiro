@@ -14,7 +14,7 @@ public class NegociacaoDePontoDeEncontro {
 	private String id;
 	
 	/**
-	 * 
+	 * Construtor 
 	 * @param idCarona
 	 * @param idSessao
 	 * @param pontosDeEncontro
@@ -26,35 +26,35 @@ public class NegociacaoDePontoDeEncontro {
 		this.geraPontosDeEncontro(pontosDeEncontro);
 	}
 	/**
-	 * 
+	 * Metodo que retorna o Id da carona
 	 * @return
 	 */
 	public String getIdCarona() {
 		return idCarona;
 	}
 	/**
-	 * 
-	 * @return
+	 * metodo que retorna o ID da sessao
+	 * @return String IdSessao
 	 */
 	public String getIdSessao() {
 		return idSessao;
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo que retorna uma lista de pontos de encontro
+	 * @return List<PontoDeEncontro> pontos
 	 */
 	public List<PontoDeEncontro> getPontosDeEncontro() {
 		return pontosDeEncontro;
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo que retorna o ID da negocioacao
+	 * @return ID
 	 */
 	public String getId() {
 		return id;
 	}
 	/**
-	 * 
+	 * Metodo que gera ponto de encontro
 	 * @param pontosDeEncontro
 	 */
 	private void geraPontosDeEncontro(String pontosDeEncontro){
@@ -65,7 +65,7 @@ public class NegociacaoDePontoDeEncontro {
 		}
 	}
 	/**
-	 * 
+	 * Metodo que compara duas negociacaoes
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -90,9 +90,9 @@ public class NegociacaoDePontoDeEncontro {
 		return true;
 	}
 	/**
-	 * 
+	 * Metodo que verifica se uma negociacao contem outra
 	 * @param negociacao
-	 * @return
+	 * @return boolean
 	 */
 	public boolean contains(NegociacaoDePontoDeEncontro negociacao) {
 		

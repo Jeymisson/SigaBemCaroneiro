@@ -13,8 +13,8 @@ public class RepositorioDeUsuarios {
 	
 	//Metodos Get's
 	/**
-	 * 
-	 * @return
+	 * Metodo que retorna a instancia do repositorio.
+	 * @return RepositorioDeUsuarios
 	 */
 	public static RepositorioDeUsuarios getInstance() {
 		if (Repository == null) {
@@ -24,9 +24,9 @@ public class RepositorioDeUsuarios {
 		return Repository;
 	}
 	/**
-	 * 
+	 * Metodo que pesquisa um usuario
 	 * @param login
-	 * @return
+	 * @return Usuario
 	 * @throws Exception
 	 */
 	public Usuario getUser(String login) throws Exception {
@@ -67,9 +67,9 @@ public class RepositorioDeUsuarios {
 		
 	}
 	/**
-	 * 
+	 * Metodo que pesquisa o dono de uma carona
 	 * @param idCarona
-	 * @return
+	 * @return Usuario
 	 * @throws Exception
 	 */
 	public Usuario getDonoDe(String idCarona) throws Exception {
@@ -86,9 +86,9 @@ public class RepositorioDeUsuarios {
 		return user;
 	}
 	/**
-	 * 
+	 * Metodo que pesquisa uma carona
 	 * @param idCarona
-	 * @return
+	 * @return Carona
 	 */
 	public Carona getCarona(String idCarona) {
 		Iterator<Usuario> userIt = this.getUsuarios();
@@ -104,13 +104,13 @@ public class RepositorioDeUsuarios {
 
 	//Metodos de funcionalidade da classe
 	/**
-	 * 
+	 * Metodo que limpa o repositorio de usuarios.
 	 */
 	public void clear(){
 		userRep.clear();
 	}
 	/**
-	 * 
+	 * Metodo que adiciona um usuario.
 	 * @param login
 	 * @param user
 	 * @throws Exception
@@ -130,7 +130,7 @@ public class RepositorioDeUsuarios {
 	} /* o compilador não vai gerar um construtor default público */
 
 	/**
-	 * 
+	 * Metodo que pesquisa se já existe o usuario cadastrado.
 	 * @param user
 	 * @throws Exception
 	 */
@@ -150,21 +150,21 @@ public class RepositorioDeUsuarios {
 		}		
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo que restona um iterator de usuarios.
+	 * @return Iterator<Usuario>
 	 */
 	public Iterator<Usuario> getUsuarios() {
 		return userRep.values().iterator();
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo que retorna o Map de usuarios.
+	 * @return  AbstractMap<String, Usuario>
 	 */
 	public AbstractMap<String, Usuario> getRepositorio() {
 		return userRep;
 	}
 	/**
-	 * 
+	 * Metodo que muda o mapa de usuarios.
 	 * @param newRep
 	 */
 	public void setRepositorio(AbstractMap<String, Usuario> newRep){

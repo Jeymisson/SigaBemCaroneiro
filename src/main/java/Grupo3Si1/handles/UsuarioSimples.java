@@ -16,7 +16,7 @@ public class UsuarioSimples implements Usuario {
 
 
 	/**
-	 * 
+	 * Metodo que cria um usuario simples.
 	 * @param login
 	 * @param senha
 	 * @param nome
@@ -36,56 +36,55 @@ public class UsuarioSimples implements Usuario {
 	
 	//metodos Get's
 	/**
-	 * 
+	 * Metodo que retorna um perfil de um usuario
 	 */
 	public Perfil getPerfil(){
 		return perfil;
 	}
+	
 	/**
-	 * 
+	 *Metodo que retorna o login do usuario. 
 	 */
 	public String getLogin() {
 		return login;
 	}
+	
+
 	/**
-	 * 
-	 */
-	public String getSenha() {
-		return senha;
-	}
-	/**
-	 * 
+	 *Metodo que retorna o endereco do usuario. 
 	 */
 	public String getEndereco() {
 		return perfil.getEndereco();
 	}
+	
 	/**
-	 * 
+	 *Metodo que retorna o nome do usuario 
 	 */
 	public String getNome() {
 		return perfil.getNome();
 	}
 	/**
-	 * 
+	 * Metodo que retorna o email do usuario.
 	 */
 	public String getEmail() {
 		return perfil.getEmail();
 	}
 	/**
-	 * 
+	 * Metodo que retorna o ID do usuario.
 	 */
 	public String getUserID() {
 		return String.valueOf(this.userID);
 	}
+	
 	/**
-	 * 
+	 *Metodo que retorna um atributo do usuario. 
 	 */
 	public String getAtributo(String atributo)	throws Exception {
 		return perfil.getAtributoPerfil(atributo);
 	}
 	
 	/**
-	 * 
+	 * Metodo que retorna uma carona do usuario
 	 */
 	public Carona getCarona(String idCarona) {
 		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
@@ -98,7 +97,7 @@ public class UsuarioSimples implements Usuario {
 	}
 	
 	/**
-	 * 
+	 * Metodo que retorna um iterador de caronas
 	 */
 	public Iterator<Carona> getCaronasIterator() {
 		return perfil.getCaronas().iterator();
@@ -107,13 +106,13 @@ public class UsuarioSimples implements Usuario {
 
 	//Metodos Set's
 	/**
-	 * 
+	 * Metodo que seta o login do usuario.
 	 */
 	public void setLogin(String login) {
 		this.login = login;
 	}
 	/**
-	 * 
+	 * Metodo que da um review no usuario.
 	 * @param review
 	 * @throws OpcaoInvalidaException
 	 */
@@ -121,32 +120,32 @@ public class UsuarioSimples implements Usuario {
 		perfil.reviewVagaEmCarona(review);
 	}
 	/**
-	 * 
+	 * Metodo que muda a senha do usuario.
 	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
 	/**
-	 * 
+	 * Metodo que muda o nome do usuario.
 	 */
 	public void setNome(String nome) {
 		perfil.setNome(nome);
 	}
 	/**
-	 * 
+	 * Metodo que muda o endereco do usuario.
 	 */
 	public void setEndereco(String endereco) {
 		perfil.setEndereco(endereco);
 	}
 	/**
-	 * 
+	 * metodo que muda o email do usuario.
 	 */
 	public void setEmail(String email) {
 		perfil.setEmail(email);
 	}
 
 	/**
-	 * 
+	 * Metodo que retorna o toString do usuario.
 	 */
 	public String toString() {
 		return "Login: " + login + ", nome: " + perfil.getNome() + ", endereco: "
@@ -154,7 +153,7 @@ public class UsuarioSimples implements Usuario {
 	}
 
 	/**
-	 * 
+	 * metodo que cadastra uma carona no usuario.
 	 */
 	public int cadastraCarona(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas);
@@ -162,7 +161,7 @@ public class UsuarioSimples implements Usuario {
 		return Integer.valueOf(carona.getId());
 	}
 	/**
-	 * 
+	 * metodo que cadatra uma carona municipal no usuario.
 	 */
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
 		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade);
@@ -171,7 +170,7 @@ public class UsuarioSimples implements Usuario {
 	}
 	
 	/**
-	 * 
+	 * metodo que localiza uma carona
 	 */
 	public List<Carona> localizaCarona(String origem, String destino) throws Exception{
 		
@@ -204,7 +203,7 @@ public class UsuarioSimples implements Usuario {
 	
 	//metodos privados
 	/**
-	 * 
+	 * Metodo que checa dados do usuario.
 	 * @param login
 	 * @param nome
 	 * @param endereco
@@ -229,7 +228,7 @@ public class UsuarioSimples implements Usuario {
 
 
 	/**
-	 * 
+	 * Metodo que retorna se dois objectos são iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -246,6 +245,11 @@ public class UsuarioSimples implements Usuario {
 		} else if (!login.equals(other.login))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String getSenha() {
+		return senha;
 	}
 
 
