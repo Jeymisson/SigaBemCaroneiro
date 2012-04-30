@@ -74,9 +74,9 @@ public class NegociacaoDePontoDeEncontro {
 		Collections.sort(thisPontos);
 		Collections.sort(otherPontos);
 		
-		Integer min = thisPontos.size() < otherPontos.size() ? thisPontos.size() : otherPontos.size();
-		
-		for(int i=0; i<min; i++){
+		if(otherPontos.size() > thisPontos.size()) return false;
+		//Integer min = thisPontos.size() < otherPontos.size() ? thisPontos.size() : otherPontos.size();
+		for(int i=0; i<otherPontos.size(); i++){
 			if(!thisPontos.get(i).equals(otherPontos.get(i))){
 				return false;
 			}
