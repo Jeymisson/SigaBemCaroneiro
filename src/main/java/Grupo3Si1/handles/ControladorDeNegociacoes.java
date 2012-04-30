@@ -21,6 +21,9 @@ public class ControladorDeNegociacoes {
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesPendentes;
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesConfirmadas;
 
+	/**
+	 * 
+	 */
 	public ControladorDeNegociacoes() {
 		this.sugestoesPontoDeEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
 		this.respostasSugestaoPontoEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
@@ -29,7 +32,11 @@ public class ControladorDeNegociacoes {
 		this.solicitacoesPendentes = new TreeMap<String, NegociacaoDePontoDeEncontro>();
 	}
 	
-	
+	/**
+	 * 
+	 * @param idCarona
+	 * @return
+	 */
 	public List<String> getSolicitacoesPendentes(String idCarona){
 		List<String> listaSolicitacoesPendentes = new ArrayList<String>();
 		if(!solicitacoesPendentes.isEmpty()){
@@ -37,13 +44,21 @@ public class ControladorDeNegociacoes {
 		}
 		return listaSolicitacoesPendentes;
 	}
-	
+	/**
+	 * 
+	 * @param idCarona
+	 */
 	public void removerSolicitacoesPendentes(String idCarona){
 		
 		solicitacoesPendentes.remove(idCarona);
 	
 	}
-	
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @return
+	 */
 	public List<String> getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		List<String> listaSolicitacoesConfirmadas = new ArrayList<String>();
 		if(!solicitacoesConfirmadas.isEmpty())
@@ -51,7 +66,14 @@ public class ControladorDeNegociacoes {
 		return listaSolicitacoesConfirmadas;
 	}
 
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @param pontos
+	 * @return
+	 * @throws PontoInvalidoException
+	 */
 	public String addSugestaoPontoDeEncontro(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idCarona,idSessao,pontos);
 		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
@@ -59,18 +81,34 @@ public class ControladorDeNegociacoes {
 		
 		return sugestao.getId().toString();
 	}
-
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @param idSugestao
+	 * @param pontos
+	 * @return
+	 */
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
 		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
 		respostasSugestaoPontoEncontro.add(sugestaoResposta);
 		return sugestaoResposta.getId();
 	}
-
+	/**
+	 * 
+	 * @param solicitacao
+	 */
 	public void removerSolicitacaoAceita(NegociacaoDePontoDeEncontro solicitacao){
 		solicitacoesPendentes.values().remove(solicitacao);
 	}
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @param ponto
+	 * @return
+	 * @throws PontoInvalidoException
+	 */
 	public String addSolicitacaoDeCarona(String idSessao, String idCarona, String ponto) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro solicitacao = new NegociacaoDePontoDeEncontro(idCarona, idSessao, ponto);
 
@@ -79,7 +117,10 @@ public class ControladorDeNegociacoes {
 		
 		return solicitacao.getId().toString();
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public List<NegociacaoDePontoDeEncontro> getSugestoesCarona() {
 		return sugestoesPontoDeEncontro;
 	}
@@ -103,7 +144,11 @@ public class ControladorDeNegociacoes {
 		return solicitacao;
 
 	}
-	
+	/**
+	 * 
+	 * @param idSolicitacao
+	 * @return
+	 */
 	public NegociacaoDePontoDeEncontro getSolicitacaoPendentePorId(String idSolicitacao) {
 
 		Iterator<NegociacaoDePontoDeEncontro> solicitacoesIt = solicitacoesPendentes.values().iterator();
@@ -116,7 +161,13 @@ public class ControladorDeNegociacoes {
 		}
 		return solicitacao;
 	}	
-
+	/**
+	 * 
+	 * @param idSolicitacao
+	 * @param atributo
+	 * @return
+	 * @throws Exception
+	 */
 	public String getAtributoSolicitacao(String idSolicitacao, String atributo)throws Exception{
 
 		NegociacaoDePontoDeEncontro solicitacao = getSolicitacaoPorId(idSolicitacao);
@@ -154,7 +205,12 @@ public class ControladorDeNegociacoes {
 
 		return resp;
 	}
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @param idSugestao
+	 */
 	public void desistirRequisicao(String idSessao, String idCarona, String idSugestao) {
 
 		Iterator<NegociacaoDePontoDeEncontro> sugestaoIt = sugestoesPontoDeEncontro.iterator();
@@ -171,7 +227,11 @@ public class ControladorDeNegociacoes {
 			solicitacoesConfirmadas.values().remove(sugestao);
 		}
 	}
-
+	/**
+	 * 
+	 * @param negociacao
+	 * @return
+	 */
 	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
 		for(NegociacaoDePontoDeEncontro npe : respostasSugestaoPontoEncontro){
 			if(npe.getIdCarona().equals(negociacao.getIdCarona())){
@@ -182,11 +242,19 @@ public class ControladorDeNegociacoes {
 		}
 		return false;
 	}
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param solicitacao
+	 */
 	public void addSolicitacoesConfirmadas(String idSessao,NegociacaoDePontoDeEncontro solicitacao) {
 		solicitacoesConfirmadas.put(idSessao, solicitacao);
 	}
-	
+	/**
+	 * 
+	 * @param idCarona
+	 * @return
+	 */
 	public String getPontosDeEmbarque(String idCarona) {
 		String result = "";
 		for(NegociacaoDePontoDeEncontro npe : solicitacoesConfirmadas.values()){
@@ -200,7 +268,13 @@ public class ControladorDeNegociacoes {
 		return result.length() > 0 ? result.substring(0, result.length()-2) : result;
 	}
 
-
+	/**
+	 * 
+	 * @param idSessao
+	 * @param idCarona
+	 * @return
+	 * @throws Exception
+	 */
 	public List<PontoDeEncontro> getPontosSugeridos(String idSessao,
 			String idCarona)throws Exception {
 

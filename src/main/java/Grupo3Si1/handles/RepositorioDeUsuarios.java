@@ -12,6 +12,10 @@ public class RepositorioDeUsuarios {
 	private static RepositorioDeUsuarios Repository = null;
 	
 	//Metodos Get's
+	/**
+	 * 
+	 * @return
+	 */
 	public static RepositorioDeUsuarios getInstance() {
 		if (Repository == null) {
 			// "lazy instantiation"
@@ -19,7 +23,12 @@ public class RepositorioDeUsuarios {
 		}
 		return Repository;
 	}
-
+	/**
+	 * 
+	 * @param login
+	 * @return
+	 * @throws Exception
+	 */
 	public Usuario getUser(String login) throws Exception {
 
 		Usuario user = null;
@@ -57,7 +66,12 @@ public class RepositorioDeUsuarios {
 		return usuario;
 		
 	}
-	
+	/**
+	 * 
+	 * @param idCarona
+	 * @return
+	 * @throws Exception
+	 */
 	public Usuario getDonoDe(String idCarona) throws Exception {
 
 		Usuario user = null;
@@ -71,7 +85,11 @@ public class RepositorioDeUsuarios {
 		}
 		return user;
 	}
-	
+	/**
+	 * 
+	 * @param idCarona
+	 * @return
+	 */
 	public Carona getCarona(String idCarona) {
 		Iterator<Usuario> userIt = this.getUsuarios();
 		Carona rice = null;
@@ -85,10 +103,18 @@ public class RepositorioDeUsuarios {
 	}
 
 	//Metodos de funcionalidade da classe
+	/**
+	 * 
+	 */
 	public void clear(){
 		userRep.clear();
 	}
-
+	/**
+	 * 
+	 * @param login
+	 * @param user
+	 * @throws Exception
+	 */
 	public void addUser(String login, Usuario user)throws Exception {
 
 		checkDuplicatedData(user);
@@ -96,10 +122,18 @@ public class RepositorioDeUsuarios {
 	}
 	
 	//metodos privados	
+	/**
+	 * 
+	 */
 	private RepositorioDeUsuarios() {
 		userRep = new TreeMap<String, Usuario>();
 	} /* o compilador não vai gerar um construtor default público */
 
+	/**
+	 * 
+	 * @param user
+	 * @throws Exception
+	 */
 	private void checkDuplicatedData(Usuario user) throws Exception {
 		Iterator<Usuario> userIt = this.getUsuarios();
 
@@ -115,15 +149,24 @@ public class RepositorioDeUsuarios {
 
 		}		
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Iterator<Usuario> getUsuarios() {
 		return userRep.values().iterator();
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public AbstractMap<String, Usuario> getRepositorio() {
 		return userRep;
 	}
-	
+	/**
+	 * 
+	 * @param newRep
+	 */
 	public void setRepositorio(AbstractMap<String, Usuario> newRep){
 		userRep = newRep;
 	}

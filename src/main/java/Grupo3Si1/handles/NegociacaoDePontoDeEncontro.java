@@ -13,29 +13,50 @@ public class NegociacaoDePontoDeEncontro {
 	private List<PontoDeEncontro> pontosDeEncontro;
 	private String id;
 	
+	/**
+	 * 
+	 * @param idCarona
+	 * @param idSessao
+	 * @param pontosDeEncontro
+	 */
 	public NegociacaoDePontoDeEncontro(String idCarona, String idSessao, String pontosDeEncontro) {
 		this.idCarona = idCarona;
 		this.idSessao = idSessao;
 		this.id = (++cont).toString();
 		this.geraPontosDeEncontro(pontosDeEncontro);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getIdCarona() {
 		return idCarona;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getIdSessao() {
 		return idSessao;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<PontoDeEncontro> getPontosDeEncontro() {
 		return pontosDeEncontro;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getId() {
 		return id;
 	}
-	
+	/**
+	 * 
+	 * @param pontosDeEncontro
+	 */
 	private void geraPontosDeEncontro(String pontosDeEncontro){
 		this.pontosDeEncontro = new ArrayList<PontoDeEncontro>();
 		String[] array = pontosDeEncontro.split("; ");
@@ -43,7 +64,9 @@ public class NegociacaoDePontoDeEncontro {
 			this.pontosDeEncontro.add(new PontoDeEncontro(ponto));
 		}
 	}
-
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		NegociacaoDePontoDeEncontro negociacao = null;
@@ -66,7 +89,11 @@ public class NegociacaoDePontoDeEncontro {
 		
 		return true;
 	}
-
+	/**
+	 * 
+	 * @param negociacao
+	 * @return
+	 */
 	public boolean contains(NegociacaoDePontoDeEncontro negociacao) {
 		
 		List<PontoDeEncontro> thisPontos = new ArrayList<PontoDeEncontro>(pontosDeEncontro);

@@ -30,12 +30,20 @@ public class GerenciaDadosEmXML {
 		xstream.alias("Carona", CaronaSimples.class);	
 
 	}
-
+	/**
+	 * 
+	 * @param usuarios
+	 * @return
+	 */
 	private String usuarioToXML(AbstractMap<String, Usuario> usuarios){
 		String xml = xstream.toXML(usuarios);
 		return xml;
 	}
-
+	/**
+	 * 
+	 * @param negociacoes
+	 * @return
+	 */
 	private String negociacoesToXML(ControladorDeNegociacoes negociacoes) {
 		String xml = xstream.toXML(negociacoes);
 		return xml;
@@ -62,7 +70,11 @@ public class GerenciaDadosEmXML {
 		escreveEmArquivo(fileName,xml);
 	}
 	
-
+	/**
+	 * 
+	 * @param fileName
+	 * @param dados
+	 */
 	private void escreveEmArquivo(String fileName, String dados){	
 		PrintWriter outputStream = null;
 		try{
@@ -81,18 +93,29 @@ public class GerenciaDadosEmXML {
 	         }
 		}
 	}
-	
+	/**
+	 * 
+	 * @param fileName
+	 */
 	public void zeraArquivo(String fileName) {
 		escreveEmArquivo(fileName, "");	
 	}
-
+	/**
+	 * 
+	 * @param fileName
+	 * @return
+	 */
 	public AbstractMap<String, Usuario> getRepositorioUsuarios(String fileName) {
 		File file = new File(fileName);
 		TreeMap<String, Usuario> mapaUsuarios = (TreeMap<String,Usuario>)xstream.fromXML(file);	
 		return mapaUsuarios;
 		
 	}
-
+	/**
+	 * 
+	 * @param fileName
+	 * @return
+	 */
 	public ControladorDeNegociacoes getControladorDeNegociacoes(String fileName) {
 		File file = new File(fileName);
 		ControladorDeNegociacoes controlador = (ControladorDeNegociacoes)xstream.fromXML(file);

@@ -8,10 +8,19 @@ import java.util.GregorianCalendar;
 
 public class Data {
 
+	/**
+	 * 
+	 */
 	public Data(){
 	}
 
 	//Metodos validadores
+	/**
+	 * 
+	 * @param inDate
+	 * @param hora
+	 * @return
+	 */
 	public static boolean isDataValida(String inDate, String hora) {
 		if (inDate == null) {
 			return false;
@@ -29,7 +38,11 @@ public class Data {
 		return !isPassado(inDate,hora);
 
 	}
-	
+	/**
+	 * 
+	 * @param horaRecebida
+	 * @return
+	 */
 	public static boolean isHoraValida(String horaRecebida){
 		if(horaRecebida == null)
 			return false;
@@ -39,6 +52,11 @@ public class Data {
 	}
 	
 	//Metodos privatos
+	/**
+	 * 
+	 * @param horarioRecebida
+	 * @return
+	 */
 	private static boolean isHoraPassado(String horarioRecebida){
 		
 		int horaAtual = new GregorianCalendar().get(GregorianCalendar.HOUR_OF_DAY);
@@ -57,6 +75,12 @@ public class Data {
 		}else return false;
 	}
 
+	/**
+	 * 
+	 * @param data
+	 * @param hora
+	 * @return
+	 */
 	private static boolean isPassado(String data,String hora){
 		
 		DateFormat dataAtual = DateFormat.getDateInstance();

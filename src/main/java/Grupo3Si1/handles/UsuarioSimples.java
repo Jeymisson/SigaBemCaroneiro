@@ -15,6 +15,15 @@ public class UsuarioSimples implements Usuario {
 	String senha;
 
 
+	/**
+	 * 
+	 * @param login
+	 * @param senha
+	 * @param nome
+	 * @param endereco
+	 * @param email
+	 * @throws Exception
+	 */
 	public UsuarioSimples(String login, String senha, String nome, String endereco, String email) throws Exception   {
 
 		this.checkUserData(login, nome, endereco, email);
@@ -26,39 +35,58 @@ public class UsuarioSimples implements Usuario {
 	}
 	
 	//metodos Get's
+	/**
+	 * 
+	 */
 	public Perfil getPerfil(){
 		return perfil;
 	}
+	/**
+	 * 
+	 */
 	public String getLogin() {
 		return login;
 	}
-
+	/**
+	 * 
+	 */
 	public String getSenha() {
 		return senha;
 	}
-
+	/**
+	 * 
+	 */
 	public String getEndereco() {
 		return perfil.getEndereco();
 	}
-
+	/**
+	 * 
+	 */
 	public String getNome() {
 		return perfil.getNome();
 	}
-
+	/**
+	 * 
+	 */
 	public String getEmail() {
 		return perfil.getEmail();
 	}
-
-	
+	/**
+	 * 
+	 */
 	public String getUserID() {
 		return String.valueOf(this.userID);
 	}
-
+	/**
+	 * 
+	 */
 	public String getAtributo(String atributo)	throws Exception {
 		return perfil.getAtributoPerfil(atributo);
 	}
-
 	
+	/**
+	 * 
+	 */
 	public Carona getCarona(String idCarona) {
 		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
 		Carona carona = null;
@@ -68,55 +96,83 @@ public class UsuarioSimples implements Usuario {
 		}
 		return carona;
 	}
-
 	
+	/**
+	 * 
+	 */
 	public Iterator<Carona> getCaronasIterator() {
 		return perfil.getCaronas().iterator();
 	}
 
 
 	//Metodos Set's
+	/**
+	 * 
+	 */
 	public void setLogin(String login) {
 		this.login = login;
 	}
+	/**
+	 * 
+	 * @param review
+	 * @throws OpcaoInvalidaException
+	 */
 	public void reviewVagaEmCarona(String review) throws OpcaoInvalidaException{
 		perfil.reviewVagaEmCarona(review);
 	}
-
+	/**
+	 * 
+	 */
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	/**
+	 * 
+	 */
 	public void setNome(String nome) {
 		perfil.setNome(nome);
 	}
-
+	/**
+	 * 
+	 */
 	public void setEndereco(String endereco) {
 		perfil.setEndereco(endereco);
 	}
-
+	/**
+	 * 
+	 */
 	public void setEmail(String email) {
 		perfil.setEmail(email);
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String toString() {
 		return "Login: " + login + ", nome: " + perfil.getNome() + ", endereco: "
 				+ perfil.getEndereco() + ", email: " + perfil.getEmail();
 	}
 
-	
+	/**
+	 * 
+	 */
 	public int cadastraCarona(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas,this);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
+	/**
+	 * 
+	 */
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
 		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), this, cidade);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
 	
+	/**
+	 * 
+	 */
 	public List<Carona> localizaCarona(String origem, String destino) throws Exception{
 		
 		if(origem == null || origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%¨&*0-9].*")){
@@ -147,6 +203,14 @@ public class UsuarioSimples implements Usuario {
 	}
 	
 	//metodos privados
+	/**
+	 * 
+	 * @param login
+	 * @param nome
+	 * @param endereco
+	 * @param email
+	 * @throws Exception
+	 */
 	private void checkUserData(String login,String nome, String endereco, String email) throws Exception{
 		
 		if ((login == null) || (login.equals(""))) {
@@ -164,6 +228,9 @@ public class UsuarioSimples implements Usuario {
 	}
 
 
+	/**
+	 * 
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

@@ -17,6 +17,12 @@ public class Perfil {
 	private Integer FaltaEmVagaDeCarona;
 	private Integer presencaEmVagaDeCarona;
 	
+	/**
+	 * 
+	 * @param nome
+	 * @param endereco
+	 * @param email
+	 */
 	public Perfil(String nome, String endereco, String email){
 		
 		setNome(nome);
@@ -30,6 +36,11 @@ public class Perfil {
 		historicoEmVagasDeCaronas =  new LinkedList<Carona>();
 		
 	}
+	/**
+	 * 
+	 * @param review
+	 * @throws OpcaoInvalidaException
+	 */
 	public void reviewVagaEmCarona(String review) throws OpcaoInvalidaException{
 		if(review.trim().equalsIgnoreCase("não faltou")){
 			presencaEmVagaDeCarona++;
@@ -43,23 +54,38 @@ public class Perfil {
 			throw new OpcaoInvalidaException();
 		}
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNome() {
 		return nome;
 	}
-
+	/**
+	 * 
+	 * @param nome
+	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getEndereco() {
 		return endereco;
 	}
-
+	/**
+	 * 
+	 * @param endereco
+	 */
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getHistoricoDeCaronas() {
 		String resp = "";
 		if(historicoDeCaronas.size()==0) return"[]";
@@ -77,19 +103,31 @@ public class Perfil {
 		}
 		return resp; 
 	}
-
+	/**
+	 * 
+	 * @param historicoDeCaronas
+	 */
 	public void setHistoricoDeCaronas(List<Carona> historicoDeCaronas) {
 		this.historicoDeCaronas = historicoDeCaronas;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getEmail() {
 		return email;
 	}
-
+	/**
+	 * 
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getHistoricoEmVagasDeCaronas() {
 		String resp = "";
 		if(historicoEmVagasDeCaronas.size()==0) return"[]";
@@ -107,56 +145,103 @@ public class Perfil {
 		}
 		return resp;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Carona> getCaronasQueEuPego(){
 		return historicoEmVagasDeCaronas;
 	}
-
+	/**
+	 * 
+	 * @param historicoEmVagasDeCaronas
+	 */
 	public void setHistoricoDeVagasDeCaronas(List<Carona> historicoEmVagasDeCaronas) {
 		this.historicoEmVagasDeCaronas = historicoEmVagasDeCaronas;
 	}
+	/**
+	 * 
+	 * @param carona
+	 */
 	public void addMeuHistorico(Carona carona){
 		historicoEmVagasDeCaronas.add(carona);
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getCaronasSeguras() {
 		return caronasSeguras;
 	}
-
+	/**
+	 * 
+	 * @param caronasSeguras
+	 */
 	public void setCaronasSeguras(Integer caronasSeguras) {
 		this.caronasSeguras = caronasSeguras;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getCaronaFulerada() {
 		return caronaFulerada;
 	}
-
+	/**
+	 * 
+	 * @param caronaFulerada
+	 */
 	public void setCaronaFulerada(Integer caronaFulerada) {
 		this.caronaFulerada = caronaFulerada;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getFaltaEmVagaDeCarona() {
 		return FaltaEmVagaDeCarona;
 	}
-
+	/**
+	 * 
+	 * @param faltaEmVagaDeCarona
+	 */
 	public void setFaltaEmVagaDeCarona(Integer faltaEmVagaDeCarona) {
 		FaltaEmVagaDeCarona = faltaEmVagaDeCarona;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Integer getPresencaEmVagaDeCarona() {
 		return presencaEmVagaDeCarona;
 	}
-
+	/**
+	 * 
+	 * @param presencaEmVagaDeCarona
+	 */
 	public void setPresencaEmVagaDeCarona(Integer presencaEmVagaDeCarona) {
 		this.presencaEmVagaDeCarona = presencaEmVagaDeCarona;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Carona> getCaronas(){
 		return historicoDeCaronas;
 	}
+	/**
+	 * 
+	 * @param carona
+	 */
 	public void add(Carona carona){
 		historicoDeCaronas.add(carona);
 	}
-	
+	/**
+	 * 
+	 * @param atributo
+	 * @return
+	 * @throws Exception
+	 */
 	public String getAtributoPerfil(String atributo) throws Exception{
 		
 		String resp = "";
