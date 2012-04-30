@@ -123,7 +123,17 @@ public class ControladorDeNegociacoes {
 	public String getAtributoSolicitacao(String idSolicitacao, String atributo)throws Exception{
 
 		NegociacaoDePontoDeEncontro solicitacao = getSolicitacaoPorId(idSolicitacao);
+		try{
+			System.out.println("id Solici: " + solicitacao.getId() );
+		}catch(Exception e){
+			System.out.println("merda na solicitacao");
+		}
 		Carona carona = userRep.getCarona(solicitacao.getIdCarona());
+		try{
+			System.out.println("carona id: " + carona.getId());
+		}catch(Exception e){
+			System.out.println("merda na carona");
+		}
 		Usuario usuarioDonoCarona = userRep.getDonoDe(solicitacao.getIdCarona());
 		Usuario usuarioDonoSolicitacao = null;
 		
@@ -134,6 +144,11 @@ public class ControladorDeNegociacoes {
 				usuarioDonoSolicitacao = usuario;
 				break;
 			}
+		}
+		try{
+			System.out.println("user id: " + usuarioDonoCarona.getUserID());
+		}catch(Exception e){
+			System.out.println("merda no dono");
 		}
 
 		if(atributo == null || atributo.equals("")){
