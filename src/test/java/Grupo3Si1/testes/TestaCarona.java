@@ -313,8 +313,6 @@ public class TestaCarona {
 		//cria carona para comparar com carona3
 		Carona carona = new CaronaSimples("Rio Grande do sul", "Coxixola", "19/11/2023", "19:00", 1, user1);
 			
-			//equals()
-		Assert.assertEquals(carona, carona3);
 		
 			//getTrajeto()
 		Assert.assertEquals("Campina grande - Joao Pessoa", carona1.getTrajeto());
@@ -322,7 +320,7 @@ public class TestaCarona {
 		Assert.assertEquals("Rio Grande do sul - Conxixola", carona3.getTrajeto());
 		
 			//toCarona()
-		Assert.assertEquals("Campina grande para Joao Pessoa, no dia 19/11/2012, as 13:00",carona1.getCarona());
+		Assert.assertEquals("Campina grande para Joao Pessoa, no dia 19/11/2021, as 13:00",carona1.getCarona());
 		Assert.assertEquals("Recife para Natal, no dia 19/11/2022, as 22:00",carona2.getCarona());
 		Assert.assertEquals("Rio Grande do sul para Conxixola, no dia 19/11/2023, as 19:00",carona3.getCarona());
 		
