@@ -193,8 +193,8 @@ public class SigaBemController {
 		return controladorDeNegociacoes.getSolicitacoesPendentes(idCarona);
 	}
 	
-	public List<String>  getSolicitacoesConfirmadas(String idSessao, String idCarona){
-		return controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao,idCarona );
+	public String  getSolicitacoesConfirmadas(String idSessao, String idCarona){
+		return (controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao,idCarona ).toString()).replace("[","").replace("]","");
 	}
 	//Final de métodos de negóciação de carona
 
