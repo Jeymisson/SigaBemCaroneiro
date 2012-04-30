@@ -2,7 +2,6 @@ package Grupo3Si1.handles;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
@@ -16,19 +15,17 @@ import Grupo3Si1.exceptions.*;
  */
 public class ControladorDeNegociacoes {
 
-	private List<NegociacaoDePontoDeEncontro> sugestoesDeCarona;
-	private List<NegociacaoDePontoDeEncontro> pontosDeEmbarque;
+	private List<NegociacaoDePontoDeEncontro> sugestoesPontoDeEncontro;
+	private List<NegociacaoDePontoDeEncontro> respostasSugestaoPontoEncontro;
 	private List<NegociacaoDePontoDeEncontro> solicitacoesDeCarona;
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesPendentes;
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesConfirmadas;
-	private List<NegociacaoDePontoDeEncontro> blackList;
 	private RepositorioDeUsuarios userRep;
 
 	public ControladorDeNegociacoes() {
-		this.sugestoesDeCarona = new ArrayList<NegociacaoDePontoDeEncontro>();
-		this.pontosDeEmbarque = new ArrayList<NegociacaoDePontoDeEncontro>();
+		this.sugestoesPontoDeEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
+		this.respostasSugestaoPontoEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
 		this.solicitacoesDeCarona = new ArrayList<NegociacaoDePontoDeEncontro>();
-		this.blackList = new ArrayList<NegociacaoDePontoDeEncontro>();
 		this.userRep = RepositorioDeUsuarios.getInstance();
 		this.solicitacoesConfirmadas = new TreeMap<String, NegociacaoDePontoDeEncontro>();
 		this.solicitacoesPendentes = new TreeMap<String, NegociacaoDePontoDeEncontro>();
@@ -57,10 +54,10 @@ public class ControladorDeNegociacoes {
 	}
 
 
-	public String addSugestaoCarona(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
+	public String addSugestaoPontoDeEncontro(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idCarona,idSessao,pontos);
 		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
-		sugestoesDeCarona.add(sugestao);
+		sugestoesPontoDeEncontro.add(sugestao);
 		
 		return sugestao.getId().toString();
 	}
@@ -68,7 +65,7 @@ public class ControladorDeNegociacoes {
 
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
 		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
-		pontosDeEmbarque.add(sugestaoResposta);
+		respostasSugestaoPontoEncontro.add(sugestaoResposta);
 		return sugestaoResposta.getId();
 	}
 
@@ -87,7 +84,7 @@ public class ControladorDeNegociacoes {
 	}
 
 	public List<NegociacaoDePontoDeEncontro> getSugestoesCarona() {
-		return sugestoesDeCarona;
+		return sugestoesPontoDeEncontro;
 	}
 
 	/**
@@ -163,7 +160,7 @@ public class ControladorDeNegociacoes {
 
 	public void desistirRequisicao(String idSessao, String idCarona, String idSugestao) {
 
-		Iterator<NegociacaoDePontoDeEncontro> sugestaoIt = sugestoesDeCarona.iterator();
+		Iterator<NegociacaoDePontoDeEncontro> sugestaoIt = sugestoesPontoDeEncontro.iterator();
 		NegociacaoDePontoDeEncontro sugestao = null, nextSugestao = null;
 		while(sugestaoIt.hasNext()){
 			nextSugestao = sugestaoIt.next();
@@ -179,7 +176,7 @@ public class ControladorDeNegociacoes {
 	}
 
 	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
-		for(NegociacaoDePontoDeEncontro npe : pontosDeEmbarque){
+		for(NegociacaoDePontoDeEncontro npe : respostasSugestaoPontoEncontro){
 			if(npe.getIdCarona().equals(negociacao.getIdCarona())){
 				if(!npe.contains(negociacao)){
 					return true;
@@ -211,7 +208,7 @@ public class ControladorDeNegociacoes {
 			String idCarona)throws Exception {
 
 		NegociacaoDePontoDeEncontro pontosSugeridos = null;
-		Iterator<NegociacaoDePontoDeEncontro> negociacaoIt = sugestoesDeCarona.iterator();
+		Iterator<NegociacaoDePontoDeEncontro> negociacaoIt = sugestoesPontoDeEncontro.iterator();
 		while(negociacaoIt.hasNext()){
 			NegociacaoDePontoDeEncontro nextNegociacao = negociacaoIt.next();
 			if(nextNegociacao.getIdCarona().equals(idCarona)){

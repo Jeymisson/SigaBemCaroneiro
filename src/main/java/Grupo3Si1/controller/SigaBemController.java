@@ -100,7 +100,7 @@ public class SigaBemController {
 
 	public String sugerirPontoEncontro(String idSessao, String idCarona, String pontos) throws Exception {
 		//Carona carona = rep.getCarona(idCarona);
-		return controladorDeNegociacoes.addSugestaoCarona(idSessao, idCarona, pontos);
+		return controladorDeNegociacoes.addSugestaoPontoDeEncontro(idSessao, idCarona, pontos);
 	}
 
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) throws PontoInvalidoException {
@@ -129,17 +129,27 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public String getPontosSugeridos(String idSessao, String idCarona) throws Exception{
-		String respPontos = "";
 		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes.getPontosSugeridos(idSessao, idCarona);
-		Iterator<PontoDeEncontro> pontosIt = listaPontosSugeridos.iterator();
+		return listaPontos(listaPontosSugeridos);	
+	}
+	
+	private String listaPontos(List<PontoDeEncontro> listaPontosDeEncontro) {
+		String respPontos = "";
+		Iterator<PontoDeEncontro> pontosIt = listaPontosDeEncontro.iterator();
 		while(pontosIt.hasNext()){
 			PontoDeEncontro nextPonto = pontosIt.next();
-			if(pontosIt.hasNext()){					//verifica se está no fim da lista para mudar a concatenação
+			if(pontosIt.hasNext()){	//verifica se está no fim da lista para mudar a concatenação
 				respPontos += nextPonto.getNome()+";";
 			}else
 				respPontos += nextPonto.getNome(); // se está no fim da lista concatena de forma diferente.
 		}
 		return respPontos;
+	}
+	
+	//TODO Método para passar em teste errado, remover depois.
+	public String getPontosEncontro(String idSessao, String idCarona)throws Exception{
+		
+		return getPontosSugeridos(idSessao, idCarona);
 		
 	}
 
