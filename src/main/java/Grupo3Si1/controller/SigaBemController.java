@@ -17,7 +17,7 @@ public class SigaBemController {
 	ControladorDeNegociacoes controladorDeNegociacoes;
 	private final String USERS_FILE = "src/main/resources/usuarios.xml";
 	private final String NEGOCIACOES_FILE = "src/main/resources/negociacoes.xml";
-	
+
 	//Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
 	//GetAtributos getAtb;
@@ -62,7 +62,7 @@ public class SigaBemController {
 		if(AtributosDeCarona.PONTO_DE_ENCONTRO.getatribute().equalsIgnoreCase(atributo)){
 			return controladorDeNegociacoes.getPontosDeEmbarque(idCarona);
 		}
-		
+
 		Carona carona = rep.getCarona(idCarona);
 		return carona.getAtributo(atributo);
 
@@ -132,7 +132,7 @@ public class SigaBemController {
 		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes.getPontosSugeridos(idSessao, idCarona);
 		return listaPontos(listaPontosSugeridos);	
 	}
-	
+
 	private String listaPontos(List<PontoDeEncontro> listaPontosDeEncontro) {
 		String respPontos = "";
 		Iterator<PontoDeEncontro> pontosIt = listaPontosDeEncontro.iterator();
@@ -145,18 +145,18 @@ public class SigaBemController {
 		}
 		return respPontos;
 	}
-	
+
 	//TODO Método para passar em teste errado, remover depois.
 	public String getPontosEncontro(String idSessao, String idCarona)throws Exception{
-		
+
 		return getPontosSugeridos(idSessao, idCarona);
-		
+
 	}
 
 	public void rejeitarSolicitacao(String idSessao, String idSolicitacao) throws SolicaticaoInexistenteException{
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
-		
+
 		controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
 
 
@@ -164,15 +164,15 @@ public class SigaBemController {
 	public void aceitarSolicitacaoPontoEncontro(String idSessao, String idSolicitacao) throws Exception{
 		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
-		
+
 		Usuario usuarioDonoDaSolicitacao = rep.getUserPorId(solicitacao.getIdSessao());
 		Carona carona = rep.getCarona(solicitacao.getIdCarona());
-		
+
 		usuarioDonoDaSolicitacao.getPerfil().addMeuHistorico(carona);
-		
+
 		if(rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)){
 			carona.preencheVagas();
-//			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
+			//			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
 			controladorDeNegociacoes.removerSolicitacoesPendentes(carona.getId());
 			controladorDeNegociacoes.addSolicitacoesConfirmadas(idSessao,solicitacao);
 		}else
@@ -184,15 +184,15 @@ public class SigaBemController {
 		controladorDeNegociacoes.desistirRequisicao(idSessao, idCarona, idSugestao);
 	}
 
-	
-	
+
+
 	public Carona getCaronaUsuario(String idSessao, int index){
 		return rep.getUserPorId(idSessao).getPerfil().getCaronas().get(index - 1);//index - 1,pois o array comeca em 0.
 	}
 	public String getTodasCaronasUsuario(String idSessao){
 		List<String> listaIdsCarona = new ArrayList<String>();
 		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil().getCaronas();
-		
+
 		for (Carona caronas : listaCaronas) {
 			listaIdsCarona.add(caronas.getId());
 		}
@@ -202,7 +202,7 @@ public class SigaBemController {
 	public String getSolicitacoesPendentes(String idCarona){
 		return (controladorDeNegociacoes.getSolicitacoesPendentes(idCarona).toString()).replace("[", "{").replace("]", "}");
 	}
-	
+
 	public String  getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		return (controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao,idCarona ).toString()).replace("[","").replace("]","");
 	}
@@ -303,7 +303,7 @@ public class SigaBemController {
 		if(user == null){
 			return "";
 		}
-		
+
 		return user.getPerfil().getAtributoPerfil(atributo);
 	}
 
@@ -314,9 +314,9 @@ public class SigaBemController {
 		}
 	}
 	public void reviewCarona(String idSessao, String idCarona, String review) throws Exception{
-	
+
 		Usuario usuario = rep.getDonoDe(idCarona);
-		
+
 		if(usuario != null){
 			List<String> list = controladorDeNegociacoes.getSolicitacoesConfirmadas(usuario.getUserID(), idCarona);
 			if(!list.contains(idSessao))
@@ -325,18 +325,24 @@ public class SigaBemController {
 
 		}
 	}
-	
+
 	public void reviewVagaEmCarona(String idSessao, String idCarona, String loginCaroneiro, String review) throws Exception{
-		
+
 		Usuario userReview = rep.getUser(loginCaroneiro);
 		List<String> vagasConfirmadas = controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao, idCarona);
+		List<String> idsSolicitacoes = new ArrayList<String>();
 
-		if(!vagasConfirmadas.contains(userReview.getUserID()))
+		for (int i = 0; i < vagasConfirmadas.size(); i++) {
+			idsSolicitacoes.add(controladorDeNegociacoes.getSolicitacaoPorId(vagasConfirmadas.get(i).toString()).getIdSessao());
+		}
+
+		if(!idsSolicitacoes.contains(userReview.getUserID()))
 			throw new NaoPossuiVagasException();
-		
+
 		userReview.getPerfil().reviewVagaEmCarona(review);//TODO metodo usa 4 parametros mais foi feito com apenas 2
-														  //usa os outros parametros para tratar ?
+		//usa os outros parametros para tratar ?
 	}
+
 	public int cadastrarCaronaMunicipal(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
 		if (idSessao == null || idSessao.equals("")){
 			throw new SessaoInvalidaException();
@@ -348,8 +354,8 @@ public class SigaBemController {
 
 		Usuario user = sessoesAbertas.get(idSessao);
 		if(user == null) throw new SessaoInexistenteException();
-		
+
 		return user.cadastraCarona(idSessao, origem, destino, cidade, data, hora, vagas);
-		
+
 	}
 }
