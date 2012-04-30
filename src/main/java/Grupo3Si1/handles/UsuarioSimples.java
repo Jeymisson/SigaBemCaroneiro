@@ -61,8 +61,9 @@ public class UsuarioSimples implements Usuario {
 	
 	public Carona getCarona(String idCarona) {
 		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
+		//System.out.println("Nome: " + perfil.getNome() + "\t Size caronas: " + perfil.getCaronas().size());
 		Carona carona = null;
-		while(caronasIt.hasNext()){
+		while(caronasIt.hasNext() && carona == null){
 			Carona temporaria = caronasIt.next();
 			if(temporaria.getId().equals(idCarona)) carona = temporaria;
 		}
@@ -109,6 +110,9 @@ public class UsuarioSimples implements Usuario {
 	public int cadastraCarona(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas,this);
 		perfil.add(carona);
+		System.out.println(carona);
+		System.out.println(perfil.getHistoricoDeCaronas());
+		System.out.println(perfil.getHistoricoEmVagasDeCaronas());
 		return Integer.valueOf(carona.getId());
 	}
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{

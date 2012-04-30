@@ -69,9 +69,10 @@ public class Perfil {
 	
 		if(historicoDeCaronas.size() > 1){
 			resp = "[";
-			for(int index = 0;index<historicoDeCaronas.size()-1;index++){
-				resp +=", "+historicoDeCaronas.get(index)+"";
+			for(int index = 0;index<historicoDeCaronas.size();index++){
+				resp += historicoDeCaronas.get(index)+",";
 			}
+			resp = resp.substring(0, resp.length()-1);
 			resp+="]";
 		}
 		return resp; 

@@ -1,5 +1,5 @@
 <Grupo3Si1.handles.ControladorDeNegociacoes>
-  <sugestoesDeCarona>
+  <sugestoesPontoDeEncontro>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
       <idSessao>9</idSessao>
@@ -36,8 +36,8 @@
       </pontosDeEncontro>
       <id>9</id>
     </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-  </sugestoesDeCarona>
-  <pontosDeEmbarque>
+  </sugestoesPontoDeEncontro>
+  <respostasSugestaoPontoEncontro>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
       <idSessao>8</idSessao>
@@ -58,7 +58,7 @@
       </pontosDeEncontro>
       <id>5</id>
     </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-  </pontosDeEmbarque>
+  </respostasSugestaoPontoEncontro>
   <solicitacoesDeCarona>
     <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
@@ -140,7 +140,6 @@
       <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro"/>
     </entry>
   </solicitacoesConfirmadas>
-  <blackList/>
   <userRep>
     <userRep class="tree-map">
       <entry>

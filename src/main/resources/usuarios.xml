@@ -29,8 +29,8 @@
         </historicoEmVagasDeCaronas>
         <caronasSeguras>0</caronasSeguras>
         <caronaFulerada>0</caronaFulerada>
-        <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
-        <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
+        <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
+        <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
       </perfil>
       <userID>16</userID>
       <login>bill</login>
