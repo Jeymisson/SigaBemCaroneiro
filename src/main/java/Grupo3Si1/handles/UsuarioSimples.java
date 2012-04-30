@@ -247,7 +247,6 @@ public class UsuarioSimples implements Usuario {
 		return true;
 	}
 
-	@Override
 	public String getSenha() {
 		return senha;
 	}
