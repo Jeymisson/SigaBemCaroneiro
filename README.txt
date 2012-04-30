@@ -1,7 +1,7 @@
 1) INTRODUÇÃO:
  - Projeto feito para disciplina de Sistema de Informação I, da Universidade Federal de Campina Grande
    que tem como finalidade uma rede social que tem como funcionalidade principal visualizar e solicitar
-   caronas.Segue uma UML da arquitetura do projeto.
+   caronas.Segue uma UML da arquitetura do projeto disponível em no arquivo UML.pdf.
 
 2) COMO EXECUTAR:
  - 2.1) Precisa fazer download do Maven(maven.apache.org/).
