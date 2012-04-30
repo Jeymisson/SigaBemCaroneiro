@@ -33,9 +33,9 @@ public class ControladorDeNegociacoes {
 	}
 	
 	/**
-	 * 
-	 * @param idCarona
-	 * @return
+	 * Retorna a lista de solicitacoes pendentes
+	 * @param idCarona O id da carona
+	 * @return A lista de solicitacoes
 	 */
 	public List<String> getSolicitacoesPendentes(String idCarona){
 		List<String> listaSolicitacoesPendentes = new ArrayList<String>();
@@ -45,8 +45,8 @@ public class ControladorDeNegociacoes {
 		return listaSolicitacoesPendentes;
 	}
 	/**
-	 * 
-	 * @param idCarona
+	 * Remove uma solicitacao pendente da lista
+	 * @param idCarona A solicitacao a ser removida
 	 */
 	public void removerSolicitacoesPendentes(String idCarona){
 		
@@ -54,10 +54,10 @@ public class ControladorDeNegociacoes {
 	
 	}
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @return
+	 * Retorna a lista de solicitacoes confirmadas
+	 * @param idSessao O id da sessao do usuario
+	 * @param idCarona O id da carona
+	 * @return A lista de solicitacoes confirmadas
 	 */
 	public List<String> getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		List<String> listaSolicitacoesConfirmadas = new ArrayList<String>();
@@ -67,12 +67,12 @@ public class ControladorDeNegociacoes {
 	}
 
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @param pontos
-	 * @return
-	 * @throws PontoInvalidoException
+	 * Adiciona uma sugestao de um ponto de encontro para uma carona
+	 * @param idSessao O id da sessao do usuario dono da sugestao
+	 * @param idCarona O id da carona
+	 * @param pontos Os pontos que estao sendo sugeridos
+	 * @return O id da sugestao
+	 * @throws PontoInvalidoException Excecao de PontoInvalido
 	 */
 	public String addSugestaoPontoDeEncontro(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idCarona,idSessao,pontos);
@@ -82,12 +82,12 @@ public class ControladorDeNegociacoes {
 		return sugestao.getId().toString();
 	}
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @param idSugestao
-	 * @param pontos
-	 * @return
+	 * Responde uma sugestao de ponto de encontro
+	 * @param idSessao O id da sessao do usuario que esta respondendo
+	 * @param idCarona O id da carona
+	 * @param idSugestao O id da sugestao a ser respondida
+	 * @param pontos Os pontos de encontro da resposta
+	 * @return O id da resposta
 	 */
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
 		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
@@ -95,19 +95,19 @@ public class ControladorDeNegociacoes {
 		return sugestaoResposta.getId();
 	}
 	/**
-	 * 
-	 * @param solicitacao
+	 * Remove uma solicitacao que foi aceita
+	 * @param solicitacao a solicitacao a ser removida
 	 */
 	public void removerSolicitacaoAceita(NegociacaoDePontoDeEncontro solicitacao){
 		solicitacoesPendentes.values().remove(solicitacao);
 	}
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @param ponto
-	 * @return
-	 * @throws PontoInvalidoException
+	 * Adiciona uma solicitacao a lista de solicitacoes
+	 * @param idSessao O id da sessao do usuario q fez a solicitacao
+	 * @param idCarona O id da carona a qual a solicitacao se refere
+	 * @param ponto O ponto de encontro
+	 * @return O id da solicitacao
+	 * @throws PontoInvalidoException Excecao de PontoInvalido
 	 */
 	public String addSolicitacaoDeCarona(String idSessao, String idCarona, String ponto) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro solicitacao = new NegociacaoDePontoDeEncontro(idCarona, idSessao, ponto);
@@ -118,8 +118,8 @@ public class ControladorDeNegociacoes {
 		return solicitacao.getId().toString();
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para a lista de sugestoes
+	 * @return A lista de sugestoes
 	 */
 	public List<NegociacaoDePontoDeEncontro> getSugestoesCarona() {
 		return sugestoesPontoDeEncontro;
@@ -145,9 +145,9 @@ public class ControladorDeNegociacoes {
 
 	}
 	/**
-	 * 
-	 * @param idSolicitacao
-	 * @return
+	 * Retorna uma solicitacao pendente a partir de um id de solicitacao
+	 * @param idSolicitacao O id da solicitacao
+	 * @return A solicitacao
 	 */
 	public NegociacaoDePontoDeEncontro getSolicitacaoPendentePorId(String idSolicitacao) {
 
@@ -162,11 +162,11 @@ public class ControladorDeNegociacoes {
 		return solicitacao;
 	}	
 	/**
-	 * 
-	 * @param idSolicitacao
-	 * @param atributo
-	 * @return
-	 * @throws Exception
+	 * Retorna o atributo da solicitacao pedido
+	 * @param idSolicitacao O id da solicitacao
+	 * @param atributo O atributo a ser procurado
+	 * @return O valor do atributo
+	 * @throws Exception Excecao de atributo invalido
 	 */
 	public String getAtributoSolicitacao(String idSolicitacao, String atributo)throws Exception{
 
@@ -206,10 +206,10 @@ public class ControladorDeNegociacoes {
 		return resp;
 	}
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @param idSugestao
+	 * Metodo resposavel por efetivar a desistencia de uma requisicao
+	 * @param idSessao O id da sessao do desistente
+	 * @param idCarona O id da carona
+	 * @param idSugestao O id da sugestao
 	 */
 	public void desistirRequisicao(String idSessao, String idCarona, String idSugestao) {
 
@@ -227,10 +227,14 @@ public class ControladorDeNegociacoes {
 			solicitacoesConfirmadas.values().remove(sugestao);
 		}
 	}
+	
 	/**
+	 * Metodo que verifica se existe alguma sugestao nos pontosDeEmbarque, se
+	 * ela tem o mesmo id de carona na negociacao que esta sendo procurada e se
+	 * ela contem os pontos dessa negociacao
 	 * 
-	 * @param negociacao
-	 * @return
+	 * @param negociacao A negociacao
+	 * @return True caso contenha e False caso contrario
 	 */
 	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
 		for(NegociacaoDePontoDeEncontro npe : respostasSugestaoPontoEncontro){
@@ -243,17 +247,17 @@ public class ControladorDeNegociacoes {
 		return false;
 	}
 	/**
-	 * 
-	 * @param idSessao
-	 * @param solicitacao
+	 * Adiciona solicitacoes confirmadas no mapa de solicitacoes
+	 * @param idSessao O id da sessao do usuario
+	 * @param solicitacao A solicitacao a ser adicionada
 	 */
 	public void addSolicitacoesConfirmadas(String idSessao,NegociacaoDePontoDeEncontro solicitacao) {
 		solicitacoesConfirmadas.put(idSessao, solicitacao);
 	}
 	/**
-	 * 
-	 * @param idCarona
-	 * @return
+	 * Retorna uma String com os pontos de embarque
+	 * @param idCarona O id da carona
+	 * @return O string dos pontos de embarque
 	 */
 	public String getPontosDeEmbarque(String idCarona) {
 		String result = "";
@@ -269,11 +273,11 @@ public class ControladorDeNegociacoes {
 	}
 
 	/**
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @return
-	 * @throws Exception
+	 * Retorna os pontos sugeridos para uma carona
+	 * @param idSessao O id da sessao do usuario
+	 * @param idCarona O id da carona
+	 * @return A lista de pontos sugeridos
+	 * @throws Exception Excecao de CaronaInexistente
 	 */
 	public List<PontoDeEncontro> getPontosSugeridos(String idSessao,
 			String idCarona)throws Exception {
