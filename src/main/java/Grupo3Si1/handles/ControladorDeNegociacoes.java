@@ -58,7 +58,7 @@ public class ControladorDeNegociacoes {
 
 
 	public String addSugestaoCarona(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
-		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idCarona,idSessao,pontos);
+		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idSessao,idCarona,pontos);
 		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
 		sugestoesDeCarona.add(sugestao);
 		
@@ -67,10 +67,10 @@ public class ControladorDeNegociacoes {
 
 
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
-		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
+		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idSessao, idCarona, pontos);
 		pontosDeEmbarque.add(sugestaoResposta);
-//		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
-//		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
+		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
+		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
 		return sugestaoResposta.getId();
 	}
 
@@ -184,11 +184,12 @@ public class ControladorDeNegociacoes {
 	}
 
 	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
+		System.out.println("-----");
+		System.out.println("negociacao.getIdCarona(): " + negociacao.getIdCarona());
 		for(NegociacaoDePontoDeEncontro npe : pontosDeEmbarque){
+			System.out.println("npe.getIdCarona(): " + npe.getIdCarona());
 			if(npe.getIdCarona().equals(negociacao.getIdCarona())){
-				if(!npe.contains(negociacao)){
-					return true;
-				}
+				System.out.println("EQUALS");
 			}
 		}
 		return false;
@@ -211,4 +212,24 @@ public class ControladorDeNegociacoes {
 		return result.length() > 0 ? result.substring(0, result.length()-2) : result;
 	}
 
+
+	public List<PontoDeEncontro> getPontosSugeridos(String idSessao,
+			String idCarona)throws Exception {
+
+		NegociacaoDePontoDeEncontro pontosSugeridos = null;
+		Iterator<NegociacaoDePontoDeEncontro> negociacaoIt = sugestoesDeCarona.iterator();
+		while(negociacaoIt.hasNext()){
+			NegociacaoDePontoDeEncontro nextNegociacao = negociacaoIt.next();
+			if(nextNegociacao.getIdCarona().equals(idCarona)){
+				pontosSugeridos = nextNegociacao; break;
+			}
+		}
+		
+		if(pontosSugeridos == null){
+			throw new CaronaInexistenteException();
+		}
+		
+		return pontosSugeridos.getPontosDeEncontro();		
+		
+	}
 }
