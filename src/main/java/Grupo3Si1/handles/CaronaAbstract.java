@@ -32,77 +32,77 @@ public abstract class CaronaAbstract implements Carona {
 		this.id = contador;
 	}
 	/**
-	 * 
-	 * @return
+	 * Verifica se a carona eh do tipo municipal
+	 * @return True caso a carona seja municipal e False caso contrario
 	 */
 	public abstract boolean ehMunicipal();
 	
 
 	//Metodos Get's
 	/**
-	 * 
+	 * Metodo acessor para a origem da carona
 	 */
 	public String getOrigem() {
 		return origem;
 	}
 
 	/**
-	 * 
+	 * Metodo acessor para o destino da carona
 	 */
 	public String getDestino() {
 		return destino;
 	}
 
 	/**
-	 * 
+	 * Metodo acessor para a data da carona
 	 */
 	public String getData() {
 		return data;
 	}
 
 	/**
-	 * 
+	 * Metodo acessor para o hroario da carona
 	 */
 	public String getHora() {
 		return hora;
 	}
 	
 	/**
-	 * 
+	 * Metodo acessor para a quantidade de vagas da carona
 	 */
 	public Integer getVagas() {
 		return vagas;
 	}
 	/**
-	 * 
+	 * Metodo acessor para o id da carona
 	 */
 	public String getId() {
 		return String.valueOf(id);
 	}
 	
 	/**
-	 * 
+	 * ToString de Carona - Retorna apenas o id da carona
 	 */
 	public String toString() {
 		return String.valueOf(id);
 	}
 
 	/**
-	 * 
+	 * String no formato: Origem - Destino
 	 */
 	public String getTrajeto() {
 		return this.getOrigem() + " - " + this.getDestino();
 	}
 
 	/**
-	 * 
+	 * String no formato: "origem" para "destino" no dia "data" as "hora"
 	 */
 	public String getCarona() {
 		return this.getOrigem() + " para " + this.getDestino() + ", no dia " + this.getData() + ", as " + this.getHora();
 	}
 
 	/**
-	 * 
+	 * Retorna o atributo pedido da carona
 	 */
 	public String getAtributo(String atributo) throws Exception {
 		
@@ -137,14 +137,14 @@ public abstract class CaronaAbstract implements Carona {
 
 
 	/**
-	 * 
+	 * Diminui em 1 o numero de vagas na carona
 	 */
 	public void preencheVagas() {
 			this.vagas --;
 	}
 	
 	/**
-	 * 
+	 * Compara duas caronas
 	 */
 	public boolean equals(Carona obj) {
 		if (this == obj)
@@ -181,13 +181,13 @@ public abstract class CaronaAbstract implements Carona {
 	
 	//Metodos privados
 	/**
-	 * 
-	 * @param origem
-	 * @param destino
-	 * @param data
-	 * @param hora
-	 * @param vagas
-	 * @throws Exception
+	 * Verifica os dados passados para instanciar uma carona
+	 * @param origem A origem
+	 * @param destino O destino
+	 * @param data A data
+	 * @param hora O horario
+	 * @param vagas A quantidade de vagas
+	 * @throws Exception Excecao caso exista dados errados
 	 */
 	private void verificaDados(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		if(origem == null || origem.trim().equals("")){
@@ -210,10 +210,10 @@ public abstract class CaronaAbstract implements Carona {
 	}
 	
 	/**
-	 * 
-	 * @param data
-	 * @param hora
-	 * @return
+	 * Checa a data e a hora
+	 * @param data A data
+	 * @param hora A hora
+	 * @return True caso esteja OK e False caso contrario
 	 */
 	private boolean checaDataHora(String data, String hora) {
 		return Data.isDataValida(data, hora);
