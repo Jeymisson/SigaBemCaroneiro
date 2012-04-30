@@ -129,7 +129,7 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public String getPontosSugeridos(String idSessao, String idCarona) throws Exception{
-		String respPontos = "{";
+		String respPontos = "";
 		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes.getPontosSugeridos(idSessao, idCarona);
 		Iterator<PontoDeEncontro> pontosIt = listaPontosSugeridos.iterator();
 		while(pontosIt.hasNext()){
@@ -137,7 +137,7 @@ public class SigaBemController {
 			if(pontosIt.hasNext()){					//verifica se está no fim da lista para mudar a concatenação
 				respPontos += nextPonto.getNome()+";";
 			}else
-				respPontos += nextPonto.getNome()+"}"; // se está no fim da lista concatena de forma diferente.
+				respPontos += nextPonto.getNome()+""; // se está no fim da lista concatena de forma diferente.
 		}
 		return respPontos;
 		

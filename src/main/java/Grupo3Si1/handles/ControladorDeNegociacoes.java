@@ -69,8 +69,6 @@ public class ControladorDeNegociacoes {
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
 		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
 		pontosDeEmbarque.add(sugestaoResposta);
-//		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
-//		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
 		return sugestaoResposta.getId();
 	}
 
