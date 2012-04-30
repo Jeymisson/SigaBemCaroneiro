@@ -125,7 +125,7 @@ public class SigaBemController {
 	 * 
 	 * @param idSessao Sessao do Usuario a verificar os pontos de encontro
 	 * @param idCarona Id da Carona do usuario a qual os pontos sugeridos serao buscados
-	 * @return String com pontos sugeridos da forma {PontodeEncontro1;PontodeEncontro2}
+	 * @return String com pontos sugeridos da forma [PontodeEncontro1;PontodeEncontro2]
 	 * @throws Exception
 	 */
 	public String getPontosSugeridos(String idSessao, String idCarona) throws Exception{
@@ -137,7 +137,7 @@ public class SigaBemController {
 			if(pontosIt.hasNext()){					//verifica se está no fim da lista para mudar a concatenação
 				respPontos += nextPonto.getNome()+";";
 			}else
-				respPontos += nextPonto.getNome()+""; // se está no fim da lista concatena de forma diferente.
+				respPontos += nextPonto.getNome(); // se está no fim da lista concatena de forma diferente.
 		}
 		return respPontos;
 		
