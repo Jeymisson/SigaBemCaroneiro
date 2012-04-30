@@ -294,11 +294,6 @@ public class TestaCarona {
 		Assert.assertEquals("Natal", carona2.getDestino());
 		Assert.assertEquals("Conxixola", carona3.getDestino());
 		
-			//getDono()
-		/*Assert.assertEquals(user1,carona1.getDono()); TODO removido pra evitar erros de compilação
-		Assert.assertEquals(user2,carona2.getDono());
-		Assert.assertEquals(user3,carona3.getDono());
-		*/
 			//getData()
 		Assert.assertEquals("19/11/2021", carona1.getData());
 		Assert.assertEquals("19/11/2022", carona2.getData());
