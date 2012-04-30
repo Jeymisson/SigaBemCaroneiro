@@ -20,7 +20,7 @@ public class SigaBemController {
 
 	//Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
-	//GetAtributos getAtb;
+	
 	/**
 	 * Construtor de SigaBemController
 	 */
@@ -28,7 +28,7 @@ public class SigaBemController {
 		rep = RepositorioDeUsuarios.getInstance();
 		sessoesAbertas  = new TreeMap<String, Usuario>();
 		controladorDeNegociacoes = new ControladorDeNegociacoes();
-		//getAtb = new GetAtributos();
+		
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public String sugerirPontoEncontro(String idSessao, String idCarona, String pontos) throws Exception {
-		//Carona carona = rep.getCarona(idCarona);
+		
 		return controladorDeNegociacoes.addSugestaoPontoDeEncontro(idSessao, idCarona, pontos);
 	}
 	
@@ -176,7 +176,7 @@ public class SigaBemController {
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) throws PontoInvalidoException {
 		if(pontos.equals("")) throw new PontoInvalidoException();
 
-		//Carona carona = rep.getCarona(idCarona);	
+			
 		return controladorDeNegociacoes.responderSugestaoPontoEncontro(idSessao, idCarona, idSugestao, pontos);
 	}
 	
@@ -189,7 +189,7 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public String solicitarVagaPontoEncontro(String idSessao, String idCarona, String ponto)throws Exception {
-		//Carona carona = rep.getCarona(idCarona);
+		
 		return controladorDeNegociacoes.addSolicitacaoDeCarona(idSessao, idCarona, ponto);
 	}
 
