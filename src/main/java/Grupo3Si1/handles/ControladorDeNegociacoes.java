@@ -58,7 +58,7 @@ public class ControladorDeNegociacoes {
 
 
 	public String addSugestaoCarona(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
-		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idSessao,idCarona,pontos);
+		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idCarona,idSessao,pontos);
 		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
 		sugestoesDeCarona.add(sugestao);
 		
@@ -67,10 +67,10 @@ public class ControladorDeNegociacoes {
 
 
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
-		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idSessao, idCarona, pontos);
+		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idCarona, idSessao, pontos);
 		pontosDeEmbarque.add(sugestaoResposta);
-		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
-		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
+//		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
+//		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
 		return sugestaoResposta.getId();
 	}
 
@@ -176,20 +176,16 @@ public class ControladorDeNegociacoes {
 		}
 
 		if(sugestao != null){
-//			blackList.add(sugestao);
-//			sugestoesDeCarona.remove(sugestao); //verificar se eh isso mesmo com os caba
-//			pontosDeEmbarque.remove(sugestao);  //verificar se eh isso mesmo com os caba
 			solicitacoesConfirmadas.values().remove(sugestao);
 		}
 	}
 
 	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
-		System.out.println("-----");
-		System.out.println("negociacao.getIdCarona(): " + negociacao.getIdCarona());
 		for(NegociacaoDePontoDeEncontro npe : pontosDeEmbarque){
-			System.out.println("npe.getIdCarona(): " + npe.getIdCarona());
 			if(npe.getIdCarona().equals(negociacao.getIdCarona())){
-				System.out.println("EQUALS");
+				if(!npe.contains(negociacao)){
+					return true;
+				}
 			}
 		}
 		return false;

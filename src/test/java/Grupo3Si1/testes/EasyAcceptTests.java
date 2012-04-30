@@ -18,14 +18,14 @@ public class EasyAcceptTests extends TestCase {
 
 		List<String> files = new ArrayList<String>();
 
-//		files.add("src/test/resources/Grupo3Si1/US01.txt");
-//		files.add("src/test/resources/Grupo3Si1/US02.txt");
-//		files.add("src/test/resources/Grupo3Si1/US03.txt");
+		files.add("src/test/resources/Grupo3Si1/US01.txt");
+		files.add("src/test/resources/Grupo3Si1/US02.txt");
+		files.add("src/test/resources/Grupo3Si1/US03.txt");
 		files.add("src/test/resources/Grupo3Si1/US04.txt");
-//		files.add("src/test/resources/Grupo3Si1/US05.txt");
-//		files.add("src/test/resources/Grupo3Si1/US06.txt");
-//		files.add("src/test/resources/Grupo3Si1/US07.txt");
-//		files.add("src/test/resources/Grupo3Si1/US08.txt");
+		files.add("src/test/resources/Grupo3Si1/US05.txt");
+		files.add("src/test/resources/Grupo3Si1/US06.txt");
+		files.add("src/test/resources/Grupo3Si1/US07.txt");
+		files.add("src/test/resources/Grupo3Si1/US08.txt");
 
 		// Instantiate the Monopoly Game facade
 		SigaBemController control = new SigaBemController();
