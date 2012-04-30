@@ -6,11 +6,17 @@ public enum AtributosDeSolicitacao {
 			"Ponto de Encontro");
 	
 	String atribute;
-
+	/**
+	 * 
+	 * @param atribute
+	 */
 	AtributosDeSolicitacao(String atribute) {
 		this.atribute = atribute;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getatribute() {
 		return atribute;
 	}

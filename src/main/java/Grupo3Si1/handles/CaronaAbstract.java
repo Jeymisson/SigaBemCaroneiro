@@ -10,6 +10,16 @@ public abstract class CaronaAbstract implements Carona {
 	Integer vagas;
 	int id;
 	
+	/**
+	 * 
+	 * @param origem
+	 * @param destino
+	 * @param data
+	 * @param hora
+	 * @param vagas
+	 * @param donoDaCarona
+	 * @throws Exception
+	 */
 	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas, Usuario donoDaCarona) throws Exception{
 		
 		verificaDados(origem, destino, data, hora, vagas);
@@ -22,55 +32,79 @@ public abstract class CaronaAbstract implements Carona {
 		this.vagas = vagas;
 		this.id = contador;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public abstract boolean ehMunicipal();
 	
 
 	//Metodos Get's
-	
+	/**
+	 * 
+	 */
 	public String getOrigem() {
 		return origem;
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String getDestino() {
 		return destino;
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String getData() {
 		return data;
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String getHora() {
 		return hora;
 	}
-
 	
+	/**
+	 * 
+	 */
 	public Integer getVagas() {
 		return vagas;
 	}
-	
+	/**
+	 * 
+	 */
 	public String getId() {
 		return String.valueOf(id);
 	}
 	
-	
+	/**
+	 * 
+	 */
 	public String toString() {
 		return String.valueOf(id);
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String getTrajeto() {
 		return this.getOrigem() + " - " + this.getDestino();
 	}
 
-	
+	/**
+	 * 
+	 */
 	public String getCarona() {
 		return this.getOrigem() + " para " + this.getDestino() + ", no dia " + this.getData() + ", as " + this.getHora();
 	}
 
-		
+	/**
+	 * 
+	 */
 	public String getAtributo(String atributo) throws Exception {
 		
 		if(atributo == null || atributo.equals("")){
@@ -103,12 +137,16 @@ public abstract class CaronaAbstract implements Carona {
 
 
 
-	
+	/**
+	 * 
+	 */
 	public void preencheVagas() {
 			this.vagas --;
 	}
 	
-	
+	/**
+	 * 
+	 */
 	public boolean equals(Carona obj) {
 		if (this == obj)
 			return true;
@@ -143,6 +181,15 @@ public abstract class CaronaAbstract implements Carona {
 	}
 	
 	//Metodos privados
+	/**
+	 * 
+	 * @param origem
+	 * @param destino
+	 * @param data
+	 * @param hora
+	 * @param vagas
+	 * @throws Exception
+	 */
 	private void verificaDados(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
 		if(origem == null || origem.trim().equals("")){
 			throw new OrigemInvalidaException();
@@ -163,7 +210,12 @@ public abstract class CaronaAbstract implements Carona {
 		
 	}
 	
-
+	/**
+	 * 
+	 * @param data
+	 * @param hora
+	 * @return
+	 */
 	private boolean checaDataHora(String data, String hora) {
 		return Data.isDataValida(data, hora);
 	}

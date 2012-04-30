@@ -10,9 +10,17 @@ public enum AtributosDePerfil {
 	PRESENCAEMVAGASDECARONA("presenças em vagas de caronas");
 	
 	String atributo;
+	/**
+	 * 
+	 * @param atributo
+	 */
 	 AtributosDePerfil(String atributo) {
 		this.atributo = atributo;
 	}
+	 /**
+	  * 
+	  * @return
+	  */
 	public String getAtribute(){
 		return atributo;
 	}

@@ -6,11 +6,17 @@ public enum AtributosDeCarona {
 			"vagas"), EHMUNICIPAL("ehMunicipal"), PONTO_DE_ENCONTRO("Ponto de Encontro");
 	
 	String atribute;
-
+	/**
+	 * 
+	 * @param atribute
+	 */
 	AtributosDeCarona(String atribute) {
 		this.atribute = atribute;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getatribute() {
 		return atribute;
 	}

@@ -6,11 +6,17 @@ public enum AtributosDeUsuario {
 			"endereco");
 
 	String atribute;
-
+	/**
+	 * 
+	 * @param atribute
+	 */
 	AtributosDeUsuario(String atribute) {
 		this.atribute = atribute;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getatribute() {
 		return atribute;
 	}
