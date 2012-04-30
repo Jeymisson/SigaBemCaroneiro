@@ -189,8 +189,8 @@ public class SigaBemController {
 		return listaCaronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
 	}
 
-	public List<String> getSolicitacoesPendentes(String idCarona){
-		return controladorDeNegociacoes.getSolicitacoesPendentes(idCarona);
+	public String getSolicitacoesPendentes(String idCarona){
+		return (controladorDeNegociacoes.getSolicitacoesPendentes(idCarona).toString()).replace("[", "{").replace("]", "}");
 	}
 	
 	public String  getSolicitacoesConfirmadas(String idSessao, String idCarona){

@@ -51,7 +51,7 @@ public class ControladorDeNegociacoes {
 	public List<String> getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		List<String> listaSolicitacoesConfirmadas = new ArrayList<String>();
 		if(!solicitacoesConfirmadas.isEmpty())
-		listaSolicitacoesConfirmadas.add(solicitacoesConfirmadas.get(idSessao).getIdSessao());
+		listaSolicitacoesConfirmadas.add(solicitacoesConfirmadas.get(idSessao).getId());
 		return listaSolicitacoesConfirmadas;
 	}
 
