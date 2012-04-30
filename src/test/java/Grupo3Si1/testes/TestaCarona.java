@@ -324,19 +324,7 @@ public class TestaCarona {
 		Assert.assertEquals("Recife para Natal, no dia 19/11/2022, as 22:00",carona2.getCarona());
 		Assert.assertEquals("Rio Grande do sul para Conxixola, no dia 19/11/2023, as 19:00",carona3.getCarona());
 		
-		//Testa Metodo addSugestaoDeCarona()
-		/*Assert.assertEquals("1",carona1.addSolicitacaoDeCarona("0", "0", "Acude velho", user1));
-		Assert.assertEquals("2",carona1.addSolicitacaoDeCarona("1", "1", "Malvinas", user2));
-		
-		//testa sugestoes de carona
-		
-		List<SugestaoCarona> sugestoes = new ArrayList<SugestaoCarona>();
-		sugestoes.add(new SugestaoCarona(new PontosDeEncontro("0","0", "Acude velho")));
-		sugestoes.add(new SugestaoCarona(new PontosDeEncontro("1","1", "Malvinas")));
-
-		Assert.assertEquals(sugestoes, carona1.getSugestoesCarona()); TODO removido pra evitar erros de compilação
-		
-		*/
+	
 		
 		
 

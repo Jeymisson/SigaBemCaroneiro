@@ -129,77 +129,7 @@ public class TestaRepositorioUsuario {
 		
 	}
 	
-	//TODO
-	@Test
-	public void TestagetUserPorId(){
-		
-		try {
-			Assert.assertTrue(rep1.getUserPorId(user1.getUserID()).equals(user1));			
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		try {
-			Assert.assertEquals(user2, rep1.getUserPorId(user2.getUserID()));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		
-		try {
-			Assert.assertEquals(user3, rep1.getUserPorId(user3.getUserID()));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		
-		try {
-			Assert.assertEquals(user4, rep1.getUserPorId(user4.getUserID()));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		try {
-			Assert.assertEquals(user5, rep1.getUserPorId(user5.getUserID()));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		
-		try {
-			Assert.assertFalse(rep1.getUserPorId("").equals(user1));
-		} catch (Exception e) {
-			Assert.assertEquals("ID inválido", e.getMessage());
-		}
-		
-		try {
-			Assert.assertFalse(rep1.getUserPorId(null).equals(user1));
-		} catch (Exception e) {
-			Assert.assertEquals("ID inválido", e.getMessage());
-		}
-		
-		
-		try {
-			Assert.assertFalse(rep1.getUserPorId(user1.getUserID()).equals(user2));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-	}
 
-	//TODO
-	@Test
-	public void TestaGetDonode(){
-		
-		try {
-			Assert.assertEquals(user1, rep1.getDonoDe(user1.getUserID()));
-		} catch (Exception e) {
-			Assert.fail(e.getMessage());
-		}
-		
-		
-	}
-	
 	
 	@Test
 	public void TestaGetCarona(){

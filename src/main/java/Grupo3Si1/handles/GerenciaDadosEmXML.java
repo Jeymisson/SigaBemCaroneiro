@@ -86,44 +86,6 @@ public class GerenciaDadosEmXML {
 		escreveEmArquivo(fileName, "");	
 	}
 
-/*	private String lerArquivo(String fileName){
-		
-		BufferedReader input = null;
-		String xml = null;
-		
-		try { 
-			InputStreamReader reader = new InputStreamReader(new FileInputStream(fileName),"UTF-8");
-	        input = new BufferedReader(reader);	        
-	        StringBuffer sb = new StringBuffer();  
-	        
-	        while(input.ready()){  
-	            sb.append(input.readLine());  
-	        }  
-	        
-	        xml = sb.toString();  
-			
-			}catch (FileNotFoundException e) {
-				System.err.println("Arquivo inexistente.");;
-			
-			}catch (IOException e2) {
-				e2.printStackTrace();
-			
-			}finally{
-				if(input != null)
-					try{
-						input.close();
-					
-					}catch(IOException e){
-						e.printStackTrace();
-					}
-			}
-			
-		return xml;
-		
-		
-		
-	}*/
-	
 	public AbstractMap<String, Usuario> getRepositorioUsuarios(String fileName) {
 		File file = new File(fileName);
 		TreeMap<String, Usuario> mapaUsuarios = (TreeMap<String,Usuario>)xstream.fromXML(file);	

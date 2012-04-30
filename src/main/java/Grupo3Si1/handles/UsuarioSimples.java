@@ -61,7 +61,6 @@ public class UsuarioSimples implements Usuario {
 	
 	public Carona getCarona(String idCarona) {
 		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
-		//System.out.println("Nome: " + perfil.getNome() + "\t Size caronas: " + perfil.getCaronas().size());
 		Carona carona = null;
 		while(caronasIt.hasNext() && carona == null){
 			Carona temporaria = caronasIt.next();
@@ -162,6 +161,24 @@ public class UsuarioSimples implements Usuario {
 		if ((email == null) || (email.equals(""))) {
 			throw new InvalidEmailException();
 		}
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		UsuarioSimples other = (UsuarioSimples) obj;
+		if (login == null) {
+			if (other.login != null)
+				return false;
+		} else if (!login.equals(other.login))
+			return false;
+		return true;
 	}
 
 

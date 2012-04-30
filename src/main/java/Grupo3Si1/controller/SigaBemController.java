@@ -138,10 +138,10 @@ public class SigaBemController {
 		Iterator<PontoDeEncontro> pontosIt = listaPontosDeEncontro.iterator();
 		while(pontosIt.hasNext()){
 			PontoDeEncontro nextPonto = pontosIt.next();
-			if(pontosIt.hasNext()){	//verifica se está no fim da lista para mudar a concatenação
+			if(pontosIt.hasNext()){	
 				respPontos += nextPonto.getNome()+";";
 			}else
-				respPontos += nextPonto.getNome(); // se está no fim da lista concatena de forma diferente.
+				respPontos += nextPonto.getNome();
 		}
 		return respPontos;
 	}
@@ -172,7 +172,6 @@ public class SigaBemController {
 
 		if(rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)){
 			carona.preencheVagas();
-			//			controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
 			controladorDeNegociacoes.removerSolicitacoesPendentes(carona.getId());
 			controladorDeNegociacoes.addSolicitacoesConfirmadas(idSessao,solicitacao);
 		}else
@@ -214,7 +213,6 @@ public class SigaBemController {
 	public void zerarSistema(){
 		rep.clear();
 		sessoesAbertas.clear();
-		controladorDeNegociacoes.clear();
 		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
 		gerenciaDadosEmXML.zeraArquivo(USERS_FILE);
 		gerenciaDadosEmXML.zeraArquivo(NEGOCIACOES_FILE);
@@ -230,7 +228,6 @@ public class SigaBemController {
 		gerenciadorDeDados.salvaNegociacoesXML(NEGOCIACOES_FILE, controladorDeNegociacoes);
 		rep.clear();
 		sessoesAbertas.clear();
-		controladorDeNegociacoes.clear();
 	}
 
 	/**
@@ -259,21 +256,9 @@ public class SigaBemController {
 	}
 
 	public void encerrarSessao(String login) throws Exception {
-		//TODO TRATAR ENTRADA PARA USUARIO NAO LOGADO
 		Usuario user = rep.getUser(login);
 		sessoesAbertas.remove(user.getUserID());
 
-		//refatorando
-		/*Iterator<Usuario> iterator = sessoesAbertas.values().iterator();
-		  while(iterator.hasNext()){
-		   Usuario usuario = iterator.next();
-		   if(usuario.getLogin().equals(login)){
-		    String id = usuario.getUserID();
-		    sessoesAbertas.remove(id);
-		    break;
-		   }
-		  }
-		 */
 	}
 
 	/**
@@ -344,8 +329,8 @@ public class SigaBemController {
 		if(!idsSolicitacoes.contains(userReview.getUserID()))
 			throw new NaoPossuiVagasException();
 
-		userReview.getPerfil().reviewVagaEmCarona(review);//TODO metodo usa 4 parametros mais foi feito com apenas 2
-		//usa os outros parametros para tratar ?
+		userReview.getPerfil().reviewVagaEmCarona(review);
+
 	}
 
 	public int cadastrarCaronaMunicipal(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{

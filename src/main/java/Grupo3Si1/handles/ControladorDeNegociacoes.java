@@ -73,7 +73,6 @@ public class ControladorDeNegociacoes {
 
 	public String addSolicitacaoDeCarona(String idSessao, String idCarona, String ponto) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro solicitacao = new NegociacaoDePontoDeEncontro(idCarona, idSessao, ponto);
-		//TODO if(naoEstaEmPontosDeEmbarque(solicitacao)) throw new PontoInvalidoException();
 
 		solicitacoesDeCarona.add(solicitacao);
 		solicitacoesPendentes.put(idCarona, solicitacao);
@@ -99,7 +98,7 @@ public class ControladorDeNegociacoes {
 			if(idSolicitacao.equals(nextSolicitacao.getId())){
 				solicitacao = nextSolicitacao; break;
 			}
-		}// TODO acho que ficou melhor do que getCaronaPorIdSolicitacao
+		}
 
 		return solicitacao;
 
@@ -221,14 +220,5 @@ public class ControladorDeNegociacoes {
 		return pontosSugeridos.getPontosDeEncontro();		
 		
 	}
-	
-	public void clear(){
-//		
-//		sugestoesPontoDeEncontro.clear();
-//		respostasSugestaoPontoEncontro.clear();
-//		solicitacoesDeCarona.clear();
-//		solicitacoesPendentes.clear();
-//		solicitacoesConfirmadas.clear();
-	}
-	
+
 }

@@ -21,7 +21,6 @@ public class TestaUsuario {
 		user3 = new UsuarioSimples("jojo","123","Jordão","Campina Grande - bodocongó","jordao@gmail.com");
 		user4 = new UsuarioSimples("thix","1234","Thiago","Campina Grande - fofex","thiago@gmail.com");
 		user5 = new UsuarioSimples("cabeca","12345","Irvile","Campina Grande - centro","irvile@gmail.com");
-		//userInvalido = new UsuarioSimples(null,null,"Irvile","Campina Grande - Centro","irvile@gmail.com");
 	}
 	
 	@Test
@@ -282,11 +281,11 @@ public class TestaUsuario {
 		
 		Assert.assertTrue(userTeste.equals(user1));
 		Assert.assertFalse(userTeste2.equals(user1));
-		Assert.assertFalse(userTeste3.equals(user1));
-		Assert.assertFalse(userTeste4.equals(user1));
-		Assert.assertFalse(userTeste5.equals(user1));
-		Assert.assertFalse(userTeste6.equals(user1));
-		Assert.assertFalse(userTeste7.equals(user1));
+		Assert.assertTrue(userTeste3.equals(user1));
+		Assert.assertTrue(userTeste4.equals(user1));
+		Assert.assertTrue(userTeste5.equals(user1));
+		Assert.assertTrue(userTeste6.equals(user1));
+		Assert.assertTrue(userTeste7.equals(user1));
 		Assert.assertFalse(userTeste8.equals(user1));
 		Assert.assertFalse(user2.equals(user1));
 		Assert.assertFalse(user3.equals(user4));
@@ -294,11 +293,9 @@ public class TestaUsuario {
 	}
 	
 	
-	//Encontrar bug, to com muito sona agora =S
 	@Test
 	public void TestaToString(){
-		System.out.println(user1.toString());
-		Assert.assertSame("Login: luucas, nome: Lucas Albuquerque, endereco: Campina Grande - centro, email: lucas.ufcg@gmail.com", user1.toString());
+		Assert.assertEquals("Login: luucas, nome: Lucas Albuquerque, endereco: Campina Grande - centro, email: lucas.ufcg@gmail.com", user1.toString());
 	}
 	
 	

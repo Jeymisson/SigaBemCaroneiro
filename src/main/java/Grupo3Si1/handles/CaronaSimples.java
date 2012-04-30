@@ -10,10 +10,6 @@ public class CaronaSimples extends CaronaAbstract {
 	}
 
 
-
-	
-	
-
 	@Override
 	public boolean ehMunicipal() {
 		return ehMunicipal;

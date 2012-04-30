@@ -54,7 +54,6 @@ public abstract class CaronaAbstract implements Carona {
 		return vagas;
 	}
 	
-	// Os metodos getRiceID() e toString() são exatamente os mesmos
 	public String getId() {
 		return String.valueOf(id);
 	}
@@ -168,7 +167,6 @@ public abstract class CaronaAbstract implements Carona {
 	}
 	
 
-	
 	private boolean checaDataHora(String data, String hora) {
 		return Data.isDataValida(data, hora);
 	}
