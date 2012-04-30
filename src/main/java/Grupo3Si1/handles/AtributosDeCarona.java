@@ -7,15 +7,15 @@ public enum AtributosDeCarona {
 	
 	String atribute;
 	/**
-	 * 
-	 * @param atribute
+	 * Utilizado na busca pelo atributo correto
+	 * @param atribute O atributo
 	 */
 	AtributosDeCarona(String atribute) {
 		this.atribute = atribute;
 	}
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para atributo
+	 * @return O atributo
 	 */
 	public String getatribute() {
 		return atribute;

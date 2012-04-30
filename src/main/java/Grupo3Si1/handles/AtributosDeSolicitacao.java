@@ -7,15 +7,17 @@ public enum AtributosDeSolicitacao {
 	
 	String atribute;
 	/**
-	 * 
-	 * @param atribute
+	 * Utilizado na busca pelo atributo correto
+	 * @param atribute O atributo
 	 */
 	AtributosDeSolicitacao(String atribute) {
 		this.atribute = atribute;
 	}
+
 	/**
+	 * Metodo acessor para atributo
 	 * 
-	 * @return
+	 * @return O atributo
 	 */
 	public String getatribute() {
 		return atribute;

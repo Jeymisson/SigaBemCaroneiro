@@ -2,60 +2,60 @@ package Grupo3Si1.handles;
 
 public interface Carona {
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para atributo origem da carona
+	 * @return A origem
 	 */
 	public String getOrigem();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para o destino da carona
+	 * @return O destino
 	 */
 	public String getDestino();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para a data da carona
+	 * @return A data
 	 */
 	public String getData();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para a hora da carona
+	 * @return A hora
 	 */
 	public String getHora();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para a quantidade de vagas na carona
+	 * @return A quantidade de vagas na carona
 	 */
 	public Integer getVagas();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para o id da carona
+	 * @return O id
 	 */
 	public String getId();
 	/**
-	 * 
-	 * @return
+	 * Metodo acessor para o trajeto da carona
+	 * @return O trajeto
 	 */
 	public String getTrajeto();
 	/**
-	 * 
-	 * @return
+	 * Descricao de carona
+	 * @return "origem" para "destino" no dia "data" as "hora"
 	 */
 	public String getCarona();
 	/**
-	 * 
-	 * @param atributo
-	 * @return
-	 * @throws Exception
+	 * Retorna valor do atributo escolhido
+	 * @param atributo O atributo
+	 * @return O valor armazenado no atributo
+	 * @throws Exception Excecao de atributo invalido
 	 */
 	public String getAtributo(String atributo)throws Exception;
 	/**
-	 * 
+	 * Diminui uma vaga na carona
 	 */
 	public void preencheVagas();
 	/**
-	 * 
-	 * @param carona
-	 * @return
+	 * Compara duas caronas
+	 * @param carona A carona a ser comparada
+	 * @return True caso sejam iguais ou False caso contrario
 	 */
 	public boolean equals(Carona carona);
 }

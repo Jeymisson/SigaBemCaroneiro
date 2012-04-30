@@ -11,15 +11,15 @@ public enum AtributosDePerfil {
 	
 	String atributo;
 	/**
-	 * 
-	 * @param atributo
+	 * Utilizado na busca pelo atributo correto
+	 * @param atribute O atributo
 	 */
 	 AtributosDePerfil(String atributo) {
 		this.atributo = atributo;
 	}
 	 /**
-	  * 
-	  * @return
+	  * Metodo acessor para atributo
+	  * @return O atributo
 	  */
 	public String getAtribute(){
 		return atributo;
