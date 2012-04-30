@@ -2,6 +2,7 @@ package Grupo3Si1.handles;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
@@ -58,7 +59,7 @@ public class ControladorDeNegociacoes {
 
 	public String addSugestaoCarona(String idSessao, String idCarona, String pontos) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro sugestao = new NegociacaoDePontoDeEncontro(idSessao,idCarona,pontos);
-		if(estaNaBlackList(sugestao)) throw new PontoInvalidoException();
+		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
 		sugestoesDeCarona.add(sugestao);
 		
 		return sugestao.getId().toString();
@@ -67,7 +68,9 @@ public class ControladorDeNegociacoes {
 
 	public String responderSugestaoPontoEncontro(String idSessao, String idCarona, String idSugestao, String pontos) {
 		NegociacaoDePontoDeEncontro sugestaoResposta = new NegociacaoDePontoDeEncontro(idSessao, idCarona, pontos);
-		pontosDeEmbarque.add(sugestaoResposta);		
+		pontosDeEmbarque.add(sugestaoResposta);
+		System.out.println("ADICIONEI E O SIZE EH: " + pontosDeEmbarque.size());
+		System.out.println(Arrays.toString(pontosDeEmbarque.toArray()));
 		return sugestaoResposta.getId();
 	}
 
@@ -77,7 +80,7 @@ public class ControladorDeNegociacoes {
 
 	public String addSolicitacaoDeCarona(String idSessao, String idCarona, String ponto) throws PontoInvalidoException {
 		NegociacaoDePontoDeEncontro solicitacao = new NegociacaoDePontoDeEncontro(idCarona, idSessao, ponto);
-		if(estaNaBlackList(solicitacao)) throw new PontoInvalidoException();
+		//TODO if(naoEstaEmPontosDeEmbarque(solicitacao)) throw new PontoInvalidoException();
 
 		solicitacoesDeCarona.add(solicitacao);
 		solicitacoesPendentes.put(idCarona, solicitacao);
@@ -173,19 +176,22 @@ public class ControladorDeNegociacoes {
 		}
 
 		if(sugestao != null){
-			blackList.add(sugestao);
-			sugestoesDeCarona.remove(sugestao); //verificar se eh isso mesmo com os caba
-			pontosDeEmbarque.remove(sugestao);  //verificar se eh isso mesmo com os caba
+//			blackList.add(sugestao);
+//			sugestoesDeCarona.remove(sugestao); //verificar se eh isso mesmo com os caba
+//			pontosDeEmbarque.remove(sugestao);  //verificar se eh isso mesmo com os caba
+			solicitacoesConfirmadas.values().remove(sugestao);
 		}
 	}
 
-	private boolean estaNaBlackList(NegociacaoDePontoDeEncontro negociacao){
-		for (NegociacaoDePontoDeEncontro n : blackList) {
-			if(n.contains(negociacao)){ //if(n.equals(negociacao) || n.contains(negociacao)){
-				return true;
+	private boolean naoEstaEmPontosDeEmbarque(NegociacaoDePontoDeEncontro negociacao){
+		System.out.println("-----");
+		System.out.println("negociacao.getIdCarona(): " + negociacao.getIdCarona());
+		for(NegociacaoDePontoDeEncontro npe : pontosDeEmbarque){
+			System.out.println("npe.getIdCarona(): " + npe.getIdCarona());
+			if(npe.getIdCarona().equals(negociacao.getIdCarona())){
+				System.out.println("EQUALS");
 			}
 		}
-
 		return false;
 	}
 
@@ -206,4 +212,24 @@ public class ControladorDeNegociacoes {
 		return result.length() > 0 ? result.substring(0, result.length()-2) : result;
 	}
 
+
+	public List<PontoDeEncontro> getPontosSugeridos(String idSessao,
+			String idCarona)throws Exception {
+
+		NegociacaoDePontoDeEncontro pontosSugeridos = null;
+		Iterator<NegociacaoDePontoDeEncontro> negociacaoIt = sugestoesDeCarona.iterator();
+		while(negociacaoIt.hasNext()){
+			NegociacaoDePontoDeEncontro nextNegociacao = negociacaoIt.next();
+			if(nextNegociacao.getIdCarona().equals(idCarona)){
+				pontosSugeridos = nextNegociacao; break;
+			}
+		}
+		
+		if(pontosSugeridos == null){
+			throw new CaronaInexistenteException();
+		}
+		
+		return pontosSugeridos.getPontosDeEncontro();		
+		
+	}
 }

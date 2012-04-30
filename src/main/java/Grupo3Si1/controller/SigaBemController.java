@@ -2,6 +2,7 @@ package Grupo3Si1.controller;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -120,27 +121,26 @@ public class SigaBemController {
 	public void aceitarSolicitacao(String idSessao, String idSolicitacao) throws Exception{
 		aceitarSolicitacaoPontoEncontro(idSessao, idSolicitacao);
 	}
-	public List<String> getPontosSugeridos(String idSessao, String idCarona) throws Exception{
-		List<String> listaPontosSugeridos = new ArrayList<String>();
+	/**
+	 * 
+	 * @param idSessao Sessao do Usuario a verificar os pontos de encontro
+	 * @param idCarona Id da Carona do usuario a qual os pontos sugeridos serao buscados
+	 * @return String com pontos sugeridos da forma {PontodeEncontro1;PontodeEncontro2}
+	 * @throws Exception
+	 */
+	public String getPontosSugeridos(String idSessao, String idCarona) throws Exception{
+		String respPontos = "{";
+		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes.getPontosSugeridos(idSessao, idCarona);
+		Iterator<PontoDeEncontro> pontosIt = listaPontosSugeridos.iterator();
+		while(pontosIt.hasNext()){
+			PontoDeEncontro nextPonto = pontosIt.next();
+			if(pontosIt.hasNext()){					//verifica se está no fim da lista para mudar a concatenação
+				respPontos += nextPonto.getNome()+";";
+			}else
+				respPontos += nextPonto.getNome()+"}"; // se está no fim da lista concatena de forma diferente.
+		}
+		return respPontos;
 		
-		
-//		for (NegociacaoDePontoDeEncontro negociacaoDePontoDeEncontro : listaSugestoes) {
-//			if(negociacaoDePontoDeEncontro.getIdCarona() == idCarona){
-//			
-//				for (int i = 0; i <negociacaoDePontoDeEncontro.getPontosDeEncontro().size(); i++) {
-//					listaPontosSugeridos.add(negociacaoDePontoDeEncontro.getPontosDeEncontro().get(i).getNome());
-//				}
-//				
-//			}
-//				
-	//		
-		//}
-		
-		
-		
-		
-		
-		return listaPontosSugeridos;
 	}
 
 	public void rejeitarSolicitacao(String idSessao, String idSolicitacao) throws SolicaticaoInexistenteException{
