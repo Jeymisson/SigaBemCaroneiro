@@ -20,13 +20,11 @@ public class ControladorDeNegociacoes {
 	private List<NegociacaoDePontoDeEncontro> solicitacoesDeCarona;
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesPendentes;
 	private AbstractMap<String,NegociacaoDePontoDeEncontro> solicitacoesConfirmadas;
-	private RepositorioDeUsuarios userRep;
 
 	public ControladorDeNegociacoes() {
 		this.sugestoesPontoDeEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
 		this.respostasSugestaoPontoEncontro = new ArrayList<NegociacaoDePontoDeEncontro>();
 		this.solicitacoesDeCarona = new ArrayList<NegociacaoDePontoDeEncontro>();
-		this.userRep = RepositorioDeUsuarios.getInstance();
 		this.solicitacoesConfirmadas = new TreeMap<String, NegociacaoDePontoDeEncontro>();
 		this.solicitacoesPendentes = new TreeMap<String, NegociacaoDePontoDeEncontro>();
 	}
@@ -129,17 +127,17 @@ public class ControladorDeNegociacoes {
 //		}catch(Exception e){
 //			System.out.println("merda na solicitacao");
 //		}
-		Carona carona = userRep.getCarona(solicitacao.getIdCarona());
+		Carona carona = RepositorioDeUsuarios.getInstance().getCarona(solicitacao.getIdCarona());
 		System.out.println("depois: " +carona.getId());
 //		try{
 //			System.out.println("carona id: " + carona.getId());
 //		}catch(Exception e){
 //			System.out.println("merda na carona");
 //		}
-		Usuario usuarioDonoCarona = userRep.getDonoDe(solicitacao.getIdCarona());
+		Usuario usuarioDonoCarona = RepositorioDeUsuarios.getInstance().getDonoDe(solicitacao.getIdCarona());
 		Usuario usuarioDonoSolicitacao = null;
 		
-		Iterator<Usuario> userIt = userRep.getUsuarios();
+		Iterator<Usuario> userIt = RepositorioDeUsuarios.getInstance().getUsuarios();
 		while(userIt.hasNext()){
 			Usuario usuario = userIt.next();
 			if(usuario.getUserID().equals(solicitacao.getIdSessao())){
@@ -240,4 +238,14 @@ public class ControladorDeNegociacoes {
 		return pontosSugeridos.getPontosDeEncontro();		
 		
 	}
+	
+	public void clear(){
+//		
+//		sugestoesPontoDeEncontro.clear();
+//		respostasSugestaoPontoEncontro.clear();
+//		solicitacoesDeCarona.clear();
+//		solicitacoesPendentes.clear();
+//		solicitacoesConfirmadas.clear();
+	}
+	
 }

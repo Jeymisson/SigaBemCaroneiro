@@ -8,9 +8,9 @@ import Grupo3Si1.exceptions.*;
 
 public class RepositorioDeUsuarios {
 
-	AbstractMap<String, Usuario> userRep = new TreeMap<String, Usuario>();
+	private AbstractMap<String, Usuario> userRep; ;
 	private static RepositorioDeUsuarios Repository = null;
-
+	
 	//Metodos Get's
 	public static RepositorioDeUsuarios getInstance() {
 		if (Repository == null) {
@@ -97,6 +97,7 @@ public class RepositorioDeUsuarios {
 	
 	//metodos privados	
 	private RepositorioDeUsuarios() {
+		userRep = new TreeMap<String, Usuario>();
 	} /* o compilador não vai gerar um construtor default público */
 
 	private void checkDuplicatedData(Usuario user) throws Exception {

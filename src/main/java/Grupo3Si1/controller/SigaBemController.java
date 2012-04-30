@@ -213,6 +213,8 @@ public class SigaBemController {
 	 */
 	public void zerarSistema(){
 		rep.clear();
+		sessoesAbertas.clear();
+		controladorDeNegociacoes.clear();
 		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
 		gerenciaDadosEmXML.zeraArquivo(USERS_FILE);
 		gerenciaDadosEmXML.zeraArquivo(NEGOCIACOES_FILE);
@@ -226,6 +228,9 @@ public class SigaBemController {
 		GerenciaDadosEmXML gerenciadorDeDados = new GerenciaDadosEmXML();
 		gerenciadorDeDados.salvaUsuariosXML(USERS_FILE, rep.getRepositorio());
 		gerenciadorDeDados.salvaNegociacoesXML(NEGOCIACOES_FILE, controladorDeNegociacoes);
+		rep.clear();
+		sessoesAbertas.clear();
+		controladorDeNegociacoes.clear();
 	}
 
 	/**
