@@ -15,8 +15,8 @@ public class CaronaMunicipal extends CaronaAbstract {
 	 * @param cidade
 	 * @throws Exception
 	 */
-	public CaronaMunicipal(String origem, String destino, String data,String hora, Integer vagas, Usuario donoDaCarona, String cidade) throws Exception {
-		super(origem, destino, data, hora, vagas, donoDaCarona);
+	public CaronaMunicipal(String origem, String destino, String data,String hora, Integer vagas, String cidade) throws Exception {
+		super(origem, destino, data, hora, vagas);
 		ehMunicipal = true;
 		this.cidade = cidade;
 	}

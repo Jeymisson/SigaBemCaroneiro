@@ -11,16 +11,15 @@ public abstract class CaronaAbstract implements Carona {
 	int id;
 	
 	/**
-	 * 
-	 * @param origem
-	 * @param destino
-	 * @param data
-	 * @param hora
-	 * @param vagas
-	 * @param donoDaCarona
-	 * @throws Exception
+	 * Construtor de Carona
+	 * @param origem A origem
+	 * @param destino O destino
+	 * @param data A data
+	 * @param hora O horario
+	 * @param vagas A quantidade de vagas
+	 * @throws Exception Excecao caso os dados inseridos sejam invalidos
 	 */
-	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas, Usuario donoDaCarona) throws Exception{
+	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas) throws Exception{
 		
 		verificaDados(origem, destino, data, hora, vagas);
 		

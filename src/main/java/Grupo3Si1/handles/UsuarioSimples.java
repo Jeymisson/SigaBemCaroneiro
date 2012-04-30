@@ -157,7 +157,7 @@ public class UsuarioSimples implements Usuario {
 	 * 
 	 */
 	public int cadastraCarona(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
-		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas,this);
+		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
@@ -165,7 +165,7 @@ public class UsuarioSimples implements Usuario {
 	 * 
 	 */
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
-		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), this, cidade);
+		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}

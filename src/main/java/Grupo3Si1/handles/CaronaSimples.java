@@ -13,8 +13,8 @@ public class CaronaSimples extends CaronaAbstract {
 	 * @param donoDaCarona
 	 * @throws Exception
 	 */
-	public CaronaSimples(String origem, String destino, String data, String hora, Integer vagas, Usuario donoDaCarona) throws Exception {
-		super(origem, destino, data, hora, vagas, donoDaCarona);
+	public CaronaSimples(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
+		super(origem, destino, data, hora, vagas);
 		ehMunicipal = false;
 	}
 
