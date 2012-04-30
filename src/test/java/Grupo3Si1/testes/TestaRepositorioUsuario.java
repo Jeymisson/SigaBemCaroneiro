@@ -29,7 +29,6 @@ public class TestaRepositorioUsuario {
 	@Before
 	public void TestaRepositorioUsuario() throws Exception{
 		
-		System.out.println("passei aqui");
 		
 		user1 = new UsuarioSimples("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
 		user2 = new UsuarioSimples("jey","12","Jeymilson","Campina Grande - bodocongó","jey@gmail.com");
@@ -135,7 +134,6 @@ public class TestaRepositorioUsuario {
 	public void TestagetUserPorId(){
 		
 		try {
-			System.out.println(rep1.getUserPorId(user1.getUserID()));
 			Assert.assertTrue(rep1.getUserPorId(user1.getUserID()).equals(user1));			
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
@@ -306,7 +304,6 @@ public class TestaRepositorioUsuario {
 		
 		AbstractMap<String, Usuario> repTeste = rep1.getRepositorio();
 		AbstractMap<String, Usuario> repTeste2 = null;
-		System.out.println("Tamanho do rep1 antes de setar "+rep1.getRepositorio().size());
 		Assert.assertEquals(repTeste, rep1.getRepositorio());
 		
 		UsuarioSimples user6, user7, user8, user9, user10, user11,user12;
@@ -328,17 +325,7 @@ public class TestaRepositorioUsuario {
 		rep1.addUser(user10.getLogin(), user10);
 		rep1.addUser(user11.getLogin(), user11);
 		rep1.addUser(user12.getLogin(), user12);
-			
-		//Erro aqui, nao esta setando pra um mapa null
-		//rep1.setRepositorio(repTeste2);
-		System.out.println("Tamanho do rep1 dps de setar "+rep1.getRepositorio().size());
-		
-		//Assert.assertFalse(repTeste2.equals(repTeste));
-		
-		//Assert.assertEquals(repTeste2, rep1.getRepositorio());
-		
-		
-		
+	
 	}
 	
 	@Test
