@@ -72,7 +72,7 @@ public class ControladorDeNegociacoes {
 	}
 
 	public void removerSolicitacaoAceita(NegociacaoDePontoDeEncontro solicitacao){
-		solicitacoesDeCarona.remove(solicitacao);
+		solicitacoesPendentes.values().remove(solicitacao);
 	}
 
 	public String addSolicitacaoDeCarona(String idSessao, String idCarona, String ponto) throws PontoInvalidoException {
@@ -108,6 +108,19 @@ public class ControladorDeNegociacoes {
 		return solicitacao;
 
 	}
+	
+	public NegociacaoDePontoDeEncontro getSolicitacaoPendentePorId(String idSolicitacao) {
+
+		Iterator<NegociacaoDePontoDeEncontro> solicitacoesIt = solicitacoesPendentes.values().iterator();
+		NegociacaoDePontoDeEncontro solicitacao = null;
+		while(solicitacoesIt.hasNext()){
+			NegociacaoDePontoDeEncontro nextSolicitacao = solicitacoesIt.next();
+			if(idSolicitacao.equals(nextSolicitacao.getId().toString())){
+				solicitacao = nextSolicitacao; break;
+			}
+		}
+		return solicitacao;
+	}	
 
 	public String getAtributoSolicitacao(String idSolicitacao, String atributo)throws Exception{
 

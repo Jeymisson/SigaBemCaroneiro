@@ -144,7 +144,7 @@ public class SigaBemController {
 	}
 
 	public void rejeitarSolicitacao(String idSessao, String idSolicitacao) throws SolicaticaoInexistenteException{
-		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPorId(idSolicitacao);
+		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
 		
 		controladorDeNegociacoes.removerSolicitacaoAceita(solicitacao);
@@ -152,7 +152,7 @@ public class SigaBemController {
 
 	}
 	public void aceitarSolicitacaoPontoEncontro(String idSessao, String idSolicitacao) throws Exception{
-		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPorId(idSolicitacao);
+		NegociacaoDePontoDeEncontro solicitacao = controladorDeNegociacoes.getSolicitacaoPendentePorId(idSolicitacao);
 		if(solicitacao == null) throw new SolicaticaoInexistenteException();
 		
 		Usuario usuarioDonoDaSolicitacao = rep.getUserPorId(solicitacao.getIdSessao());
