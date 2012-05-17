@@ -1,143 +1,143 @@
-<Grupo3Si1.handles.ControladorDeNegociacoes>
+<grupo3si.server.model.ControladorDeNegociacoes>
   <sugestoesPontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
       <idSessao>9</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Hiper Bompreco</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>1</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>16</idCarona>
       <idSessao>9</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Hiper Bompreco</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>4</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>26</idCarona>
       <idSessao>14</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>[Acude Velho;Hiper Bompreco]</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>9</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </sugestoesPontoDeEncontro>
   <respostasSugestaoPontoEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
       <idSessao>8</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>2</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>16</idCarona>
       <idSessao>8</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>5</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </respostasSugestaoPontoEncontro>
   <solicitacoesDeCarona>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>15</idCarona>
       <idSessao>9</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho</nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>3</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>21</idCarona>
       <idSessao>11</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>7</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>22</idCarona>
       <idSessao>11</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>8</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>26</idCarona>
       <idSessao>14</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>10</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>31</idCarona>
       <idSessao>16</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>11</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
-    <Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
       <idCarona>32</idCarona>
       <idSessao>16</idSessao>
       <pontosDeEncontro>
-        <Grupo3Si1.handles.PontoDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
-        </Grupo3Si1.handles.PontoDeEncontro>
+        </grupo3si.server.model.PontoDeEncontro>
       </pontosDeEncontro>
       <id>12</id>
-    </Grupo3Si1.handles.NegociacaoDePontoDeEncontro>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </solicitacoesDeCarona>
   <solicitacoesPendentes class="tree-map"/>
   <solicitacoesConfirmadas class="tree-map">
     <entry>
       <string>10</string>
-      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro[2]"/>
+      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[2]"/>
     </entry>
     <entry>
       <string>13</string>
-      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro[4]"/>
+      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[4]"/>
     </entry>
     <entry>
       <string>15</string>
-      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro[6]"/>
+      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[6]"/>
     </entry>
     <entry>
       <string>8</string>
-      <Grupo3Si1.handles.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/Grupo3Si1.handles.NegociacaoDePontoDeEncontro"/>
+      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro"/>
     </entry>
   </solicitacoesConfirmadas>
-</Grupo3Si1.handles.ControladorDeNegociacoes>
+</grupo3si.server.model.ControladorDeNegociacoes>

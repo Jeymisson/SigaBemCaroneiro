@@ -10,7 +10,7 @@
         <historicoEmVagasDeCaronas class="linked-list">
           <Carona>
             <origem>Campina Grande</origem>
-            <destino>João Pessoa</destino>
+            <destino>JoÃ£o Pessoa</destino>
             <data>02/06/2012</data>
             <hora>12:00</hora>
             <vagas>2</vagas>
@@ -19,7 +19,7 @@
           </Carona>
           <Carona>
             <origem>Campina Grande</origem>
-            <destino>João Pessoa</destino>
+            <destino>JoÃ£o Pessoa</destino>
             <data>04/06/2012</data>
             <hora>16:00</hora>
             <vagas>1</vagas>
