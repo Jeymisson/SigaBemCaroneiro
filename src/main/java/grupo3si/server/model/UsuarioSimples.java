@@ -156,7 +156,7 @@ public class UsuarioSimples implements Usuario {
 	 * metodo que cadatra uma carona municipal no usuario.
 	 */
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
-		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade,false);
+		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade,true);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
@@ -242,6 +242,9 @@ public class UsuarioSimples implements Usuario {
 	public String getSenha() {
 		return senha;
 	}
+	public boolean cheksenha(String senha){
+		return this.senha ==senha?true:false;
+	}
 
 	public Integer getCaronafaltosas() {
 		return perfil.getCaronaFaltosas();
@@ -265,6 +268,11 @@ public class UsuarioSimples implements Usuario {
 
 	public Integer getPresencaEmVagaDeCarona() {
 		return perfil.getPresencaEmVagaDeCarona();
+	}
+
+	public boolean checkSenha(String senha) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 

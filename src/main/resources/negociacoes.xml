@@ -1,8 +1,8 @@
 <grupo3si.server.model.ControladorDeNegociacoes>
   <sugestoesPontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>15</idCarona>
-      <idSessao>9</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho</nome>
@@ -13,34 +13,11 @@
       </pontosDeEncontro>
       <id>1</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
-    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>16</idCarona>
-      <idSessao>9</idSessao>
-      <pontosDeEncontro>
-        <grupo3si.server.model.PontoDeEncontro>
-          <nome>Acude Velho</nome>
-        </grupo3si.server.model.PontoDeEncontro>
-        <grupo3si.server.model.PontoDeEncontro>
-          <nome>Hiper Bompreco</nome>
-        </grupo3si.server.model.PontoDeEncontro>
-      </pontosDeEncontro>
-      <id>4</id>
-    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
-    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>26</idCarona>
-      <idSessao>14</idSessao>
-      <pontosDeEncontro>
-        <grupo3si.server.model.PontoDeEncontro>
-          <nome>[Acude Velho;Hiper Bompreco]</nome>
-        </grupo3si.server.model.PontoDeEncontro>
-      </pontosDeEncontro>
-      <id>9</id>
-    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </sugestoesPontoDeEncontro>
   <respostasSugestaoPontoEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>15</idCarona>
-      <idSessao>8</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
@@ -49,8 +26,8 @@
       <id>2</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>16</idCarona>
-      <idSessao>8</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho;Parque da Crianca</nome>
@@ -61,8 +38,8 @@
   </respostasSugestaoPontoEncontro>
   <solicitacoesDeCarona>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>15</idCarona>
-      <idSessao>9</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome>Acude Velho</nome>
@@ -71,8 +48,8 @@
       <id>3</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>21</idCarona>
-      <idSessao>11</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
@@ -81,8 +58,8 @@
       <id>7</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>22</idCarona>
-      <idSessao>11</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
@@ -91,8 +68,8 @@
       <id>8</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>26</idCarona>
-      <idSessao>14</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
@@ -101,8 +78,8 @@
       <id>10</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>31</idCarona>
-      <idSessao>16</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
@@ -111,8 +88,8 @@
       <id>11</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
     <grupo3si.server.model.NegociacaoDePontoDeEncontro>
-      <idCarona>32</idCarona>
-      <idSessao>16</idSessao>
+      <idCarona></idCarona>
+      <idSessao></idSessao>
       <pontosDeEncontro>
         <grupo3si.server.model.PontoDeEncontro>
           <nome></nome>
@@ -121,23 +98,11 @@
       <id>12</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </solicitacoesDeCarona>
-  <solicitacoesPendentes class="tree-map"/>
-  <solicitacoesConfirmadas class="tree-map">
+  <solicitacoesPendentes class="tree-map">
     <entry>
-      <string>10</string>
-      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[2]"/>
-    </entry>
-    <entry>
-      <string>13</string>
-      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[4]"/>
-    </entry>
-    <entry>
-      <string>15</string>
+      <string></string>
       <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[6]"/>
     </entry>
-    <entry>
-      <string>8</string>
-      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro"/>
-    </entry>
-  </solicitacoesConfirmadas>
+  </solicitacoesPendentes>
+  <solicitacoesConfirmadas class="tree-map"/>
 </grupo3si.server.model.ControladorDeNegociacoes>

@@ -23,6 +23,8 @@ public interface Usuario {
 		 * Metodo acessor para nome
 		 * @return O nome
 		 */
+		public boolean cheksenha(String senha);
+		
 		public String getNome();
 		/**
 		 * Metodo responsavel por definir um novo valor para login

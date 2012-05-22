@@ -194,7 +194,7 @@ public class TestaUsuario {
 		user2.setEmail("Coisinha@gmail");
 		Assert.assertSame("Coisinha@gmail", user2.getEmail());
 	}
-	
+/*	
 	@Test
 	public void TestaGetSenha(){
 		Assert.assertTrue(user1.getSenha().equals("1"));
@@ -232,6 +232,7 @@ public class TestaUsuario {
 		Assert.assertSame("si", user2.getSenha());
 	}
 	
+*/
 	@Test
 	public void TestaEndereco(){
 		Assert.assertTrue(user1.getEndereco().equals("Campina Grande - centro"));
