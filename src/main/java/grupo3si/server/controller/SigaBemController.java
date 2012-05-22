@@ -113,9 +113,33 @@ public class SigaBemController {
 		if(AtributosDeCarona.PONTO_DE_ENCONTRO.getatribute().equalsIgnoreCase(atributo)){
 			return controladorDeNegociacoes.getPontosDeEmbarque(idCarona);
 		}
-
 		Carona carona = rep.getCarona(idCarona);
-		return carona.getAtributo(atributo);
+		if(atributo == null || atributo.equals("")){
+			throw new InvalidAtributeException();
+		}
+		
+		String resp = null;
+		
+		if(this == null){
+			throw new InexistenteItemException();
+		}
+
+		if (AtributosDeCarona.ORIGEM.getatribute().equalsIgnoreCase(atributo)) {
+			resp = carona.getOrigem();
+		} else if (AtributosDeCarona.DATA.getatribute().equalsIgnoreCase(atributo)) {
+			resp = carona.getData();
+		} else if (AtributosDeCarona.DESTINO.getatribute().equalsIgnoreCase(atributo)) {
+			resp = carona.getDestino();
+		}else if (AtributosDeCarona.VAGA.getatribute().equalsIgnoreCase(atributo)) {
+			resp = String.valueOf(carona.getVagas());
+		}else if(AtributosDeCarona.HORA.getatribute().equalsIgnoreCase(atributo)) {
+			resp = String.valueOf(carona.getHora());
+		}else if(AtributosDeCarona.EHMUNICIPAL.getatribute().equalsIgnoreCase(atributo)){
+			resp = carona.ehMunicipal()+"";
+		}else
+			throw new InexistentAtributeException();
+
+		return resp;
 
 	}
 	/**

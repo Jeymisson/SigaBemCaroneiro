@@ -30,9 +30,9 @@ public class TestaCarona {
 		user3 =  new UsuarioSimples("JeymissonOliveira", "00000", "jeymisson Oliveira", "Rua: Aqui perto do posto", "jeymisson@gmail.com");
 		
 		//Cria caronas validas
-		carona1 = new CaronaSimples("Campina grande", "Joao Pessoa", "19/11/2021", "13:00", 5);
-		carona2 = new CaronaSimples("Recife", "Natal", "19/11/2022", "22:00", 3);
-		carona3 = new CaronaSimples("Rio Grande do sul", "Conxixola", "19/11/2023", "19:00", 1);
+		carona1 = new CaronaSimples("Campina grande", "Joao Pessoa", "19/11/2021", "13:00", 5,false);
+		carona2 = new CaronaSimples("Recife", "Natal", "19/11/2022", "22:00", 3,false);
+		carona3 = new CaronaSimples("Rio Grande do sul", "Conxixola", "19/11/2023", "19:00", 1,false);
 	}
 	@Test
 	public void construtorTest() throws Exception {
@@ -41,7 +41,7 @@ public class TestaCarona {
 		
 		// Origem = null, esperado: "Origem inválida".
  		try{
-			new CaronaSimples(null, "Joao Pessoa", "19/10/2012", "12:00", 5);
+			new CaronaSimples(null, "Joao Pessoa", "19/10/2012", "12:00", 5,false);
 			fail("Teste de Origem = null falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Origem inválida", e.getMessage());
@@ -49,7 +49,7 @@ public class TestaCarona {
 		
 		//Origem = vazio, esperado: "Origem inválida".
 		try{
-			new CaronaSimples("", "Joao Pessoa", "19/10/2012", "12:00", 5);
+			new CaronaSimples("", "Joao Pessoa", "19/10/2012", "12:00", 5,false);
 			fail("Teste de Origem = vazio falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Origem inválida", e.getMessage());
@@ -57,7 +57,7 @@ public class TestaCarona {
 		
 		//Origem = Só espaços vazios, esperado: "Origem inválida".
 		try{
-			new CaronaSimples("            ", "Campina Grande", "19/10/2012", "12:00", 5);
+			new CaronaSimples("            ", "Campina Grande", "19/10/2012", "12:00", 5,false);
 			fail("Teste de Origem = Só espaços vazios falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Origem inválida", e.getMessage());
@@ -65,7 +65,7 @@ public class TestaCarona {
 		
 		//Origem =  2 5 7, esperado: "Origem inválida".
 		try{
-			new CaronaSimples(" 2 5 7", "Campina Grande", "19/05/2012", "12:00", 5);
+			new CaronaSimples(" 2 5 7", "Campina Grande", "19/05/2012", "12:00", 5,false);
 			//fail("Teste de Origem = 2 5 7 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Origem inválida", e.getMessage());
@@ -73,7 +73,7 @@ public class TestaCarona {
 		
 		//Origem =  ()*/, esperado: "Origem inválida".
 		try{
-			new CaronaSimples("()*/", "Campina Grande", "19/05/2012", "12:00", 5);
+			new CaronaSimples("()*/", "Campina Grande", "19/05/2012", "12:00", 5,false);
 			//fail("Teste de Origem = 2 5 7 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Origem inválida", e.getMessage());
@@ -86,7 +86,7 @@ public class TestaCarona {
 	
 		// Destino = null, esperado: "Destino inválida".
  		try{
-			new CaronaSimples("Joao Pessoa", null, "19/10/2012", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", null, "19/10/2012", "12:00", 5,false);
 			fail("Teste de Destino = null falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Destino inválido", e.getMessage());
@@ -94,7 +94,7 @@ public class TestaCarona {
 		
 		//Destino = vazio, esperado: "Destino inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "", "19/10/2012", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "", "19/10/2012", "12:00", 5,false);
 			fail("Teste de Destino = vazio falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Destino inválido", e.getMessage());
@@ -102,7 +102,7 @@ public class TestaCarona {
 		
 		//Destino = Só espaços vazios, esperado: "Destino inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "            ", "19/10/2012", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "            ", "19/10/2012", "12:00", 5,false);
 			fail("Teste de Destino = Só espaços vazios falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Destino inválido", e.getMessage());
@@ -110,7 +110,7 @@ public class TestaCarona {
 		
 		//Destino =  2 5 7, esperado: "Destino inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "  2 5 7", "19/05/2012", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "  2 5 7", "19/05/2012", "12:00", 5,false);
 			//fail("Teste de Destino = 2 5 7 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Destino inválido", e.getMessage());
@@ -118,7 +118,7 @@ public class TestaCarona {
 		
 		//Destino =  ()*/, esperado: "Destino inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "()*/", "19/05/2012", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "()*/", "19/05/2012", "12:00", 5,false);
 			//fail("Teste de Destino = 2 5 7 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Destino inválido", e.getMessage());
@@ -130,7 +130,7 @@ public class TestaCarona {
 		
 		// Data = null, esperado: "Data inválida".
  		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", null, "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", null, "12:00", 5,false);
 			fail("Teste de data = null falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -138,7 +138,7 @@ public class TestaCarona {
 		
 		//Data = vazio, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "", "12:00", 5,false);
 			fail("Teste de Data = vazio falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -146,7 +146,7 @@ public class TestaCarona {
 		
 		//Data = Só espaços vazios, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "        ", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "        ", "12:00", 5,false);
 			fail("Teste de Data = Só espaços vazios falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -154,7 +154,7 @@ public class TestaCarona {
 		
 		//Data =  2 5 7, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "2 5 7", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "2 5 7", "12:00", 5,false);
 			fail("Teste de Data = 2 5 7 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -162,7 +162,7 @@ public class TestaCarona {
 		
 		//Data =  ()*/, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "()*/", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "()*/", "12:00", 5,false);
 			fail("Teste de Data = ()*/ falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -170,7 +170,7 @@ public class TestaCarona {
 		
 		//Data =  19/122010, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/122010", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/122010", "12:00", 5,false);
 			fail("Teste de Data = 19/122010 falhou! - linha 155");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -178,7 +178,7 @@ public class TestaCarona {
 
 		//Data =  19122010, esperado: "Data inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19122010", "12:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19122010", "12:00", 5,false);
 			fail("Teste de Data = 19122010 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Data inválida", e.getMessage());
@@ -189,7 +189,7 @@ public class TestaCarona {
 		
 		//Hora =  null, esperado: "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", null, 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", null, 5,false);
 			fail("Teste de Hora = null falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -197,7 +197,7 @@ public class TestaCarona {
 
 		//Hora =  vazio, esperado: "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "", 5,false);
 			fail("Teste de Hora = vazio falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -205,7 +205,7 @@ public class TestaCarona {
 		
 		//Hora =  Só espaços vazios, esperado: "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "        ", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "        ", 5,false);
 			fail("Teste de Hora = Só espaços vazios falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -213,7 +213,7 @@ public class TestaCarona {
 		
 		//Hora = 191:00 : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "191:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "191:00", 5, false);
 			fail("Teste de Hora = 191:00 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -221,7 +221,7 @@ public class TestaCarona {
 
 		//Hora = 25:00 : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "25:00", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "25:00", 5, false);
 			fail("Teste de Hora = 25:00 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -229,7 +229,7 @@ public class TestaCarona {
 		
 		//Hora = 01:121 : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:121", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:121", 5, false);
 			fail("Teste de Hora = 01:121 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -237,7 +237,7 @@ public class TestaCarona {
 		
 		//Hora = 01:60 : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:60", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:60", 5, false);
 			fail("Teste de Hora = 01:60 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -245,7 +245,7 @@ public class TestaCarona {
 
 		//Hora = 01:NILL : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:NILL", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:NILL", 5, false);
 			fail("Teste de Hora = 01:NILL falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -253,7 +253,7 @@ public class TestaCarona {
 		
 		//Hora = 0100 : "Hora inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "0100", 5);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "0100", 5, false);
 			fail("Teste de Hora = 0100 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Hora inválida", e.getMessage());
@@ -263,7 +263,8 @@ public class TestaCarona {
 
 		//Vaga = null : "Vaga inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", null);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", null, false);
+			
 			fail("Teste de Vaga = null falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Vaga inválida", e.getMessage());
@@ -271,7 +272,7 @@ public class TestaCarona {
 
 		//Vaga = 0 : "Vaga inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", 0);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", 0, false);
 			fail("Teste de Vaga = 0 falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Vaga inválida", e.getMessage());
@@ -279,7 +280,7 @@ public class TestaCarona {
 
 		//Vaga = -1 : "Vaga inválida".
 		try{
-			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", -1);
+			new CaronaSimples("Joao Pessoa", "Campina grande", "19/12/2015", "01:00", -1, false);
 			fail("Teste de Vaga = Só espaços vazio falhou!");
 		}catch (Exception e){
 			Assert.assertEquals("Vaga inválida", e.getMessage());
@@ -309,7 +310,7 @@ public class TestaCarona {
 		
 		
 		//cria carona para comparar com carona3
-		Carona carona = new CaronaSimples("Rio Grande do sul", "Coxixola", "19/11/2023", "19:00", 1);
+		Carona carona = new CaronaSimples("Rio Grande do sul", "Coxixola", "19/11/2023", "19:00", 1, false);
 			
 		
 			//getTrajeto()

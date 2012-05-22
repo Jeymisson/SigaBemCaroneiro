@@ -42,13 +42,6 @@ public interface Carona {
 	 */
 	public String getCarona();
 	/**
-	 * Retorna valor do atributo escolhido
-	 * @param atributo O atributo
-	 * @return O valor armazenado no atributo
-	 * @throws Exception Excecao de atributo invalido
-	 */
-	public String getAtributo(String atributo)throws Exception;
-	/**
 	 * Diminui uma vaga na carona
 	 */
 	public void preencheVagas();
@@ -58,4 +51,6 @@ public interface Carona {
 	 * @return True caso sejam iguais ou False caso contrario
 	 */
 	public boolean equals(Carona carona);
+	
+	public boolean ehMunicipal();
 }

@@ -7,6 +7,7 @@ public abstract class CaronaAbstract implements Carona {
 	String origem, destino, data, hora;
 	Integer vagas;
 	int id;
+	boolean ehMunicipal;
 	
 	/**
 	 * Construtor de Carona
@@ -17,7 +18,7 @@ public abstract class CaronaAbstract implements Carona {
 	 * @param vagas A quantidade de vagas
 	 * @throws Exception Excecao caso os dados inseridos sejam invalidos
 	 */
-	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas) throws Exception{
+	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas,boolean ehMunicipal) throws Exception{
 		
 		verificaDados(origem, destino, data, hora, vagas);
 		
@@ -28,12 +29,17 @@ public abstract class CaronaAbstract implements Carona {
 		this.hora = hora;
 		this.vagas = vagas;
 		this.id = contador;
+		this.ehMunicipal = ehMunicipal;
 	}
 	/**
 	 * Verifica se a carona eh do tipo municipal
 	 * @return True caso a carona seja municipal e False caso contrario
 	 */
-	public abstract boolean ehMunicipal();
+
+	public boolean ehMunicipal() {
+		return ehMunicipal;
+
+	}
 	
 
 	//Metodos Get's
@@ -98,41 +104,6 @@ public abstract class CaronaAbstract implements Carona {
 	public String getCarona() {
 		return this.getOrigem() + " para " + this.getDestino() + ", no dia " + this.getData() + ", as " + this.getHora();
 	}
-
-	/**
-	 * Retorna o atributo pedido da carona
-	 */
-	public String getAtributo(String atributo) throws Exception {
-		
-		if(atributo == null || atributo.equals("")){
-			throw new InvalidAtributeException();
-		}
-		
-		String resp = null;
-		
-		if(this == null){
-			throw new InexistenteItemException();
-		}
-
-		if (AtributosDeCarona.ORIGEM.getatribute().equalsIgnoreCase(atributo)) {
-			resp = getOrigem();
-		} else if (AtributosDeCarona.DATA.getatribute().equalsIgnoreCase(atributo)) {
-			resp = getData();
-		} else if (AtributosDeCarona.DESTINO.getatribute().equalsIgnoreCase(atributo)) {
-			resp = getDestino();
-		}else if (AtributosDeCarona.VAGA.getatribute().equalsIgnoreCase(atributo)) {
-			resp = String.valueOf(getVagas());
-		}else if(AtributosDeCarona.HORA.getatribute().equalsIgnoreCase(atributo)) {
-			resp = String.valueOf(getHora());
-		}else if(AtributosDeCarona.EHMUNICIPAL.getatribute().equalsIgnoreCase(atributo)){
-			resp = ehMunicipal()+"";
-		}else
-			throw new InexistentAtributeException();
-
-		return resp;
-	}
-
-
 
 	/**
 	 * Diminui em 1 o numero de vagas na carona

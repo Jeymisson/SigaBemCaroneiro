@@ -3,7 +3,7 @@ package grupo3si.server.model;
 public class CaronaMunicipal extends CaronaAbstract {
 
 	boolean ehMunicipal = false;
-	String cidade;
+	private String cidade;
 	/**
 	 * Construtor de uma carona do tipo Municipal
 	 * @param origem A origem
@@ -14,18 +14,15 @@ public class CaronaMunicipal extends CaronaAbstract {
 	 * @param cidade A cidade
 	 * @throws Exception Excecao caso dados invavalidos sejam passados
 	 */
-	public CaronaMunicipal(String origem, String destino, String data,String hora, Integer vagas, String cidade) throws Exception {
-		super(origem, destino, data, hora, vagas);
-		ehMunicipal = true;
-		this.cidade = cidade;
+	public CaronaMunicipal(String origem, String destino, String data,String hora, Integer vagas, String cidade,boolean ehMunicipal) throws Exception {
+		super(origem, destino, data, hora, vagas, ehMunicipal);
+		this.setCidade(cidade);
 	}
-	/**
-	 * Verificador de tipo de carona
-	 * @return True caso a carona seja Municipal e False caso contrario
-	 */
-	@Override
-	public boolean ehMunicipal() {
-		return ehMunicipal;
+	public String getCidade() {
+		return cidade;
+	}
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
 	}
 
 }

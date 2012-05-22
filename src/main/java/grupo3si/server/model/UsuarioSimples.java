@@ -148,7 +148,7 @@ public class UsuarioSimples implements Usuario {
 	 * metodo que cadastra uma carona no usuario.
 	 */
 	public int cadastraCarona(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
-		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas);
+		Carona carona = new CaronaSimples(origem,destino,data,hora,vagas,false);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
@@ -156,7 +156,7 @@ public class UsuarioSimples implements Usuario {
 	 * metodo que cadatra uma carona municipal no usuario.
 	 */
 	public int cadastraCarona(String idSessao, String origem,String destino, String cidade,String data,String hora,String vagas) throws Exception{
-		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade);
+		Carona carona = new CaronaMunicipal(origem, destino, data, hora, Integer.valueOf(vagas), cidade,false);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}

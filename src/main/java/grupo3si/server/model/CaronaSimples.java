@@ -12,20 +12,10 @@ public class CaronaSimples extends CaronaAbstract {
 	 * @param vagas A quantidade de vagas
 	 * @throws Exception Excecao caso sejam passados dados invalidos
 	 */
-	public CaronaSimples(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
-		super(origem, destino, data, hora, vagas);
-		ehMunicipal = false;
-	}
+	public CaronaSimples(String origem, String destino, String data, String hora, Integer vagas,boolean ehMunicipal) throws Exception {
+		super(origem, destino, data, hora, vagas,ehMunicipal);
 
-	/**
-	 * Verificador do tipo de carona 
-	 * @return Retorna True caso a carona seja municipal e False caso contrario
-	 */
-	@Override
-	public boolean ehMunicipal() {
-		return ehMunicipal;
 	}
-	
 
 }
 
