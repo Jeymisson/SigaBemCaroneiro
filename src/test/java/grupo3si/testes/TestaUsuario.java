@@ -4,7 +4,6 @@ import grupo3si.server.model.InvalidEmailException;
 import grupo3si.server.model.InvalidLoginException;
 import grupo3si.server.model.InvalidNameException;
 import grupo3si.server.model.Usuario;
-import grupo3si.server.model.UsuarioSimples;
 import junit.framework.Assert;
 
 import org.junit.Before;
@@ -18,24 +17,24 @@ public class TestaUsuario {
 	
 	@Before
 	public void TestaUsuario() throws Exception{
-		user1 = new UsuarioSimples("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
-		user2 = new UsuarioSimples("jey","12","Jeymilson","Campina Grande - bodocongó","jey@gmail.com");
-		user3 = new UsuarioSimples("jojo","123","Jordão","Campina Grande - bodocongó","jordao@gmail.com");
-		user4 = new UsuarioSimples("thix","1234","Thiago","Campina Grande - fofex","thiago@gmail.com");
-		user5 = new UsuarioSimples("cabeca","12345","Irvile","Campina Grande - centro","irvile@gmail.com");
+		user1 = new Usuario("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
+		user2 = new Usuario("jey","12","Jeymilson","Campina Grande - bodocongó","jey@gmail.com");
+		user3 = new Usuario("jojo","123","Jordão","Campina Grande - bodocongó","jordao@gmail.com");
+		user4 = new Usuario("thix","1234","Thiago","Campina Grande - fofex","thiago@gmail.com");
+		user5 = new Usuario("cabeca","12345","Irvile","Campina Grande - centro","irvile@gmail.com");
 	}
 	
 	@Test
 	
 	public void TestaLoginInvalido() throws Exception{
 		try {
-			userInvalido = new UsuarioSimples(null, "123", "Fulano", "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario(null, "123", "Fulano", "sem casa", "zeNinguem@bol.com");
 		} catch (InvalidLoginException e) {
 			Assert.assertEquals("Login inválido", e.getMessage());
 		}
 		
 		try {
-			userInvalido = new UsuarioSimples("", "123", "Fulano", "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario("", "123", "Fulano", "sem casa", "zeNinguem@bol.com");
 		} catch (InvalidLoginException e) {
 			Assert.assertEquals("Login inválido", e.getMessage());
 		}
@@ -47,14 +46,14 @@ public class TestaUsuario {
 	@Test
 	public void TestaNomeInvalido() throws Exception{
 		try {
-			userInvalido = new UsuarioSimples("fulano123", "1", "", "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario("fulano123", "1", "", "sem casa", "zeNinguem@bol.com");
 			
 		} catch (InvalidNameException e) {
 			Assert.assertEquals("Nome inválido", e.getMessage());
 		}
 		
 		try {
-			userInvalido = new UsuarioSimples("fulano123", "12", null, "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario("fulano123", "12", null, "sem casa", "zeNinguem@bol.com");
 		} catch (Exception e) {
 			
 			Assert.assertEquals("Nome inválido", e.getMessage());
@@ -65,20 +64,20 @@ public class TestaUsuario {
 	@Test
 	public void TestaEmailInvalido() throws Exception{
 		try {
-			userInvalido = new UsuarioSimples("fulano123", "123", "Fulano", "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario("fulano123", "123", "Fulano", "sem casa", "zeNinguem@bol.com");
 		} catch (InvalidEmailException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
 		
 		try {
-			userInvalido = new UsuarioSimples("fulano123", "1234", "Fulano", "sem casa", "zeNinguem@bol.com");
-			UsuarioSimples userInvalido2 = new UsuarioSimples("fuu", "1200e", "SeiLa", "sem casa", "zeNinguem@bol.com");
+			userInvalido = new Usuario("fulano123", "1234", "Fulano", "sem casa", "zeNinguem@bol.com");
+			Usuario userInvalido2 = new Usuario("fuu", "1200e", "SeiLa", "sem casa", "zeNinguem@bol.com");
 		} catch (InvalidEmailException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
 		
 		try {
-			userInvalido = new UsuarioSimples("fulano123", "123", "Fulano", "sem casa", "");
+			userInvalido = new Usuario("fulano123", "123", "Fulano", "sem casa", "");
 		} catch (InvalidEmailException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
@@ -273,14 +272,14 @@ public class TestaUsuario {
 	
 	@Test
 	public void TestaEquals() throws Exception{
-		UsuarioSimples userTeste = new UsuarioSimples("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste2 = new UsuarioSimples("fulano","1","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste3 = new UsuarioSimples("luucas","123","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste4 = new UsuarioSimples("luucas","1","Cigrano","Campina Grande - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste5 = new UsuarioSimples("luucas","1","Lucas","Itabaiana - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste6 = new UsuarioSimples("luucas","1","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
-		UsuarioSimples userTeste7 = new UsuarioSimples("luucas","1","Lucas","Campina Grande - centro","seila@gmail.com");
-		UsuarioSimples userTeste8 = new UsuarioSimples("chaves","asasasas","kakaka","Terra do nunca","google@gmail.com");
+		Usuario userTeste = new Usuario("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste2 = new Usuario("fulano","1","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste3 = new Usuario("luucas","123","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste4 = new Usuario("luucas","1","Cigrano","Campina Grande - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste5 = new Usuario("luucas","1","Lucas","Itabaiana - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste6 = new Usuario("luucas","1","Lucas","Campina Grande - centro","lucas.ufcg@gmail.com");
+		Usuario userTeste7 = new Usuario("luucas","1","Lucas","Campina Grande - centro","seila@gmail.com");
+		Usuario userTeste8 = new Usuario("chaves","asasasas","kakaka","Terra do nunca","google@gmail.com");
 		
 		Assert.assertTrue(userTeste.equals(user1));
 		Assert.assertFalse(userTeste2.equals(user1));

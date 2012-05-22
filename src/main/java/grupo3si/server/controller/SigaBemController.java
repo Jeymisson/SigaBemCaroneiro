@@ -1,30 +1,6 @@
 package grupo3si.server.controller;
 
-import grupo3si.server.model.AtributosDeCarona;
-import grupo3si.server.model.AtributosDePerfil;
-import grupo3si.server.model.Carona;
-import grupo3si.server.model.CaronaInexistenteException;
-import grupo3si.server.model.CaronaInvalidaException;
-import grupo3si.server.model.ControladorDeNegociacoes;
-import grupo3si.server.model.GerenciaDadosEmXML;
-import grupo3si.server.model.IdentificadorCaronaInvalidoException;
-import grupo3si.server.model.InexistentAtributeException;
-import grupo3si.server.model.InexistenteItemException;
-import grupo3si.server.model.InvalidAtributeException;
-import grupo3si.server.model.InvalidLoginException;
-import grupo3si.server.model.NaoPossuiVagasException;
-import grupo3si.server.model.NegociacaoDePontoDeEncontro;
-import grupo3si.server.model.PontoDeEncontro;
-import grupo3si.server.model.PontoInvalidoException;
-import grupo3si.server.model.RepositorioDeUsuarios;
-import grupo3si.server.model.SessaoInexistenteException;
-import grupo3si.server.model.SessaoInvalidaException;
-import grupo3si.server.model.SolicaticaoInexistenteException;
-import grupo3si.server.model.TrajetoInexistenteException;
-import grupo3si.server.model.TrajetoInvalidoException;
-import grupo3si.server.model.Usuario;
-import grupo3si.server.model.UsuarioSimples;
-import grupo3si.server.model.VagaInvalidaException;
+import grupo3si.server.model.*;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -66,7 +42,7 @@ public class SigaBemController {
 			String endereco, String email)throws Exception{
 
 
-		user = new UsuarioSimples(login, senha, nome, endereco, email);
+		user = new Usuario(login, senha, nome, endereco, email);
 		rep.addUser(login, user);
 
 	}

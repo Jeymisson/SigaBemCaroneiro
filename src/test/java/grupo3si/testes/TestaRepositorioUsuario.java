@@ -2,7 +2,7 @@ package grupo3si.testes;
 
 import grupo3si.server.model.RepositorioDeUsuarios;
 import grupo3si.server.model.Usuario;
-import grupo3si.server.model.UsuarioSimples;
+import grupo3si.server.model.Usuario;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ import org.junit.Test;
 public class TestaRepositorioUsuario {
 	
 	private RepositorioDeUsuarios rep1=RepositorioDeUsuarios.getInstance();
-	private UsuarioSimples user1 ,user2,user3,user4,user5;
+	private Usuario user1 ,user2,user3,user4,user5;
 	
 	
 	@After
@@ -33,11 +33,11 @@ public class TestaRepositorioUsuario {
 	public void TestaRepositorioUsuario() throws Exception{
 		
 		
-		user1 = new UsuarioSimples("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
-		user2 = new UsuarioSimples("jey","12","Jeymilson","Campina Grande - bodocongó","jey@gmail.com");
-		user3 = new UsuarioSimples("jojo","123","Jordão","Campina Grande - bodocongó","jordao@gmail.com");
-		user4 = new UsuarioSimples("thix","1234","Thiago","Campina Grande - fofex","thiago@gmail.com");
-		user5 = new UsuarioSimples("cabeca","12345","Irvile","Campina Grande - centro","irvile@gmail.com");
+		user1 = new Usuario("luucas","1","Lucas Albuquerque","Campina Grande - centro","lucas.ufcg@gmail.com");
+		user2 = new Usuario("jey","12","Jeymilson","Campina Grande - bodocongó","jey@gmail.com");
+		user3 = new Usuario("jojo","123","Jordão","Campina Grande - bodocongó","jordao@gmail.com");
+		user4 = new Usuario("thix","1234","Thiago","Campina Grande - fofex","thiago@gmail.com");
+		user5 = new Usuario("cabeca","12345","Irvile","Campina Grande - centro","irvile@gmail.com");
 		
 		
 		
@@ -199,13 +199,13 @@ public class TestaRepositorioUsuario {
 	@Test
 	public void TestaAdicioUser() throws Exception{
 		
-		UsuarioSimples user6, user7, user8, user9, user10;
+		Usuario user6, user7, user8, user9, user10;
 		
-		user6 = new UsuarioSimples("fulano1","1","FULANO","Campina Grande - centro","fulano@gmail.com");
-		user7 = new UsuarioSimples("beltrano2","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
-		user8 = new UsuarioSimples("sicrano3","123","CICRANO","Campina Grande - bodocongó","sicrano@gmail.com");
-		user9 = new UsuarioSimples("ariolano4","1234","ARIOLANO","Campina Grande - fofex","ariolano@gmail.com");
-		user10 = new UsuarioSimples("tiririca5","12345","TIRIRICA","Campina Grande - centro","tiririca@gmail.com");
+		user6 = new Usuario("fulano1","1","FULANO","Campina Grande - centro","fulano@gmail.com");
+		user7 = new Usuario("beltrano2","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
+		user8 = new Usuario("sicrano3","123","CICRANO","Campina Grande - bodocongó","sicrano@gmail.com");
+		user9 = new Usuario("ariolano4","1234","ARIOLANO","Campina Grande - fofex","ariolano@gmail.com");
+		user10 = new Usuario("tiririca5","12345","TIRIRICA","Campina Grande - centro","tiririca@gmail.com");
 		
 		Assert.assertEquals(5,rep1.getRepositorio().size());
 		
@@ -239,15 +239,15 @@ public class TestaRepositorioUsuario {
 		AbstractMap<String, Usuario> repTeste2 = null;
 		Assert.assertEquals(repTeste, rep1.getRepositorio());
 		
-		UsuarioSimples user6, user7, user8, user9, user10, user11,user12;
+		Usuario user6, user7, user8, user9, user10, user11,user12;
 		
-		user6 = new UsuarioSimples("fulano1","1","FULANO","Campina Grande - centro","fulano@gmail.com");
-		user7 = new UsuarioSimples("beltrano2","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
-		user8 = new UsuarioSimples("sicrano3","123","CICRANO","Campina Grande - bodocongó","sicrano@gmail.com");
-		user9 = new UsuarioSimples("ariolano4","1234","ARIOLANO","Campina Grande - fofex","ariolano@gmail.com");
-		user10 = new UsuarioSimples("tiririca5","12345","TIRIRICA","Campina Grande - centro","tiririca@gmail.com");
-		user11 = new UsuarioSimples("Criolo","12345","Criolinho","Campina Grande - centro","criolo@gmail.com");
-		user12 = new UsuarioSimples("xpto","12345","XPTO","Campina Grande - centro","xpto@gmail.com");
+		user6 = new Usuario("fulano1","1","FULANO","Campina Grande - centro","fulano@gmail.com");
+		user7 = new Usuario("beltrano2","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
+		user8 = new Usuario("sicrano3","123","CICRANO","Campina Grande - bodocongó","sicrano@gmail.com");
+		user9 = new Usuario("ariolano4","1234","ARIOLANO","Campina Grande - fofex","ariolano@gmail.com");
+		user10 = new Usuario("tiririca5","12345","TIRIRICA","Campina Grande - centro","tiririca@gmail.com");
+		user11 = new Usuario("Criolo","12345","Criolinho","Campina Grande - centro","criolo@gmail.com");
+		user12 = new Usuario("xpto","12345","XPTO","Campina Grande - centro","xpto@gmail.com");
 		
 		//repTeste2.put("user6", user6);
 		
@@ -281,11 +281,11 @@ public class TestaRepositorioUsuario {
 	@Test
 	public void TestacheckDuplicatedData() throws Exception{
 		
-		UsuarioSimples user6, user7, user8;
+		Usuario user6, user7, user8;
 		
-		user6 = new UsuarioSimples("fulano1","1","FULANO","Campina Grande - centro","lucas@gmail.com");
-		user7 = new UsuarioSimples("jey","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
-		user8 = new UsuarioSimples("jojo","123","CICRANO","Campina Grande - bodocongó","jordao@gmail.com");
+		user6 = new Usuario("fulano1","1","FULANO","Campina Grande - centro","lucas@gmail.com");
+		user7 = new Usuario("jey","12","BELTRANO","Campina Grande - bodocongó","beltrano@gmail.com");
+		user8 = new Usuario("jojo","123","CICRANO","Campina Grande - bodocongó","jordao@gmail.com");
 		
 		
 		 try {

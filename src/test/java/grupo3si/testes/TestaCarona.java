@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 import grupo3si.server.model.Carona;
 import grupo3si.server.model.CaronaSimples;
 import grupo3si.server.model.Usuario;
-import grupo3si.server.model.UsuarioSimples;
-
 
 import org.junit.*;
 
@@ -25,9 +23,9 @@ public class TestaCarona {
 	public void TestaCarona() throws Exception{
 		
 		//Cria um usuario válido para ser usado como parametro para a carona
-		user1 =  new UsuarioSimples("ThiagoAlmeida", "12345", "Thiago Almeida", "Rua: Silva barbosa", "Thiago2010.2@gmail.com");
-		user2 =  new UsuarioSimples("JordaoEzequiel", "11111", "Jordao Ezequiel", "Pedregal", "jordaogalk@gmail.com");
-		user3 =  new UsuarioSimples("JeymissonOliveira", "00000", "jeymisson Oliveira", "Rua: Aqui perto do posto", "jeymisson@gmail.com");
+		user1 =  new Usuario("ThiagoAlmeida", "12345", "Thiago Almeida", "Rua: Silva barbosa", "Thiago2010.2@gmail.com");
+		user2 =  new Usuario("JordaoEzequiel", "11111", "Jordao Ezequiel", "Pedregal", "jordaogalk@gmail.com");
+		user3 =  new Usuario("JeymissonOliveira", "00000", "jeymisson Oliveira", "Rua: Aqui perto do posto", "jeymisson@gmail.com");
 		
 		//Cria caronas validas
 		carona1 = new CaronaSimples("Campina grande", "Joao Pessoa", "19/11/2021", "13:00", 5,false);

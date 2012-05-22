@@ -26,7 +26,7 @@ public class GerenciaDadosEmXML {
 	 */
 	public GerenciaDadosEmXML() {
 		xstream = new XStream(new DomDriver());
-		xstream.alias("Usuario", UsuarioSimples.class);
+		xstream.alias("Usuario", Usuario.class);
 		xstream.alias("Carona", CaronaSimples.class);	
 
 	}

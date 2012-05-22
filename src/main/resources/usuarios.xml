@@ -7,11 +7,32 @@
         <endereco>Medina, Washington</endereco>
         <historicoDeCaronas class="linked-list"/>
         <email>billzin@gmail.com</email>
-        <historicoEmVagasDeCaronas class="linked-list"/>
+        <historicoEmVagasDeCaronas class="linked-list">
+          <Carona>
+            <origem>Campina Grande</origem>
+            <destino>Jo√£o Pessoa</destino>
+            <data>02/06/2012</data>
+            <hora>12:00</hora>
+            <vagas>2</vagas>
+            <id>31</id>
+            <ehMunicipal defined-in="grupo3si.server.model.CaronaAbstract">false</ehMunicipal>
+            <ehMunicipal>false</ehMunicipal>
+          </Carona>
+          <Carona>
+            <origem>Campina Grande</origem>
+            <destino>Jo√£o Pessoa</destino>
+            <data>04/06/2012</data>
+            <hora>16:00</hora>
+            <vagas>1</vagas>
+            <id>32</id>
+            <ehMunicipal defined-in="grupo3si.server.model.CaronaAbstract">false</ehMunicipal>
+            <ehMunicipal>false</ehMunicipal>
+          </Carona>
+        </historicoEmVagasDeCaronas>
         <caronasSeguras>0</caronasSeguras>
         <caronafaltosas>0</caronafaltosas>
-        <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
-        <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
+        <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
+        <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
       </perfil>
       <userID>16</userID>
       <login>bill</login>
@@ -24,7 +45,10 @@
       <perfil>
         <nome>Mark Zuckerberg</nome>
         <endereco>Palo Alto, California</endereco>
-        <historicoDeCaronas class="linked-list"/>
+        <historicoDeCaronas class="linked-list">
+          <Carona reference="../../../../../entry/Usuario/perfil/historicoEmVagasDeCaronas/Carona"/>
+          <Carona reference="../../../../../entry/Usuario/perfil/historicoEmVagasDeCaronas/Carona[2]"/>
+        </historicoDeCaronas>
         <email>mark@facebook.com</email>
         <historicoEmVagasDeCaronas class="linked-list"/>
         <caronasSeguras>0</caronasSeguras>
