@@ -6,8 +6,6 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-
-
 import easyaccept.EasyAcceptFacade;
 import grupo3si.server.controller.SigaBemController;
 
@@ -30,7 +28,6 @@ public class EasyAcceptTests extends TestCase {
 		// Instantiate the Monopoly Game facade
 		SigaBemController control = new SigaBemController();
 
-
 		EasyAcceptFacade eaFacade = new EasyAcceptFacade(control, files);
 
 		// Execute the tests
@@ -38,7 +35,6 @@ public class EasyAcceptTests extends TestCase {
 
 		// Print the tests execution results
 		System.out.println(eaFacade.getCompleteResults());
-
 
 		assertTrue(eaFacade.getTotalNumberOfNotPassedTests() == 0);
 	}

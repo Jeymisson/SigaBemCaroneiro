@@ -1,27 +1,34 @@
 package grupo3si.server.model;
 
-
 public abstract class CaronaAbstract implements Carona {
-	
+
 	static int contador = 0;
 	String origem, destino, data, hora;
 	Integer vagas;
 	int id;
 	boolean ehMunicipal;
-	
+
 	/**
 	 * Construtor de Carona
-	 * @param origem A origem
-	 * @param destino O destino
-	 * @param data A data
-	 * @param hora O horario
-	 * @param vagas A quantidade de vagas
-	 * @throws Exception Excecao caso os dados inseridos sejam invalidos
+	 * 
+	 * @param origem
+	 *            A origem
+	 * @param destino
+	 *            O destino
+	 * @param data
+	 *            A data
+	 * @param hora
+	 *            O horario
+	 * @param vagas
+	 *            A quantidade de vagas
+	 * @throws Exception
+	 *             Excecao caso os dados inseridos sejam invalidos
 	 */
-	public CaronaAbstract(String origem, String destino, String data, String hora, Integer vagas,boolean ehMunicipal) throws Exception{
-		
+	public CaronaAbstract(String origem, String destino, String data,
+			String hora, Integer vagas, boolean ehMunicipal) throws Exception {
+
 		verificaDados(origem, destino, data, hora, vagas);
-		
+
 		contador++;
 		this.origem = origem;
 		this.destino = destino;
@@ -31,8 +38,10 @@ public abstract class CaronaAbstract implements Carona {
 		this.id = contador;
 		this.ehMunicipal = ehMunicipal;
 	}
+
 	/**
 	 * Verifica se a carona eh do tipo municipal
+	 * 
 	 * @return True caso a carona seja municipal e False caso contrario
 	 */
 
@@ -40,9 +49,8 @@ public abstract class CaronaAbstract implements Carona {
 		return ehMunicipal;
 
 	}
-	
 
-	//Metodos Get's
+	// Metodos Get's
 	/**
 	 * Metodo acessor para a origem da carona
 	 */
@@ -70,20 +78,21 @@ public abstract class CaronaAbstract implements Carona {
 	public String getHora() {
 		return hora;
 	}
-	
+
 	/**
 	 * Metodo acessor para a quantidade de vagas da carona
 	 */
 	public Integer getVagas() {
 		return vagas;
 	}
+
 	/**
 	 * Metodo acessor para o id da carona
 	 */
 	public String getId() {
 		return String.valueOf(id);
 	}
-	
+
 	/**
 	 * ToString de Carona - Retorna apenas o id da carona
 	 */
@@ -102,16 +111,17 @@ public abstract class CaronaAbstract implements Carona {
 	 * String no formato: "origem" para "destino" no dia "data" as "hora"
 	 */
 	public String getCarona() {
-		return this.getOrigem() + " para " + this.getDestino() + ", no dia " + this.getData() + ", as " + this.getHora();
+		return this.getOrigem() + " para " + this.getDestino() + ", no dia "
+				+ this.getData() + ", as " + this.getHora();
 	}
 
 	/**
 	 * Diminui em 1 o numero de vagas na carona
 	 */
 	public void preencheVagas() {
-			this.vagas --;
+		this.vagas--;
 	}
-	
+
 	/**
 	 * Compara duas caronas
 	 */
@@ -147,41 +157,51 @@ public abstract class CaronaAbstract implements Carona {
 			return false;
 		return true;
 	}
-	
-	//Metodos privados
+
+	// Metodos privados
 	/**
 	 * Verifica os dados passados para instanciar uma carona
-	 * @param origem A origem
-	 * @param destino O destino
-	 * @param data A data
-	 * @param hora O horario
-	 * @param vagas A quantidade de vagas
-	 * @throws Exception Excecao caso exista dados errados
+	 * 
+	 * @param origem
+	 *            A origem
+	 * @param destino
+	 *            O destino
+	 * @param data
+	 *            A data
+	 * @param hora
+	 *            O horario
+	 * @param vagas
+	 *            A quantidade de vagas
+	 * @throws Exception
+	 *             Excecao caso exista dados errados
 	 */
-	private void verificaDados(String origem, String destino, String data, String hora, Integer vagas) throws Exception {
-		if(origem == null || origem.trim().equals("")){
+	private void verificaDados(String origem, String destino, String data,
+			String hora, Integer vagas) throws Exception {
+		if (origem == null || origem.trim().equals("")) {
 			throw new OrigemInvalidaException();
 		}
-		if(destino == null || destino.trim().equals("")){
+		if (destino == null || destino.trim().equals("")) {
 			throw new DestinoInvalidaException();
 		}
-		if(data == null || !checaDataHora(data, hora)){
+		if (data == null || !checaDataHora(data, hora)) {
 			throw new DataInvalidaException();
 		}
-		if(!Data.isHoraValida(hora)){
+		if (!Data.isHoraValida(hora)) {
 			throw new HoraInvalidaException();
 		}
-		if(vagas==null || vagas<=0){
+		if (vagas == null || vagas <= 0) {
 			throw new VagaInvalidaException();
 		}
-		
-		
+
 	}
-	
+
 	/**
 	 * Checa a data e a hora
-	 * @param data A data
-	 * @param hora A hora
+	 * 
+	 * @param data
+	 *            A data
+	 * @param hora
+	 *            A hora
 	 * @return True caso esteja OK e False caso contrario
 	 */
 	private boolean checaDataHora(String data, String hora) {
@@ -189,4 +209,3 @@ public abstract class CaronaAbstract implements Carona {
 	}
 
 }
-

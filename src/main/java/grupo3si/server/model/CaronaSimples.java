@@ -1,8 +1,6 @@
 package grupo3si.server.model;
 
 public class CaronaSimples extends CaronaAbstract {
-
-	boolean ehMunicipal;
 	/**
 	 * Construtor de uma carona do tipo Simples
 	 * @param origem A origem

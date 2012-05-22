@@ -6,9 +6,12 @@ public enum AtributosDeUsuario {
 			"endereco");
 
 	String atribute;
+
 	/**
 	 * Utilizado na busca pelo atributo correto
-	 * @param atribute O atributo
+	 * 
+	 * @param atribute
+	 *            O atributo
 	 */
 	AtributosDeUsuario(String atribute) {
 		this.atribute = atribute;
@@ -16,6 +19,7 @@ public enum AtributosDeUsuario {
 
 	/**
 	 * Metodo acessor para atributo
+	 * 
 	 * @return O atributo
 	 */
 	public String getatribute() {
