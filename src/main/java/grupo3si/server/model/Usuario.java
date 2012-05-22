@@ -123,12 +123,17 @@ public interface Usuario {
 		 * @return O iterator
 		 */
 		public Iterator<Carona> getCaronasIterator();
-		/**
-		 * Retorna um atributo para o usuario
-		 * @param atributo O atributo procurado
-		 * @return O valor do atributo
-		 * @throws Exception Excecao caso os dados sejam invalidos
-		 */
-		public String getAtributo(String atributo)throws Exception;
+		
+		public Integer getCaronafaltosas();
+
+		public Integer getCaronasSeguras();
+		
+		public Integer getFaltaEmVagaDeCarona();
+		
+		public List<Carona> getHistoricoDeCaronas();
+		
+		public List<Carona> getHistoricoEmVagasDeCaronas();
+		
+		public Integer getPresencaEmVagaDeCarona();
 		
 }

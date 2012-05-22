@@ -76,17 +76,10 @@ public class UsuarioSimples implements Usuario {
 	}
 	
 	/**
-	 *Metodo que retorna um atributo do usuario. 
-	 */
-	public String getAtributo(String atributo)	throws Exception {
-		return perfil.getAtributoPerfil(atributo);
-	}
-	
-	/**
 	 * Metodo que retorna uma carona do usuario
 	 */
 	public Carona getCarona(String idCarona) {
-		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
+		Iterator<Carona> caronasIt = perfil.getHistoricoDeCaronas().iterator();
 		Carona carona = null;
 		while(caronasIt.hasNext() && carona == null){
 			Carona temporaria = caronasIt.next();
@@ -99,7 +92,7 @@ public class UsuarioSimples implements Usuario {
 	 * Metodo que retorna um iterador de caronas
 	 */
 	public Iterator<Carona> getCaronasIterator() {
-		return perfil.getCaronas().iterator();
+		return perfil.getHistoricoDeCaronas().iterator();
 	}
 
 
@@ -181,7 +174,7 @@ public class UsuarioSimples implements Usuario {
 		}
 		
 		List<Carona> caronasLocalizadas = new LinkedList<Carona>();
-		Iterator<Carona> caronasIt = perfil.getCaronas().iterator();
+		Iterator<Carona> caronasIt = perfil.getHistoricoDeCaronas().iterator();
 		
 		while(caronasIt.hasNext()){
 			Carona carona = caronasIt.next();
@@ -250,6 +243,30 @@ public class UsuarioSimples implements Usuario {
 		return senha;
 	}
 
+	public Integer getCaronafaltosas() {
+		return perfil.getCaronaFaltosas();
+	}
+
+	public Integer getCaronasSeguras() {
+		return perfil.getCaronasSeguras();
+	}
+
+	public Integer getFaltaEmVagaDeCarona() {
+		return perfil.getFaltaEmVagaDeCarona();
+	}
+
+	public List<Carona> getHistoricoDeCaronas() {
+		return perfil.getHistoricoDeCaronas();
+	}
+	
+	public List<Carona> getHistoricoEmVagasDeCaronas() {
+		return perfil.getHistoricoEmVagasDeCaronas();
+	}
+
+	public Integer getPresencaEmVagaDeCarona() {
+		return perfil.getPresencaEmVagaDeCarona();
+	}
+	
 
 
 }

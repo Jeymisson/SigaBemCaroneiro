@@ -10,7 +10,7 @@
         <historicoEmVagasDeCaronas class="linked-list">
           <Carona>
             <origem>Campina Grande</origem>
-            <destino>JoÃ£o Pessoa</destino>
+            <destino>Jo√£o Pessoa</destino>
             <data>02/06/2012</data>
             <hora>12:00</hora>
             <vagas>2</vagas>
@@ -19,7 +19,7 @@
           </Carona>
           <Carona>
             <origem>Campina Grande</origem>
-            <destino>JoÃ£o Pessoa</destino>
+            <destino>Jo√£o Pessoa</destino>
             <data>04/06/2012</data>
             <hora>16:00</hora>
             <vagas>1</vagas>
@@ -28,7 +28,7 @@
           </Carona>
         </historicoEmVagasDeCaronas>
         <caronasSeguras>0</caronasSeguras>
-        <caronaFulerada>0</caronaFulerada>
+        <caronafaltosas>0</caronafaltosas>
         <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
       </perfil>
@@ -50,7 +50,7 @@
         <email>mark@facebook.com</email>
         <historicoEmVagasDeCaronas class="linked-list"/>
         <caronasSeguras>0</caronasSeguras>
-        <caronaFulerada>0</caronaFulerada>
+        <caronafaltosas>0</caronafaltosas>
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
@@ -69,7 +69,7 @@
         <email>darthvader@empire.com</email>
         <historicoEmVagasDeCaronas class="linked-list"/>
         <caronasSeguras>0</caronasSeguras>
-        <caronaFulerada>0</caronaFulerada>
+        <caronafaltosas>0</caronafaltosas>
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>

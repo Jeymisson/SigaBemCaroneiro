@@ -179,12 +179,12 @@ public class TestaRepositorioUsuario {
 		}
 
 		
-		String idCarona1 = user1.getPerfil().getCaronas().get(0).getId()+"";
-		String idCarona2 = user1.getPerfil().getCaronas().get(1).getId()+"";
-		String idCarona3 = user1.getPerfil().getCaronas().get(2).getId()+"";
-		String idCarona4 = user1.getPerfil().getCaronas().get(3).getId()+"";
-		String idCarona5 = user1.getPerfil().getCaronas().get(4).getId()+"";
-		String idCarona6 = user2.getPerfil().getCaronas().get(0).getId()+"";
+		String idCarona1 = user1.getPerfil().getHistoricoDeCaronas().get(0).getId()+"";
+		String idCarona2 = user1.getPerfil().getHistoricoDeCaronas().get(1).getId()+"";
+		String idCarona3 = user1.getPerfil().getHistoricoDeCaronas().get(2).getId()+"";
+		String idCarona4 = user1.getPerfil().getHistoricoDeCaronas().get(3).getId()+"";
+		String idCarona5 = user1.getPerfil().getHistoricoDeCaronas().get(4).getId()+"";
+		String idCarona6 = user2.getPerfil().getHistoricoDeCaronas().get(0).getId()+"";
 		
 		Assert.assertEquals(user1.getCarona(idCarona1),rep1.getCarona(idCarona1));
 		Assert.assertEquals(user1.getCarona(idCarona2),rep1.getCarona(idCarona2));
@@ -264,7 +264,7 @@ public class TestaRepositorioUsuario {
 	@Test
 	public void TestaGetUsuarios(){
 		Iterator<Usuario> userIt = rep1.getUsuarios();
-		List<Usuario> listaUsuarios = new ArrayList();
+		List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 
 		while(userIt.hasNext()){
 			listaUsuarios.add(userIt.next());	

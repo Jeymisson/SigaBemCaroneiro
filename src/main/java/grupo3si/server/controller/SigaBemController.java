@@ -1,13 +1,16 @@
 package grupo3si.server.controller;
 
 import grupo3si.server.model.AtributosDeCarona;
+import grupo3si.server.model.AtributosDePerfil;
 import grupo3si.server.model.Carona;
 import grupo3si.server.model.CaronaInexistenteException;
 import grupo3si.server.model.CaronaInvalidaException;
 import grupo3si.server.model.ControladorDeNegociacoes;
 import grupo3si.server.model.GerenciaDadosEmXML;
 import grupo3si.server.model.IdentificadorCaronaInvalidoException;
+import grupo3si.server.model.InexistentAtributeException;
 import grupo3si.server.model.InexistenteItemException;
+import grupo3si.server.model.InvalidAtributeException;
 import grupo3si.server.model.InvalidLoginException;
 import grupo3si.server.model.NaoPossuiVagasException;
 import grupo3si.server.model.NegociacaoDePontoDeEncontro;
@@ -123,8 +126,24 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public String getAtributoUsuario(String login, String atributo) throws Exception {
+	
 		Usuario user = rep.getUser(login);
-		return user.getAtributo(atributo);
+		String resp = "";
+		if(atributo == null || atributo.equals("")){
+			throw new InvalidAtributeException();
+		}
+		
+		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
+			resp = user.getNome();
+		} else if (AtributosDePerfil.ENDERECO.getAtribute().equalsIgnoreCase(
+				atributo)) {
+			resp = user.getEndereco();
+		} else if (AtributosDePerfil.EMAIL.getAtribute().equalsIgnoreCase(atributo)) {
+			resp = user.getEmail();
+		}else
+			throw new InexistentAtributeException();
+
+		return resp;
 
 	}
 	
@@ -329,7 +348,7 @@ public class SigaBemController {
 	 * @return String de caronas
 	 */
 	public Carona getCaronaUsuario(String idSessao, int index){
-		return rep.getUserPorId(idSessao).getPerfil().getCaronas().get(index - 1);//index - 1,pois o array comeca em 0.
+		return rep.getUserPorId(idSessao).getPerfil().getHistoricoDeCaronas().get(index - 1);//index - 1,pois o array comeca em 0.
 	}
 	
 	/**
@@ -339,7 +358,7 @@ public class SigaBemController {
 	 */
 	public String getTodasCaronasUsuario(String idSessao){
 		List<String> listaIdsCarona = new ArrayList<String>();
-		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil().getCaronas();
+		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil().getHistoricoDeCaronas();
 
 		for (Carona caronas : listaCaronas) {
 			listaIdsCarona.add(caronas.getId());
@@ -477,11 +496,34 @@ public class SigaBemController {
 	 */
 	public String getAtributoPerfil(String login, String atributo) throws Exception{
 		Usuario user = rep.getUser(login);
-		if(user == null){
-			return "";
+		String resp = "";
+		if(atributo == null || atributo.equals("")){
+			throw new InvalidAtributeException();
 		}
+		
+		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
+			resp = user.getNome();
+		} else if (AtributosDePerfil.ENDERECO.getAtribute().equalsIgnoreCase(
+				atributo)) {
+			resp = user.getEndereco();
+		} else if (AtributosDePerfil.EMAIL.getAtribute().equalsIgnoreCase(atributo)) {
+			resp = user.getEmail();
+		}else  if(AtributosDePerfil.CARONASNAOFUNCIONOU.getAtribute().equalsIgnoreCase(atributo)){
+			resp = user.getCaronafaltosas()+"";
+		}else if(AtributosDePerfil.CARONASSEGURAS.getAtribute().equalsIgnoreCase(atributo)){
+			resp = user.getCaronasSeguras()+"";
+		}else if(AtributosDePerfil.FALTAEMVAGASDECARONAS.getAtribute().equalsIgnoreCase(atributo)){
+			resp = user.getFaltaEmVagaDeCarona()+"";
+		}else if(AtributosDePerfil.HISTORICODECARONAS.getAtribute().equalsIgnoreCase(atributo)){
+			resp = (user.getHistoricoDeCaronas()+"").replaceAll(" ","");
+		}else if (AtributosDePerfil.HISTORICOVAGASCARONAS.getAtribute().equalsIgnoreCase(atributo)){
+			resp = (user.getHistoricoEmVagasDeCaronas()+"").replaceAll(" ", "");
+		}else if(AtributosDePerfil.PRESENCAEMVAGASDECARONA.getAtribute().equalsIgnoreCase(atributo)){
+			resp = user.getPresencaEmVagaDeCarona()+"";
+		}else
+			throw new InexistentAtributeException();
 
-		return user.getPerfil().getAtributoPerfil(atributo);
+		return resp;
 	}
 
 	/**
