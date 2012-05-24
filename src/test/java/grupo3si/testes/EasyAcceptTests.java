@@ -7,6 +7,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import easyaccept.EasyAcceptFacade;
+import grupo3si.server.controller.FacedEasy;
 import grupo3si.server.controller.SigaBemController;
 
 public class EasyAcceptTests extends TestCase {
@@ -26,7 +27,7 @@ public class EasyAcceptTests extends TestCase {
 		files.add("scripts/US08.txt");
 
 		// Instantiate the Monopoly Game facade
-		SigaBemController control = new SigaBemController();
+		FacedEasy control = new FacedEasy(new SigaBemController());
 
 		EasyAcceptFacade eaFacade = new EasyAcceptFacade(control, files);
 

@@ -4,6 +4,7 @@ public class CaronaMunicipal extends CaronaAbstract {
 
 	boolean ehMunicipal = false;
 	private String cidade;
+	
 	/**
 	 * Construtor de uma carona do tipo Municipal
 	 * @param origem A origem

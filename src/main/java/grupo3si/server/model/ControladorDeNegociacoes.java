@@ -77,7 +77,7 @@ public class ControladorDeNegociacoes {
 		if(naoEstaEmPontosDeEmbarque(sugestao)) throw new PontoInvalidoException();
 		sugestoesPontoDeEncontro.add(sugestao);
 		
-		return sugestao.getId().toString();
+		return sugestao.getId();
 	}
 	/**
 	 * Responde uma sugestao de ponto de encontro

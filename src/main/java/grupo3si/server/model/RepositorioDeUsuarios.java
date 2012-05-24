@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class RepositorioDeUsuarios {
 
-	private AbstractMap<String, Usuario> userRep; ;
+	private AbstractMap<String, Usuario> userRep;
 	private static RepositorioDeUsuarios Repository = null;
 	
 	//Metodos Get's

@@ -190,7 +190,7 @@ public class SigaBemController {
 	 * @return String Carona
 	 * @throws Exception
 	 */
-	public String getCarona(String idCarona) throws Exception {
+	public Carona getCarona(String idCarona) throws Exception {
 
 		if (idCarona == null)
 			throw new CaronaInvalidaException();
@@ -198,7 +198,7 @@ public class SigaBemController {
 			throw new CaronaInexistenteException();
 
 		Carona carona = rep.getCarona(idCarona);
-		return carona.getCarona();
+		return carona;
 	}
 
 	/**
@@ -247,8 +247,7 @@ public class SigaBemController {
 		if (pontos.equals(""))
 			throw new PontoInvalidoException();
 
-		return controladorDeNegociacoes.responderSugestaoPontoEncontro(
-				idSessao, idCarona, idSugestao, pontos);
+		return controladorDeNegociacoes.responderSugestaoPontoEncontro(idSessao, idCarona, idSugestao, pontos);
 	}
 
 	/**
@@ -304,19 +303,25 @@ public class SigaBemController {
 	 *         [PontodeEncontro1;PontodeEncontro2]
 	 * @throws Exception
 	 */
-	public String getPontosSugeridos(String idSessao, String idCarona)
+	public List<PontoDeEncontro> getPontosSugeridos(String idSessao, String idCarona)
 			throws Exception {
-		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes
-				.getPontosSugeridos(idSessao, idCarona);
-		return listaPontos(listaPontosSugeridos);
+		List<PontoDeEncontro> listaPontosSugeridos = controladorDeNegociacoes.getPontosSugeridos(idSessao, idCarona);
+		return listaPontosSugeridos;
 	}
 
 	/**
-	 * Metodo auxiliar que gera pontos de encontros.
+	 * Metodo que retorna uma string com pontos de encontro.
 	 * 
-	 * @param listaPontosDeEncontro
-	 * @return String lista de pontos
+	 * @param idSessao
+	 * @param idCarona
+	 * @return String pontos
+	 * @throws Exception
 	 */
+	public String getPontosEncontro(String idSessao, String idCarona)throws Exception {
+		return listaPontos(getPontosSugeridos(idSessao, idCarona));
+
+	}
+	
 	private String listaPontos(List<PontoDeEncontro> listaPontosDeEncontro) {
 		String respPontos = "";
 		Iterator<PontoDeEncontro> pontosIt = listaPontosDeEncontro.iterator();
@@ -328,20 +333,6 @@ public class SigaBemController {
 				respPontos += nextPonto.getNome();
 		}
 		return respPontos;
-	}
-
-	/**
-	 * Metodo que retorna uma string com pontos de encontro.
-	 * 
-	 * @param idSessao
-	 * @param idCarona
-	 * @return String pontos
-	 * @throws Exception
-	 */
-	public String getPontosEncontro(String idSessao, String idCarona)
-			throws Exception {
-		return getPontosSugeridos(idSessao, idCarona);
-
 	}
 
 	/**
@@ -425,16 +416,8 @@ public class SigaBemController {
 	 * @param idSessao
 	 * @return String Caronas
 	 */
-	public String getTodasCaronasUsuario(String idSessao) {
-		List<String> listaIdsCarona = new ArrayList<String>();
-		List<Carona> listaCaronas = rep.getUserPorId(idSessao).getPerfil()
-				.getHistoricoDeCaronas();
-
-		for (Carona caronas : listaCaronas) {
-			listaIdsCarona.add(caronas.getId());
-		}
-		return listaCaronas.toString().replace("[", "{").replace("]", "}")
-				.replace(" ", "");
+	public List<Carona> getTodasCaronasUsuario(String idSessao) {
+		return rep.getUserPorId(idSessao).getPerfil().getHistoricoDeCaronas();
 	}
 
 	/**
@@ -443,9 +426,8 @@ public class SigaBemController {
 	 * @param idCarona
 	 * @return String solicitações pendentes
 	 */
-	public String getSolicitacoesPendentes(String idCarona) {
-		return (controladorDeNegociacoes.getSolicitacoesPendentes(idCarona)
-				.toString()).replace("[", "{").replace("]", "}");
+	public List<String> getSolicitacoesPendentes(String idCarona) {
+		return controladorDeNegociacoes.getSolicitacoesPendentes(idCarona);
 	}
 
 	/**
@@ -455,9 +437,9 @@ public class SigaBemController {
 	 * @param idCarona
 	 * @return String solicitações confirmadas
 	 */
-	public String getSolicitacoesConfirmadas(String idSessao, String idCarona) {
+	public List<String> getSolicitacoesConfirmadas(String idSessao, String idCarona) {
 		return (controladorDeNegociacoes.getSolicitacoesConfirmadas(idSessao,
-				idCarona).toString()).replace("[", "").replace("]", "");
+				idCarona));
 	}
 
 	// Final de métodos de negóciação de carona
@@ -575,12 +557,9 @@ public class SigaBemController {
 	 * @return String caronas
 	 * @throws Exception
 	 */
-	public String localizarCarona(String idSessao, String origem, String destino)
-			throws Exception {
+	public List<Carona> localizarCarona(String idSessao, String origem, String destino)throws Exception {
 		Usuario user = sessoesAbertas.get(idSessao);
-		List<Carona> caronas = user.localizaCarona(origem, destino);
-		return caronas.toString().replace("[", "{").replace("]", "}")
-				.replace(" ", "");
+		return user.localizaCarona(origem, destino);
 	}
 
 	/**
