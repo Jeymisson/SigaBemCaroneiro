@@ -10,7 +10,6 @@ import java.util.TreeMap;
 
 public class SigaBemController {
 
-	Usuario user;
 	RepositorioDeUsuarios rep;
 	ControladorDeNegociacoes controladorDeNegociacoes;
 	private final String USERS_FILE = "src/main/resources/usuarios.xml";
@@ -41,7 +40,7 @@ public class SigaBemController {
 	 */
 	public void criarUsuario(String login, String senha, String nome,
 			String endereco, String email) throws Exception {
-		user = new Usuario(login, senha, nome, endereco, email);
+		Usuario user = new Usuario(login, senha, nome, endereco, email);
 		rep.addUser(login, user);
 
 	}
@@ -640,9 +639,12 @@ public class SigaBemController {
 		Usuario usuario = rep.getDonoDe(idCarona);
 
 		if (usuario != null) {
-			List<String> list = controladorDeNegociacoes
-					.getSolicitacoesConfirmadas(usuario.getUserID(), idCarona);
-			if (!list.contains(idSessao))
+			List<String> list = controladorDeNegociacoes.getSolicitacoesConfirmadas(usuario.getUserID(), idCarona);
+			List<String> presenca = new ArrayList<String>();
+			for(int i = 0; i<list.size();i++){
+				presenca.add(controladorDeNegociacoes.getSolicitacaoPorId(list.get(i).toString()).getIdSessao());
+			}
+			if (!presenca.contains(idSessao))
 				throw new NaoPossuiVagasException();
 			usuario.getPerfil().reviewVagaEmCarona(review);
 
@@ -667,8 +669,7 @@ public class SigaBemController {
 		List<String> idsSolicitacoes = new ArrayList<String>();
 
 		for (int i = 0; i < vagasConfirmadas.size(); i++) {
-			idsSolicitacoes.add(controladorDeNegociacoes.getSolicitacaoPorId(
-					vagasConfirmadas.get(i).toString()).getIdSessao());
+			idsSolicitacoes.add(controladorDeNegociacoes.getSolicitacaoPorId(vagasConfirmadas.get(i).toString()).getIdSessao());
 		}
 
 		if (!idsSolicitacoes.contains(userReview.getUserID()))

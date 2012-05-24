@@ -14,7 +14,7 @@
             <data>02/06/2012</data>
             <hora>12:00</hora>
             <vagas>2</vagas>
-            <id>31</id>
+            <id>33</id>
             <ehMunicipal>false</ehMunicipal>
           </Carona>
           <Carona>
@@ -23,16 +23,16 @@
             <data>04/06/2012</data>
             <hora>16:00</hora>
             <vagas>1</vagas>
-            <id>32</id>
+            <id>34</id>
             <ehMunicipal>false</ehMunicipal>
           </Carona>
         </historicoEmVagasDeCaronas>
         <caronasSeguras>0</caronasSeguras>
         <caronafaltosas>0</caronafaltosas>
-        <FaltaEmVagaDeCarona>1</FaltaEmVagaDeCarona>
-        <presencaEmVagaDeCarona>1</presencaEmVagaDeCarona>
+        <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
+        <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>16</userID>
+      <userID>19</userID>
       <login>bill</login>
       <senha>bilz@o</senha>
     </Usuario>
@@ -49,12 +49,12 @@
         </historicoDeCaronas>
         <email>mark@facebook.com</email>
         <historicoEmVagasDeCaronas class="linked-list"/>
-        <caronasSeguras>0</caronasSeguras>
-        <caronafaltosas>0</caronafaltosas>
+        <caronasSeguras>1</caronasSeguras>
+        <caronafaltosas>1</caronafaltosas>
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>15</userID>
+      <userID>18</userID>
       <login>mark</login>
       <senha>m@rk</senha>
     </Usuario>
@@ -73,7 +73,7 @@
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>17</userID>
+      <userID>20</userID>
       <login>vader</login>
       <senha>d4rth</senha>
     </Usuario>

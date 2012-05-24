@@ -25,7 +25,7 @@ public class EasyAcceptTests extends TestCase {
 		files.add("scripts/US06.txt");
 		files.add("scripts/US07.txt");
 		files.add("scripts/US08.txt");
-
+		files.add("scripts/US09.txt");
 		// Instantiate the Monopoly Game facade
 		FacedEasy control = new FacedEasy(new SigaBemController());
 

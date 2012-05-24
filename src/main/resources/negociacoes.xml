@@ -120,6 +120,26 @@
       </pontosDeEncontro>
       <id>12</id>
     </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
+      <idCarona>33</idCarona>
+      <idSessao>19</idSessao>
+      <pontosDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
+          <nome></nome>
+        </grupo3si.server.model.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>13</id>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
+    <grupo3si.server.model.NegociacaoDePontoDeEncontro>
+      <idCarona>34</idCarona>
+      <idSessao>19</idSessao>
+      <pontosDeEncontro>
+        <grupo3si.server.model.PontoDeEncontro>
+          <nome></nome>
+        </grupo3si.server.model.PontoDeEncontro>
+      </pontosDeEncontro>
+      <id>14</id>
+    </grupo3si.server.model.NegociacaoDePontoDeEncontro>
   </solicitacoesDeCarona>
   <solicitacoesPendentes class="tree-map"/>
   <solicitacoesConfirmadas class="tree-map">
@@ -134,6 +154,10 @@
     <entry>
       <string>15</string>
       <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[6]"/>
+    </entry>
+    <entry>
+      <string>18</string>
+      <grupo3si.server.model.NegociacaoDePontoDeEncontro reference="../../../solicitacoesDeCarona/grupo3si.server.model.NegociacaoDePontoDeEncontro[8]"/>
     </entry>
     <entry>
       <string>8</string>

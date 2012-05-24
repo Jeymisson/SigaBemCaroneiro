@@ -29,49 +29,6 @@ public class FacedEasy {
 
 	public String getAtributoCarona(String idCarona, String atributo)
 			throws Exception {
-		/*
-		if (idCarona == null || idCarona.equals(""))
-			throw new IdentificadorCaronaInvalidoException();
-		if (!idCarona.matches("\\d+"))
-			throw new InexistenteItemException();
-
-		if (AtributosDeCarona.PONTO_DE_ENCONTRO.getatribute().equalsIgnoreCase(
-				atributo)) {
-			return controladorDeNegociacoes.getPontosDeEmbarque(idCarona);
-		}
-		Carona carona = rep.getCarona(idCarona);
-		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
-		}
-
-		String resp = null;
-
-		if (this == null) {
-			throw new InexistenteItemException();
-		}
-
-		if (AtributosDeCarona.ORIGEM.getatribute().equalsIgnoreCase(atributo)) {
-			resp = carona.getOrigem();
-		} else if (AtributosDeCarona.DATA.getatribute().equalsIgnoreCase(
-				atributo)) {
-			resp = carona.getData();
-		} else if (AtributosDeCarona.DESTINO.getatribute().equalsIgnoreCase(
-				atributo)) {
-			resp = carona.getDestino();
-		} else if (AtributosDeCarona.VAGA.getatribute().equalsIgnoreCase(
-				atributo)) {
-			resp = String.valueOf(carona.getVagas());
-		} else if (AtributosDeCarona.HORA.getatribute().equalsIgnoreCase(
-				atributo)) {
-			resp = String.valueOf(carona.getHora());
-		} else if (AtributosDeCarona.EHMUNICIPAL.getatribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = carona.ehMunicipal() + "";
-		} else
-			throw new InexistentAtributeException();
-
-		return resp;
-		*/
 		return controller.getAtributoCarona(idCarona, atributo);
 	}
 
@@ -79,26 +36,7 @@ public class FacedEasy {
 
 	public String getAtributoUsuario(String login, String atributo)
 			throws Exception {
-		/*
-		Usuario user = rep.getUser(login);
-		String resp = "";
-		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
-		}
-
-		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
-			resp = user.getNome();
-		} else if (AtributosDePerfil.ENDERECO.getAtribute().equalsIgnoreCase(
-				atributo)) {
-			resp = user.getEndereco();
-		} else if (AtributosDePerfil.EMAIL.getAtribute().equalsIgnoreCase(
-				atributo)) {
-			resp = user.getEmail();
-		} else
-			throw new InexistentAtributeException();
-
-		return resp;
-	*/
+		
 		return controller.getAtributoUsuario(login, atributo);
 
 	}
@@ -233,45 +171,6 @@ public class FacedEasy {
 
 
 	public String getAtributoPerfil(String login, String atributo)throws Exception {
-			/*
-		Usuario user = rep.getUser(login);
-		String resp = "";
-		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
-		}
-
-		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
-			resp = user.getNome();
-		} else if (AtributosDePerfil.ENDERECO.getAtribute().equalsIgnoreCase(
-				atributo)) {
-			resp = user.getEndereco();
-		} else if (AtributosDePerfil.EMAIL.getAtribute().equalsIgnoreCase(
-				atributo)) {
-			resp = user.getEmail();
-		} else if (AtributosDePerfil.CARONASNAOFUNCIONOU.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = user.getCaronafaltosas() + "";
-		} else if (AtributosDePerfil.CARONASSEGURAS.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = user.getCaronasSeguras() + "";
-		} else if (AtributosDePerfil.FALTAEMVAGASDECARONAS.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = user.getFaltaEmVagaDeCarona() + "";
-		} else if (AtributosDePerfil.HISTORICODECARONAS.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = (user.getHistoricoDeCaronas() + "").replaceAll(" ", "");
-		} else if (AtributosDePerfil.HISTORICOVAGASCARONAS.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = (user.getHistoricoEmVagasDeCaronas() + "").replaceAll(" ",
-					"");
-		} else if (AtributosDePerfil.PRESENCAEMVAGASDECARONA.getAtribute()
-				.equalsIgnoreCase(atributo)) {
-			resp = user.getPresencaEmVagaDeCarona() + "";
-		} else
-			throw new InexistentAtributeException();
-
-		return resp;
-		*/
 		return controller.getAtributoPerfil(login, atributo);
 	}
 	public void visualizarPerfil(String idsessao, String login)throws InvalidLoginException {
