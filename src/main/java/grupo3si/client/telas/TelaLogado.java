@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TreeItem;
+import com.google.gwt.user.client.ui.MenuBar;
 
 public class TelaLogado extends Composite {
 
@@ -29,33 +30,22 @@ public class TelaLogado extends Composite {
 		TextButton txtbtnSair = new TextButton("Sair");
 		txtbtnSair.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				
+				TelaInicial inicio = new TelaInicial();
+				inicio.setVisible(true);
+				RootPanel.get("centro").clear();
+				RootPanel.get("centro").add(inicio);
 				
 			}
 		});
-		PainelLogado.add(txtbtnSair, 914, 10);
+		PainelLogado.add(txtbtnSair, 916, 41);
 		
 		Image fotoPerfil = new Image("imagens/fEIA.jpg");
 		PainelLogado.add(fotoPerfil, 24, 41);
 		fotoPerfil.setSize("134px", "150px");
 		
-		Hyperlink hprlnkEditarPerfil = new Hyperlink("Editar Perfil", false, "newHistoryToken");
-		hprlnkEditarPerfil.addAttachHandler(new Handler() {
-			public void onAttachOrDetach(AttachEvent event) {
-				System.out.println("entrou no evento click");
-				TelaEditarPerfil editarperfil = new TelaEditarPerfil();
-				editarperfil.setVisible(true);
-				RootPanel.get("centro").clear();
-				RootPanel.get("centro").add(editarperfil);
-				
-			}
-		});
-		PainelLogado.add(hprlnkEditarPerfil, 24, 231);
-		
-		Hyperlink hprlnkCadastrarCarona = new Hyperlink("Cadastrar Carona", false, "newHistoryToken");
-		PainelLogado.add(hprlnkCadastrarCarona, 23, 252);
-		
 		TextArea TextAreaStatus = new TextArea();
+		TextAreaStatus.setEnabled(false);
+		TextAreaStatus.setDirectionEstimator(false);
 		PainelLogado.add(TextAreaStatus, 283, 41);
 		TextAreaStatus.setSize("453px", "39px");
 		
@@ -63,11 +53,24 @@ public class TelaLogado extends Composite {
 		PainelLogado.add(PublicarStatus, 672, 93);
 		
 		Tree treeHistorico = new Tree();
-		PainelLogado.add(treeHistorico, 24, 280);
+		PainelLogado.add(treeHistorico, 24, 363);
 		treeHistorico.setSize("100px", "100px");
 		
-		TreeItem trtmHistrico = new TreeItem("Hist\u00F3rico");
-		treeHistorico.addItem(trtmHistrico);
+		TextButton BotaoEditarPerfil = new TextButton("Editar Perfil");
+		BotaoEditarPerfil.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				TelaEditarPerfil perfil = new TelaEditarPerfil();
+				perfil.setVisible(true);
+				RootPanel.get("centro").clear();
+				RootPanel.get("centro").add(perfil);
+			}
+		});
+		PainelLogado.add(BotaoEditarPerfil, 24, 232);
+		BotaoEditarPerfil.setSize("134px", "28px");
+		
+		TextButton BotaoCadastrarCarona = new TextButton("Cadastrar Carona");
+		PainelLogado.add(BotaoCadastrarCarona, 24, 266);
+		BotaoCadastrarCarona.setSize("134px", "28px");
 		
 		
 		

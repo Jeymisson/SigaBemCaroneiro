@@ -10,6 +10,9 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.ValueListBox;
 import com.google.gwt.text.client.IntegerRenderer;
 import com.google.gwt.user.client.ui.RadioButton;
+import com.google.gwt.widget.client.TextButton;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
 
 public class TelaEditarPerfil extends Composite {
 
@@ -19,7 +22,7 @@ public class TelaEditarPerfil extends Composite {
 		initWidget(PainelEditarPerfil);
 		PainelEditarPerfil.setSize("1024px", "720px");
 		
-		Image imagePerfil = new Image((String) null);
+		Image imagePerfil = new Image("imagens/fEIA.jpg");
 		PainelEditarPerfil.add(imagePerfil, 45, 52);
 		imagePerfil.setSize("125px", "146px");
 		
@@ -105,6 +108,18 @@ public class TelaEditarPerfil extends Composite {
 		IntegerBox dataNasciemento = new IntegerBox();
 		PainelEditarPerfil.add(dataNasciemento, 330, 193);
 		dataNasciemento.setSize("332px", "13px");
+		
+		TextButton BotaoSalvar = new TextButton("Salvar");
+		BotaoSalvar.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				
+				
+				
+				
+			}
+		});
+		PainelEditarPerfil.add(BotaoSalvar, 589, 576);
+		BotaoSalvar.setSize("79px", "28px");
 		
 		
 		
