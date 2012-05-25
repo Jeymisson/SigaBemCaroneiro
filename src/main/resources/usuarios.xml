@@ -7,32 +7,13 @@
         <endereco>Medina, Washington</endereco>
         <historicoDeCaronas class="linked-list"/>
         <email>billzin@gmail.com</email>
-        <historicoEmVagasDeCaronas class="linked-list">
-          <Carona>
-            <origem>Campina Grande</origem>
-            <destino>Jo√£o Pessoa</destino>
-            <data>02/06/2012</data>
-            <hora>12:00</hora>
-            <vagas>2</vagas>
-            <id>33</id>
-            <ehMunicipal>false</ehMunicipal>
-          </Carona>
-          <Carona>
-            <origem>Campina Grande</origem>
-            <destino>Jo√£o Pessoa</destino>
-            <data>04/06/2012</data>
-            <hora>16:00</hora>
-            <vagas>1</vagas>
-            <id>34</id>
-            <ehMunicipal>false</ehMunicipal>
-          </Carona>
-        </historicoEmVagasDeCaronas>
+        <historicoEmVagasDeCaronas class="linked-list"/>
         <caronasSeguras>0</caronasSeguras>
         <caronafaltosas>0</caronafaltosas>
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>19</userID>
+      <userID>22</userID>
       <login>bill</login>
       <senha>bilz@o</senha>
     </Usuario>
@@ -44,17 +25,75 @@
         <nome>Mark Zuckerberg</nome>
         <endereco>Palo Alto, California</endereco>
         <historicoDeCaronas class="linked-list">
-          <Carona reference="../../../../../entry/Usuario/perfil/historicoEmVagasDeCaronas/Carona"/>
-          <Carona reference="../../../../../entry/Usuario/perfil/historicoEmVagasDeCaronas/Carona[2]"/>
+          <Carona>
+            <origem>Campina Grande</origem>
+            <destino>Jo√£o Pessoa</destino>
+            <data>02/06/2012</data>
+            <hora>12:00</hora>
+            <vagas>3</vagas>
+            <id>35</id>
+            <ehMunicipal>false</ehMunicipal>
+          </Carona>
+          <Carona>
+            <origem>Souza</origem>
+            <destino>Jo√£o Pessoa</destino>
+            <data>08/06/2012</data>
+            <hora>14:00</hora>
+            <vagas>2</vagas>
+            <id>36</id>
+            <ehMunicipal>false</ehMunicipal>
+          </Carona>
+          <Carona>
+            <origem>Campina Grande</origem>
+            <destino>Patos</destino>
+            <data>25/06/2012</data>
+            <hora>08:00</hora>
+            <vagas>1</vagas>
+            <id>37</id>
+            <ehMunicipal>false</ehMunicipal>
+          </Carona>
+          <grupo3si.server.model.CaronaMunicipal>
+            <origem>A√ßude Velho</origem>
+            <destino>Shopping Boulevard</destino>
+            <data>04/06/2012</data>
+            <hora>20:00</hora>
+            <vagas>2</vagas>
+            <id>38</id>
+            <ehMunicipal defined-in="grupo3si.server.model.CaronaAbstract">true</ehMunicipal>
+            <ehMunicipal>false</ehMunicipal>
+            <cidade>Campina Grande</cidade>
+          </grupo3si.server.model.CaronaMunicipal>
+          <grupo3si.server.model.CaronaMunicipal>
+            <origem>Pra√ßa do Caj√∫</origem>
+            <destino>Villa S√£o Paulo</destino>
+            <data>04/06/2012</data>
+            <hora>22:00</hora>
+            <vagas>2</vagas>
+            <id>39</id>
+            <ehMunicipal defined-in="grupo3si.server.model.CaronaAbstract">true</ehMunicipal>
+            <ehMunicipal>false</ehMunicipal>
+            <cidade>Jo√£o Pessoa</cidade>
+          </grupo3si.server.model.CaronaMunicipal>
+          <grupo3si.server.model.CaronaMunicipal>
+            <origem>Mana√≠ra Shopping</origem>
+            <destino>Parque Solon de Lucena</destino>
+            <data>04/06/2012</data>
+            <hora>14:00</hora>
+            <vagas>2</vagas>
+            <id>40</id>
+            <ehMunicipal defined-in="grupo3si.server.model.CaronaAbstract">true</ehMunicipal>
+            <ehMunicipal>false</ehMunicipal>
+            <cidade>Jo√£o Pessoa</cidade>
+          </grupo3si.server.model.CaronaMunicipal>
         </historicoDeCaronas>
         <email>mark@facebook.com</email>
         <historicoEmVagasDeCaronas class="linked-list"/>
-        <caronasSeguras>1</caronasSeguras>
-        <caronafaltosas>1</caronafaltosas>
+        <caronasSeguras>0</caronasSeguras>
+        <caronafaltosas>0</caronafaltosas>
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>18</userID>
+      <userID>21</userID>
       <login>mark</login>
       <senha>m@rk</senha>
     </Usuario>
@@ -73,7 +112,7 @@
         <FaltaEmVagaDeCarona>0</FaltaEmVagaDeCarona>
         <presencaEmVagaDeCarona>0</presencaEmVagaDeCarona>
       </perfil>
-      <userID>20</userID>
+      <userID>23</userID>
       <login>vader</login>
       <senha>d4rth</senha>
     </Usuario>
