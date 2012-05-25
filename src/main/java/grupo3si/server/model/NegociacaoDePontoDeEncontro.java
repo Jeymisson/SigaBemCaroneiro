@@ -74,6 +74,8 @@ public class NegociacaoDePontoDeEncontro {
 			negociacao = (NegociacaoDePontoDeEncontro) obj;
 		}
 
+		if(negociacao == null) return false;
+		
 		if(pontosDeEncontro.size() != negociacao.getPontosDeEncontro().size()) return false;
 		
 		List<PontoDeEncontro> thisPontos = new ArrayList<PontoDeEncontro>(pontosDeEncontro);
@@ -89,6 +91,7 @@ public class NegociacaoDePontoDeEncontro {
 		
 		return true;
 	}
+	
 	/**
 	 * Metodo que verifica se uma negociacao contem outra
 	 * @param negociacao

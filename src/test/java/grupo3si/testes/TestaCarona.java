@@ -333,10 +333,6 @@ public class TestaCarona {
 		Assert.assertEquals("22:00", carona2.getHora());
 		Assert.assertEquals("19:00", carona3.getHora());
 
-		// cria carona para comparar com carona3
-		Carona carona = new CaronaSimples("Rio Grande do sul", "Coxixola",
-				"19/11/2023", "19:00", 1, false);
-
 		// getTrajeto()
 		Assert.assertEquals("Campina grande - Joao Pessoa",
 				carona1.getTrajeto());

@@ -40,6 +40,8 @@ public class PontoDeEncontro implements Comparable<PontoDeEncontro> {
 		if(obj instanceof PontoDeEncontro){
 			other = (PontoDeEncontro) obj;
 		}
+		if(other == null) return false;
+		
 		return this.getNome().equals(other.getNome());
 	}
 	
