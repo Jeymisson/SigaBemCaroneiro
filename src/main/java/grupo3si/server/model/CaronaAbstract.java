@@ -1,5 +1,11 @@
 package grupo3si.server.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public abstract class CaronaAbstract implements Carona {
 
 	static int contador = 0;
@@ -183,12 +189,9 @@ public abstract class CaronaAbstract implements Carona {
 		if (destino == null || destino.trim().equals("")) {
 			throw new DestinoInvalidaException();
 		}
-		if (data == null || !checaDataHora(data, hora)) {
-			throw new DataInvalidaException();
-		}
-		if (!Data.isHoraValida(hora)) {
-			throw new HoraInvalidaException();
-		}
+		
+		checaData(data, hora);
+		
 		if (vagas == null || vagas <= 0) {
 			throw new VagaInvalidaException();
 		}
@@ -203,9 +206,40 @@ public abstract class CaronaAbstract implements Carona {
 	 * @param hora
 	 *            A hora
 	 * @return True caso esteja OK e False caso contrario
+	 * @throws DataInvalidaException 
+	 * @throws HoraInvalidaException 
 	 */
-	private boolean checaDataHora(String data, String hora) {
-		return Data.isDataValida(data, hora);
+	private void checaData(String data, String hora) throws DataInvalidaException, HoraInvalidaException {
+		SimpleDateFormat format = null;
+		String dataHora = data + " " + hora;
+		Date date =  null;  
+		
+		format = new SimpleDateFormat("dd/MM/yyyy");
+		format.setLenient(false);
+		try {  
+		    date = format.parse(data);
+		} catch (Exception e) {  
+			throw new DataInvalidaException();
+		}
+		
+		format = new SimpleDateFormat("HH:mm");
+		format.setLenient(false);
+		try {
+			date = format.parse(hora);
+		} catch (Exception e) {
+			throw new HoraInvalidaException();
+		}
+		
+		format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		format.setLenient(false);
+		try {
+			date = format.parse(dataHora);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		if(date.before(new Date())) throw new DataInvalidaException();
+		
+
 	}
 
 }
