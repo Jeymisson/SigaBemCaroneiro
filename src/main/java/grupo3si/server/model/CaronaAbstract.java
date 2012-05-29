@@ -2,9 +2,7 @@ package grupo3si.server.model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public abstract class CaronaAbstract implements Carona {
 
@@ -13,6 +11,7 @@ public abstract class CaronaAbstract implements Carona {
 	Integer vagas;
 	int id;
 	boolean ehMunicipal;
+	String cidade;
 
 	/**
 	 * Construtor de Carona
@@ -31,7 +30,7 @@ public abstract class CaronaAbstract implements Carona {
 	 *             Excecao caso os dados inseridos sejam invalidos
 	 */
 	public CaronaAbstract(String origem, String destino, String data,
-			String hora, Integer vagas, boolean ehMunicipal) throws Exception {
+			String hora, Integer vagas, boolean ehMunicipal, String cidade) throws Exception {
 
 		verificaDados(origem, destino, data, hora, vagas);
 
@@ -41,6 +40,7 @@ public abstract class CaronaAbstract implements Carona {
 		this.data = data;
 		this.hora = hora;
 		this.vagas = vagas;
+		this.cidade = cidade;
 		this.id = contador;
 		this.ehMunicipal = ehMunicipal;
 	}
@@ -78,6 +78,10 @@ public abstract class CaronaAbstract implements Carona {
 		return data;
 	}
 
+	public String getCidade(){
+		return cidade;
+	}
+	
 	/**
 	 * Metodo acessor para o hroario da carona
 	 */

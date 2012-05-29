@@ -2,13 +2,15 @@ package grupo3si.server.model;
 
 import java.util.AbstractMap;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeMap;
 
 public class RepositorioDeUsuarios {
 
 	private AbstractMap<String, Usuario> userRep;
 	private static RepositorioDeUsuarios Repository = null;
-	
+
 	//Metodos Get's
 	/**
 	 * Metodo que retorna a instancia do repositorio.
@@ -43,8 +45,8 @@ public class RepositorioDeUsuarios {
 
 		return user;
 	}
-	
-	
+
+
 	/**
 	 * Acessador de Usuário pelo ID
 	 * @param idUsuario Id do usuario
@@ -53,7 +55,7 @@ public class RepositorioDeUsuarios {
 	public Usuario getUserPorId(String idUsuario) {
 		Iterator<Usuario> userIt = this.getUsuarios();
 		Usuario usuario = null;
-		
+
 		while(userIt.hasNext()){
 			Usuario nextUsuario = userIt.next();
 			if(idUsuario.equals(nextUsuario.getUserID())){
@@ -62,7 +64,7 @@ public class RepositorioDeUsuarios {
 			}
 		}
 		return usuario;
-		
+
 	}
 	/**
 	 * Metodo que pesquisa o dono de uma carona
@@ -95,9 +97,51 @@ public class RepositorioDeUsuarios {
 
 			Usuario nextUser = userIt.next();
 			rice =  nextUser.getCarona(idCarona); 
-			
+
 		}
 		return rice;
+	}
+
+
+	/**
+	 * metodo que localiza uma carona
+	 */
+	public List<Carona> localizaCaronaOrigemDestino(String origem, String destino)
+			throws Exception {
+
+		if (origem == null
+				|| origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+			throw new OrigemInvalidaException();
+		}
+		if (destino == null
+				|| destino
+				.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+			throw new DestinoInvalidaException();
+		}
+
+		List<Carona> caronasLocalizadas = new LinkedList<Carona>();
+		Iterator<Usuario> userIt = this.getUsuarios();
+
+		while(userIt.hasNext()){
+			Iterator<Carona> caronasIt = userIt.next().getCaronasIterator();
+			while (caronasIt.hasNext()) {
+				Carona carona = caronasIt.next();
+				if (carona.getOrigem().equals(origem)
+						&& carona.getDestino().equals(destino)) {
+					caronasLocalizadas.add(carona);
+				} else if (carona.getOrigem().equals(origem) && destino.equals("")) {
+					caronasLocalizadas.add(carona);
+				} else if (carona.getDestino().equals(destino) && origem.equals("")) {
+					caronasLocalizadas.add(carona);
+				} else if (origem.equals("") && destino.equals("")) {
+					caronasLocalizadas.add(carona);
+				}
+			}
+		}
+
+
+		return caronasLocalizadas;
+
 	}
 
 	//Metodos de funcionalidade da classe
@@ -118,7 +162,7 @@ public class RepositorioDeUsuarios {
 		checkDuplicatedData(user);
 		userRep.put(login, user);
 	}
-	
+
 	//metodos privados	
 	/**
 	 * 
@@ -167,5 +211,58 @@ public class RepositorioDeUsuarios {
 	 */
 	public void setRepositorio(AbstractMap<String, Usuario> newRep){
 		userRep = newRep;
+	}
+
+	/**
+	 * Metodo que localiza uma carona municipal pela cidade, origem e destino da carona.
+	 * @param cidade Cidade a que a carona pertence
+	 * @param origem Ponto de saída da carona
+	 * @param destino Ponto de Destino da carona
+	 * @return Lista com caronas localizadas
+	 * @throws OrigemInvalidaException 
+	 * @throws DestinoInvalidaException 
+	 * @throws CidadeInexistenteException 
+	 */
+	public List<Carona> localizaCaronaMunicipioOrigemDestino(String cidade,
+			String origem, String destino) throws OrigemInvalidaException, DestinoInvalidaException, CidadeInexistenteException {
+		if (origem == null
+				|| origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+			throw new OrigemInvalidaException();
+		}
+		if (destino == null
+				|| destino
+				.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+			throw new DestinoInvalidaException();
+		}
+
+		if(cidade ==null || cidade.equals("")) throw new CidadeInexistenteException();
+
+		List<Carona> caronasLocalizadas = new LinkedList<Carona>();
+		Iterator<Usuario> userIt = this.getUsuarios();
+
+		while(userIt.hasNext()){
+			Iterator<Carona> caronasIt = userIt.next().getCaronasIterator();
+			
+			while (caronasIt.hasNext()) {
+				Carona carona = caronasIt.next();
+				
+				if(carona.getCidade().equals(cidade)){					
+					if (carona.getOrigem().equals(origem)
+							&& carona.getDestino().equals(destino)) {
+						caronasLocalizadas.add(carona);
+					} else if (carona.getOrigem().equals(origem) && destino.equals("")) {
+						caronasLocalizadas.add(carona);
+					} else if (carona.getDestino().equals(destino) && origem.equals("")) {
+						caronasLocalizadas.add(carona);
+					} else if (origem.equals("") && destino.equals("")) {
+						caronasLocalizadas.add(carona);
+					}
+				}
+			}
+		}
+
+
+		return caronasLocalizadas;
+
 	}
 }

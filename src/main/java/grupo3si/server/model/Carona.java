@@ -28,6 +28,8 @@ public interface Carona {
 	 * @return A hora
 	 */
 	public String getHora();
+	
+	public String getCidade();
 
 	/**
 	 * Metodo acessor para a quantidade de vagas na carona

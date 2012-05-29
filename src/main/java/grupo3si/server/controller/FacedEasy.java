@@ -168,7 +168,16 @@ public class FacedEasy {
 		List<Carona> caronas = controller.localizarCarona(idSessao, origem, destino);
 		return caronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
 	}
+	
+	public String localizarCaronaMunicipal(String idSessao, String cidade, String origem, String destino) throws CidadeInexistenteException, OrigemInvalidaException, DestinoInvalidaException{
+		List<Carona> caronas = controller.localizarCaronaMunicipal(idSessao,cidade,origem,destino);
+		return caronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
+	}
 
+	public String localizarCaronaMunicipal(String idSessao, String cidade) throws CidadeInexistenteException, OrigemInvalidaException, DestinoInvalidaException{
+		List<Carona> caronas = controller.localizarCaronaMunicipal(idSessao,cidade,"","");
+		return caronas.toString().replace("[", "{").replace("]", "}").replace(" ", "");
+	}
 
 	public String getAtributoPerfil(String login, String atributo)throws Exception {
 		return controller.getAtributoPerfil(login, atributo);

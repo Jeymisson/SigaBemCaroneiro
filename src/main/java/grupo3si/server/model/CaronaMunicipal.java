@@ -3,7 +3,6 @@ package grupo3si.server.model;
 public class CaronaMunicipal extends CaronaAbstract {
 
 	boolean ehMunicipal = false;
-	private String cidade;
 	
 	/**
 	 * Construtor de uma carona do tipo Municipal
@@ -16,14 +15,7 @@ public class CaronaMunicipal extends CaronaAbstract {
 	 * @throws Exception Excecao caso dados invavalidos sejam passados
 	 */
 	public CaronaMunicipal(String origem, String destino, String data,String hora, Integer vagas, String cidade,boolean ehMunicipal) throws Exception {
-		super(origem, destino, data, hora, vagas, ehMunicipal);
-		this.setCidade(cidade);
-	}
-	public String getCidade() {
-		return cidade;
-	}
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+		super(origem, destino, data, hora, vagas, ehMunicipal, cidade);
 	}
 
 }

@@ -557,8 +557,7 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public List<Carona> localizarCarona(String idSessao, String origem, String destino)throws Exception {
-		Usuario user = sessoesAbertas.get(idSessao);
-		return user.localizaCarona(origem, destino);
+		return rep.localizaCaronaOrigemDestino(origem, destino);
 	}
 
 	/**
@@ -711,5 +710,22 @@ public class SigaBemController {
 		return user.cadastraCarona(idSessao, origem, destino, cidade, data,
 				hora, vagas);
 
+	}
+
+	/**
+	 * Metodo que localiza uma carona municipal pela cidade, origem e destino da carona.
+	 * @param idSessao ID da sessao do usuario que esta buscando a carona
+	 * @param cidade Cidade a que a carona pertence
+	 * @param origem Ponto de saída da carona
+	 * @param destino Ponto de Destino da carona
+	 * @return
+	 * @throws CidadeInexistenteException 
+	 * @throws DestinoInvalidaException 
+	 * @throws OrigemInvalidaException 
+	 */
+	public List<Carona> localizarCaronaMunicipal(String idSessao,
+			String cidade, String origem, String destino) throws OrigemInvalidaException, DestinoInvalidaException, CidadeInexistenteException {
+		return rep.localizaCaronaMunicipioOrigemDestino(cidade,origem,destino);
+		
 	}
 }

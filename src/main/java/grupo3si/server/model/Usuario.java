@@ -1,7 +1,6 @@
 package grupo3si.server.model;
 
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Usuario {
@@ -175,43 +174,6 @@ public class Usuario {
 		return Integer.valueOf(carona.getId());
 	}
 
-	/**
-	 * metodo que localiza uma carona
-	 */
-	public List<Carona> localizaCarona(String origem, String destino)
-			throws Exception {
-
-		if (origem == null
-				|| origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%¨&*0-9].*")) {
-			throw new OrigemInvalidaException();
-		}
-		if (destino == null
-				|| destino
-						.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%¨&*0-9].*")) {
-			throw new DestinoInvalidaException();
-		}
-
-		List<Carona> caronasLocalizadas = new LinkedList<Carona>();
-		Iterator<Carona> caronasIt = perfil.getHistoricoDeCaronas().iterator();
-
-		while (caronasIt.hasNext()) {
-			Carona carona = caronasIt.next();
-			if (carona.getOrigem().equals(origem)
-					&& carona.getDestino().equals(destino)) {
-				caronasLocalizadas.add(carona);
-			} else if (carona.getOrigem().equals(origem) && destino.equals("")) {
-				caronasLocalizadas.add(carona);
-			} else if (carona.getDestino().equals(destino) && origem.equals("")) {
-				caronasLocalizadas.add(carona);
-			} else if (origem.equals("") && destino.equals("")) {
-				caronasLocalizadas.add(carona);
-			}
-		}
-
-		return caronasLocalizadas;
-
-	}
-
 	// metodos privados
 	/**
 	 * Metodo que checa dados do usuario.
@@ -240,7 +202,7 @@ public class Usuario {
 	}
 
 	/**
-	 * Metodo que retorna se dois objectos são iguais.
+	 * Metodo que retorna se dois objectos sÃ£o iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {
