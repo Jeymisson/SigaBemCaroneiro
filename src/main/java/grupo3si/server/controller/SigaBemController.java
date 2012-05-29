@@ -423,10 +423,11 @@ public class SigaBemController {
 	 * Metodo que retorna as solicitaçoes pendentes de uma carona.
 	 * 
 	 * @param idCarona
+	 * @param idCarona2 
 	 * @return String solicitações pendentes
 	 */
-	public List<String> getSolicitacoesPendentes(String idCarona) {
-		return controladorDeNegociacoes.getSolicitacoesPendentes(idCarona);
+	public List<String> getSolicitacoesPendentes(String idSessao, String idCarona) {
+		return controladorDeNegociacoes.getSolicitacoesPendentes(idSessao, idCarona);
 	}
 
 	/**

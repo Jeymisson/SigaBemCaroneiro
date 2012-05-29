@@ -33,12 +33,13 @@ public class ControladorDeNegociacoes {
 	/**
 	 * Retorna a lista de solicitacoes pendentes
 	 * @param idCarona O id da carona
+	 * @param idCarona2 
 	 * @return A lista de solicitacoes
 	 */
-	public List<String> getSolicitacoesPendentes(String idCarona){
+	public List<String> getSolicitacoesPendentes(String idSessao, String idCarona){
 		List<String> listaSolicitacoesPendentes = new ArrayList<String>();
 		if(!solicitacoesPendentes.isEmpty()){
-			listaSolicitacoesPendentes.add(solicitacoesPendentes.get(idCarona).getIdCarona());
+			listaSolicitacoesPendentes.add(solicitacoesPendentes.get(idSessao).getId());
 		}
 		return listaSolicitacoesPendentes;
 	}
@@ -60,7 +61,7 @@ public class ControladorDeNegociacoes {
 	public List<String> getSolicitacoesConfirmadas(String idSessao, String idCarona){
 		List<String> listaSolicitacoesConfirmadas = new ArrayList<String>();
 		if(!solicitacoesConfirmadas.isEmpty())
-		listaSolicitacoesConfirmadas.add(solicitacoesConfirmadas.get(idSessao).getId());
+			listaSolicitacoesConfirmadas.add(solicitacoesConfirmadas.get(idSessao).getId());
 		return listaSolicitacoesConfirmadas;
 	}
 

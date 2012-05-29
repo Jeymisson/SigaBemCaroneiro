@@ -129,13 +129,14 @@ public class FacedEasy {
 				.replace(" ", "");
 	}
 
-	public String getSolicitacoesPendentes(String idCarona) {
-		return (controller.getSolicitacoesPendentes(idCarona)
-				.toString()).replace("[", "{").replace("]", "}");
+	public String getSolicitacoesPendentes(String idSessao, String idCarona) {
+		String result = controller.getSolicitacoesPendentes(idSessao, idCarona).toString();
+		return result.length() > 2 ? result.replace("[", "{").replace("]", "}") : result.replace("[", "").replace("]", "");
 	}
 
 	public String getSolicitacoesConfirmadas(String idSessao, String idCarona) {
-		return (controller.getSolicitacoesConfirmadas(idSessao, idCarona).toString()).replace("[", "").replace("]", "");
+		String result = controller.getSolicitacoesConfirmadas(idSessao, idCarona).toString();
+		return result.length() > 2 ? result.replace("[", "{").replace("]", "}") : result.replace("[", "").replace("]", "");
 	}
 
 
@@ -199,6 +200,11 @@ public class FacedEasy {
 	
 	public int cadastrarCaronaMunicipal(String idSessao, String origem, String destino, String cidade, String data, String hora,String vagas) throws Exception {
 		return controller.cadastrarCaronaMunicipal(idSessao, origem, destino, cidade, data, hora, vagas);
+	}
+	
+	public String getSolicitacoesPendentes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
