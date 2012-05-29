@@ -13,20 +13,36 @@ import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.ChangeEvent;
 
 public class TelaEditarPerfil extends Composite {
+	
+	private Image imagePerfil;
+	private FileUpload fileUpload;
 
 	public TelaEditarPerfil() {
+		
+		
 		
 		AbsolutePanel PainelEditarPerfil = new AbsolutePanel();
 		initWidget(PainelEditarPerfil);
 		PainelEditarPerfil.setSize("1024px", "720px");
 		
-		Image imagePerfil = new Image("imagens/fEIA.jpg");
+		imagePerfil = new Image("imagens/fEIA.jpg");
 		PainelEditarPerfil.add(imagePerfil, 45, 52);
 		imagePerfil.setSize("125px", "146px");
 		
-		FileUpload fileUpload = new FileUpload();
+		
+		fileUpload = new FileUpload();
+		fileUpload.addChangeHandler(new ChangeHandler() {
+			public void onChange(ChangeEvent event) {
+				imagePerfil.setUrl(fileUpload.getFilename());
+			}
+		});
+		
+		imagePerfil.setUrl("imagens/fEIA.jpg");
+		
 		PainelEditarPerfil.add(fileUpload, 45, 214);
 		fileUpload.setSize("196px", "18px");
 		

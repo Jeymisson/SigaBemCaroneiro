@@ -15,8 +15,19 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.MenuBar;
+import com.google.gwt.user.client.ui.VerticalSplitPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.validation.client.constraints.MaxValidatorForNumber;
+import com.google.gwt.user.client.ui.LongBox;
+import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.DeckPanel;
 
 public class TelaLogado extends Composite {
+	private FlexTable mural;
+	private int contador=0;
+	private TextBox caixaDeTexto;
 
 	public TelaLogado() {
 		
@@ -43,18 +54,18 @@ public class TelaLogado extends Composite {
 		PainelLogado.add(fotoPerfil, 24, 41);
 		fotoPerfil.setSize("134px", "150px");
 		
-		TextArea TextAreaStatus = new TextArea();
-		TextAreaStatus.setEnabled(false);
-		TextAreaStatus.setDirectionEstimator(false);
-		PainelLogado.add(TextAreaStatus, 283, 41);
-		TextAreaStatus.setSize("453px", "39px");
-		
 		TextButton PublicarStatus = new TextButton("Publicar");
-		PainelLogado.add(PublicarStatus, 672, 93);
-		
-		Tree treeHistorico = new Tree();
-		PainelLogado.add(treeHistorico, 24, 363);
-		treeHistorico.setSize("100px", "100px");
+		PublicarStatus.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+			
+				//Pegar o que foi escrito na caixa de te
+				mural.setText(contador++, 0, caixaDeTexto.getValue());
+				
+				
+			}
+		});
+		PainelLogado.add(PublicarStatus, 88, 458);
+		PublicarStatus.setSize("70px", "28px");
 		
 		TextButton BotaoEditarPerfil = new TextButton("Editar Perfil");
 		BotaoEditarPerfil.addClickHandler(new ClickHandler() {
@@ -71,6 +82,20 @@ public class TelaLogado extends Composite {
 		TextButton BotaoCadastrarCarona = new TextButton("Cadastrar Carona");
 		PainelLogado.add(BotaoCadastrarCarona, 24, 266);
 		BotaoCadastrarCarona.setSize("134px", "28px");
+		
+		VerticalPanel verticalPanel = new VerticalPanel();
+		PainelLogado.add(verticalPanel, 283, 160);
+		verticalPanel.setSize("459px", "536px");
+		
+		mural = new FlexTable();
+		verticalPanel.add(mural);
+		mural.setSize("457px", "536px");
+		
+		caixaDeTexto = new TextBox();
+		caixaDeTexto.setDirectionEstimator(true);
+		caixaDeTexto.setText("what's up?");
+		PainelLogado.add(caixaDeTexto, 24, 413);
+		caixaDeTexto.setSize("122px", "31px");
 		
 		
 		
