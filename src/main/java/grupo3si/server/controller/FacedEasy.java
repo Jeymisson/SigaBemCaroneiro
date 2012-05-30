@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.InvalidNameException;
+
 public class FacedEasy {
 	
 	SigaBemController controller;
@@ -211,7 +213,7 @@ public class FacedEasy {
 		return mensagens.toString();
 	}
 	
-	public String enviarEmail(String idSessao, String destino, String message){
+	public String enviarEmail(String idSessao, String destino, String message) throws InvalidNameException, NullPointerException, InexistentLoginException{
 		return controller.enviarEmail(idSessao, destino, message) + "";
 	}
 }
