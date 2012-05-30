@@ -753,7 +753,7 @@ public class SigaBemController {
 			throw new Exception("Caronas com esse perfil ja estao cadastradas");
 			//TODO
 		}
-		Usuario interessado = rep.getUser(idSessao);
+		Usuario interessado = rep.getUserPorId(idSessao);
 		return ri.adicionaInteresse(interessado, origem, destino, data, horaInicio, horaFim);
 	}
 	
