@@ -1,5 +1,6 @@
 package grupo3si.server.controller;
 
+import grupo3.si.mail.Email;
 import grupo3si.server.model.*;
 
 import java.util.AbstractMap;
@@ -7,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
+
+import javax.naming.InvalidNameException;
 
 public class SigaBemController {
 
@@ -762,9 +765,11 @@ public class SigaBemController {
 		return usuario.getMensagens();
 	}
 	
-	public boolean enviarEmail(String idSessao, String destino, String message){
-		//TODO
-		//ENVIAR EMAIL
-		return true;
+	public boolean enviarEmail(String idSessao, String destino, String message) throws InvalidNameException, NullPointerException, InexistentLoginException{
+		Usuario usuario = sessoesAbertas.get(idSessao);
+		if(usuario == null) throw new InexistentLoginException();
+		
+		Email email = new Email(destino, message);
+		return email.run();
 	}
 }
