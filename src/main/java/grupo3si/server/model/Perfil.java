@@ -1,5 +1,6 @@
 package grupo3si.server.model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Perfil {
 	private Integer caronafaltosas;
 	private Integer FaltaEmVagaDeCarona;
 	private Integer presencaEmVagaDeCarona;
+	private List<String> mensagens;
 
 	/**
 	 * construtor de perfil
@@ -33,7 +35,7 @@ public class Perfil {
 		setPresencaEmVagaDeCarona(0);
 		historicoDeCaronas = new LinkedList<Carona>();
 		historicoEmVagasDeCaronas = new LinkedList<Carona>();
-
+		mensagens = new ArrayList<String>();
 	}
 
 	/**
@@ -242,6 +244,14 @@ public class Perfil {
 	 */
 	public void add(Carona carona) {
 		historicoDeCaronas.add(carona);
+	}
+
+	public void addMensagem(String mensagem) {
+		mensagens.add(mensagem);
+	}
+	
+	public List<String> getMensagens(){
+		return mensagens;
 	}
 
 }

@@ -202,10 +202,8 @@ public class FacedEasy {
 		return controller.cadastrarCaronaMunicipal(idSessao, origem, destino, cidade, data, hora, vagas);
 	}
 	
-	public String getSolicitacoesPendentes() {
+	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }

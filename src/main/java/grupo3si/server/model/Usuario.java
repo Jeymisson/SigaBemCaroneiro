@@ -3,13 +3,13 @@ package grupo3si.server.model;
 import java.util.Iterator;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Interessado {
 
-	Perfil perfil;
-	static int idContador = 0;
-	int userID;
-	String login;
-	String senha;
+	private Perfil perfil;
+	private static int idContador = 0;
+	private int userID;
+	private String login;
+	private String senha;
 
 	/**
 	 * Metodo que cria um usuario simples.
@@ -247,6 +247,16 @@ public class Usuario {
 
 	public Integer getPresencaEmVagaDeCarona() {
 		return perfil.getPresencaEmVagaDeCarona();
+	}
+
+	public void avisa(String diaCriacao, String horaCriacao, String emailDoCriador) {
+		String mensagem = "Carona cadastrada no dia "
+				+ diaCriacao
+				+ ", às "
+				+ horaCriacao
+				+ " de acordo com os seus interesses registrados. Entrar em contato com "
+				+ emailDoCriador;
+		perfil.addMensagem(mensagem);
 	}
 
 

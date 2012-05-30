@@ -729,4 +729,19 @@ public class SigaBemController {
 		return rep.localizaCaronaMunicipioOrigemDestino(cidade,origem,destino);
 		
 	}
+	
+	/**
+	 * 
+	 * @param idSessao
+	 * @param origem
+	 * @param destino
+	 * @param data
+	 * @param horaInicio
+	 * @param horaFim
+	 * @return
+	 */
+	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) {
+		
+		return null;
+	}
 }
