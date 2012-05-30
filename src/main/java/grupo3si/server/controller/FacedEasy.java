@@ -210,4 +210,8 @@ public class FacedEasy {
 		List<String> mensagens = controller.verificarMensagensPerfil(idSessao);
 		return mensagens.toString();
 	}
+	
+	public String enviarEmail(String idSessao, String destino, String message){
+		return controller.enviarEmail(idSessao, destino, message) + "";
+	}
 }

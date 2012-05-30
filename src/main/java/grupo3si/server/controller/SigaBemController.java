@@ -761,4 +761,10 @@ public class SigaBemController {
 		Usuario usuario = rep.getUserPorId(idSessao);
 		return usuario.getMensagens();
 	}
+	
+	public boolean enviarEmail(String idSessao, String destino, String message){
+		//TODO
+		//ENVIAR EMAIL
+		return true;
+	}
 }
