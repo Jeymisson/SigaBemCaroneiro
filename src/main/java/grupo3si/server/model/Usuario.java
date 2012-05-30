@@ -202,7 +202,7 @@ public class Usuario implements Interessado {
 	}
 
 	/**
-	 * Metodo que retorna se dois objectos sÃ£o iguais.
+	 * Metodo que retorna se dois objetos são iguais.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -252,7 +252,7 @@ public class Usuario implements Interessado {
 	public void avisa(String diaCriacao, String horaCriacao, String emailDoCriador) {
 		String mensagem = "Carona cadastrada no dia "
 				+ diaCriacao
-				+ ", �s "
+				+ ", às "
 				+ horaCriacao
 				+ " de acordo com os seus interesses registrados. Entrar em contato com "
 				+ emailDoCriador;

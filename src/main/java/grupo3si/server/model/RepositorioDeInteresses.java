@@ -1,4 +1,4 @@
-package grupo3si.server.model;
+﻿package grupo3si.server.model;
 
 import java.util.ArrayList;
 import java.util.List;
