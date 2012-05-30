@@ -44,9 +44,24 @@ public class Interesse {
 	}
 	
 	public boolean isCompativel(String origem, String destino, String data, String hora){
-		//TODO
-		//verifica a compatibilidade da carona criada com o interesse this
-		return false;
+		boolean result = false;
+		if(this.origem.equals(origem) && this.destino.equals(destino)){
+			if(this.data.equals(data)){
+				if(this.horaInicio.compareTo(hora) <= 0 && this.horaFim.compareTo(hora) >= 0){
+					result = true;
+				}else if(this.horaInicio.equals("") && this.horaFim.compareTo(hora) >= 0){
+					result = true;
+				}else if(this.horaFim.equals("") && this.horaInicio.compareTo(hora) <= 0){
+					result = true;
+				}else if(this.horaInicio.equals("") && this.horaFim.equals("")){
+					result = true;
+				}
+			}else if(this.data.equals("")){
+				result = true;
+			}
+		}
+
+		return result;
 	}
 	
 }

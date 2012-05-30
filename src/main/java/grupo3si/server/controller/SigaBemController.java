@@ -11,6 +11,7 @@ import java.util.TreeMap;
 public class SigaBemController {
 
 	RepositorioDeUsuarios rep;
+	RepositorioDeInteresses ri;
 	ControladorDeNegociacoes controladorDeNegociacoes;
 	private final String USERS_FILE = "src/main/resources/usuarios.xml";
 	private final String NEGOCIACOES_FILE = "src/main/resources/negociacoes.xml";
@@ -25,7 +26,7 @@ public class SigaBemController {
 		rep = RepositorioDeUsuarios.getInstance();
 		sessoesAbertas = new TreeMap<String, Usuario>();
 		controladorDeNegociacoes = new ControladorDeNegociacoes();
-
+		ri = RepositorioDeInteresses.getInstance();
 	}
 
 	/**
@@ -542,8 +543,10 @@ public class SigaBemController {
 			throw new VagaInvalidaException();
 
 		Usuario user = sessoesAbertas.get(id);
-		if (user == null)
-			throw new SessaoInexistenteException();
+		if (user == null) throw new SessaoInexistenteException();
+		
+		ri.verificaSeExisteInteresse(origem, destino, data, hora, user.getEmail());
+		
 		return user.cadastraCarona(origem, destino, data, hora,
 				Integer.valueOf(vagas));
 	}
@@ -708,6 +711,8 @@ public class SigaBemController {
 		if (user == null)
 			throw new SessaoInexistenteException();
 
+		ri.verificaSeExisteInteresse(origem, destino, data, hora, user.getEmail());
+		
 		return user.cadastraCarona(idSessao, origem, destino, cidade, data,
 				hora, vagas);
 
@@ -739,9 +744,21 @@ public class SigaBemController {
 	 * @param horaInicio
 	 * @param horaFim
 	 * @return
+	 * @throws Exception 
 	 */
-	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) {
+	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) throws Exception {
 		
-		return null;
+		List<Carona> caronas = rep.localizaCaronaOrigemDestino(origem, destino);
+		if(caronas != null && caronas.size() > 0){
+			throw new Exception("Caronas com esse perfil ja estao cadastradas");
+			//TODO
+		}
+		Usuario interessado = rep.getUser(idSessao);
+		return ri.adicionaInteresse(interessado, origem, destino, data, horaInicio, horaFim);
+	}
+	
+	public List<String> verificarMensagensPerfil(String idSessao) throws Exception {
+		Usuario usuario = rep.getUser(idSessao);
+		return usuario.getMensagens();
 	}
 }

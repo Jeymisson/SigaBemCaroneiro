@@ -202,8 +202,12 @@ public class FacedEasy {
 		return controller.cadastrarCaronaMunicipal(idSessao, origem, destino, cidade, data, hora, vagas);
 	}
 	
-	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) {
-		// TODO Auto-generated method stub
-		return null;
+	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) throws Exception {
+		return controller.cadastrarInteresse(idSessao, origem, destino, data, horaInicio, horaFim);
+	}
+	
+	public String verificarMensagensPerfil(String idSessao) throws Exception {
+		List<String> mensagens = controller.verificarMensagensPerfil(idSessao);
+		return mensagens.toString();
 	}
 }

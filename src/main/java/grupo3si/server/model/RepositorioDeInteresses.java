@@ -5,10 +5,18 @@ import java.util.List;
 
 public class RepositorioDeInteresses {
 	
+	private static RepositorioDeInteresses repositorio;
 	private List<Interesse> interesses;
 	
 	protected RepositorioDeInteresses() {
 		interesses = new ArrayList<Interesse>();
+	}
+	
+	public static RepositorioDeInteresses getInstance(){
+		if(repositorio == null){
+			repositorio = new RepositorioDeInteresses();
+		}
+		return repositorio;
 	}
 	
 	/**
@@ -27,16 +35,9 @@ public class RepositorioDeInteresses {
 	public String adicionaInteresse(Interessado interessado, String origem, String destino, String data, String horaInicio, String horaFim){
 		Interesse interesse = new Interesse(interessado, origem, destino, data, horaInicio, horaFim);
 		interesses.add(interesse);
-		verificaSeCaronaJaExiste(interesse);
 		return interesse.getId();
 	}
 
-	private void verificaSeCaronaJaExiste(Interesse interesse) {
-		// TODO Auto-generated method stub
-		//varre repositorio de usuarios procurando por carona com os dados do interesse
-		//remove interesse da lista de interesses caso a carona seja encontrada
-	}
-	
 	/**
 	 * Esse metodo vai ser chamado pelo controlador assim que uma nova carona eh
 	 * criada para verificar se existem interesses cadastrados nesse tipo de
