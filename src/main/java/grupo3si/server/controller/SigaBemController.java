@@ -758,7 +758,7 @@ public class SigaBemController {
 	}
 	
 	public List<String> verificarMensagensPerfil(String idSessao) throws Exception {
-		Usuario usuario = rep.getUser(idSessao);
+		Usuario usuario = rep.getUserPorId(idSessao);
 		return usuario.getMensagens();
 	}
 }
