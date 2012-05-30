@@ -12,7 +12,7 @@ import javax.naming.InvalidNameException;
  */
 public class Email extends Mensagem {
 
-	private String usuario = "Siga Bem Caroneiro";
+	private String usuario = "sigabemcaroneiro@gmail.com";
 	private String senha = "negojeylukinhasjordinhoeu";
 
 	private static final String SMTP_HOST_NAME = "smtp.gmail.com";
@@ -103,11 +103,10 @@ public class Email extends Mensagem {
 			email.saveChanges();
 			tr.sendMessage(email, email.getAllRecipients());
 			tr.close();
-			return true;
 		} catch (Exception e) {
-			//pass
+			return false;
 		}
 		
-		return false;
+		return true;
 	}
 }
