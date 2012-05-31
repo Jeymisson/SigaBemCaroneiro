@@ -199,8 +199,18 @@ public class TelaLogado extends Composite {
 				verticalPanel.setVisible(true);
 			}
 		});
+		
+		TextButton txtbtnCancelar = new TextButton("Cancelar");
+		txtbtnCancelar.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				painelCadastrarCarona.setVisible(false);
+				verticalPanel.setVisible(true);
+			}
+		});
+		flexTable.setWidget(5, 0, txtbtnCancelar);
 		flexTable.setWidget(5, 1, txtbtnCadastrar);
-		flexTable.getCellFormatter().setHorizontalAlignment(5, 1, HasHorizontalAlignment.ALIGN_RIGHT);
+		flexTable.getCellFormatter().setHorizontalAlignment(5, 1, HasHorizontalAlignment.ALIGN_LEFT);
+		flexTable.getCellFormatter().setHorizontalAlignment(5, 0, HasHorizontalAlignment.ALIGN_LEFT);
 		
 		caixaDeTexto = new TextBox();
 		caixaDeTexto.setDirectionEstimator(true);

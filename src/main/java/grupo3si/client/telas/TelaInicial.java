@@ -69,40 +69,41 @@ public class TelaInicial extends Composite{
 		absolutePanel.add(btnEntrar, 766, 84);
 		
 		Label lblCadastrese = new Label("Cadastre-se");
-		absolutePanel.add(lblCadastrese, 682, 132);
+		absolutePanel.add(lblCadastrese, 681, 142);
 		
 		Label lblNome = new Label("Nome:");
-		absolutePanel.add(lblNome, 682, 166);
+		absolutePanel.add(lblNome, 681, 173);
 		
 		Label lblEndereo = new Label("Endere\u00E7o:");
-		absolutePanel.add(lblEndereo, 682, 231);
+		absolutePanel.add(lblEndereo, 681, 238);
 		
 		Label lblEmail = new Label("E-mail:");
-		absolutePanel.add(lblEmail, 682, 264);
+		absolutePanel.add(lblEmail, 681, 272);
 		
 		Label lblNewLabel_1 = new Label("Senha:");
-		absolutePanel.add(lblNewLabel_1, 682, 297);
+		absolutePanel.add(lblNewLabel_1, 681, 304);
 		
 		TextBox textBox_2 = new TextBox();
-		absolutePanel.add(textBox_2, 747, 154);
+		absolutePanel.add(textBox_2, 746, 173);
 		
 		TextBox textBox_3 = new TextBox();
-		absolutePanel.add(textBox_3, 747, 187);
+		absolutePanel.add(textBox_3, 746, 206);
 		
 		TextBox textBox_4 = new TextBox();
-		absolutePanel.add(textBox_4, 747, 219);
+		absolutePanel.add(textBox_4, 746, 238);
 		
 		TextBox textBox_5 = new TextBox();
-		absolutePanel.add(textBox_5, 747, 253);
+		absolutePanel.add(textBox_5, 746, 272);
 		
 		TextBox textBox_6 = new TextBox();
-		absolutePanel.add(textBox_6, 747, 285);
+		absolutePanel.add(textBox_6, 746, 304);
 		
 		Label lblUsuario = new Label("Usuario:");
-		absolutePanel.add(lblUsuario, 682, 199);
+		absolutePanel.add(lblUsuario, 681, 206);
 		
-		TextButton txtbtnCadastra = new TextButton("Cadastre-se");
-		absolutePanel.add(txtbtnCadastra, 766, 340);
+		TextButton txtbtnCadastra = new TextButton("Cadastrar");
+		absolutePanel.add(txtbtnCadastra, 746, 359);
+		txtbtnCadastra.setSize("131px", "28px");
 		
 		Image image = new Image("imagens/carona.jpg");
 		absolutePanel.add(image, 32, 94);
