@@ -1,5 +1,7 @@
 package grupo3si.client.telas;
 
+import grupo3si.server.controller.SigaBemController;
+
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -26,6 +28,9 @@ import com.google.gwt.user.client.ui.Image;
 import com.smartgwt.client.widgets.IButton;
 
 public class TelaInicial extends Composite{
+	
+	
+	
 	public TelaInicial() {
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
@@ -52,7 +57,7 @@ public class TelaInicial extends Composite{
 		Hyperlink hprlnkRecuperarSenha = new Hyperlink("Recuperar senha", false, "newHistoryToken");
 		absolutePanel.add(hprlnkRecuperarSenha, 877, 62);
 		
-		Button btnEntrar = new Button("Entrar");
+		TextButton btnEntrar = new TextButton("Entrar");
 		btnEntrar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				TelaLogado telaLogado = new TelaLogado();

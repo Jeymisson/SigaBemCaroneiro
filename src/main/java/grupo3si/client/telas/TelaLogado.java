@@ -34,6 +34,7 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 
 import java.util.ArrayList;
+import com.google.gwt.user.datepicker.client.DatePicker;
 
 public class TelaLogado extends Composite {
 	private int contador;
@@ -69,8 +70,16 @@ public class TelaLogado extends Composite {
 		PainelLogado.add(txtbtnSair, 916, 41);
 		
 		Image fotoPerfil = new Image("imagens/fEIA.jpg");
+		fotoPerfil.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				TelaPerfilPublico perfilpublico = new TelaPerfilPublico();
+				perfilpublico.setVisible(true);
+				RootPanel.get("centro").clear();
+				RootPanel.get("centro").add(perfilpublico);
+			}
+		});
 		PainelLogado.add(fotoPerfil, 24, 41);
-		fotoPerfil.setSize("134px", "150px");
+		fotoPerfil.setSize("142px", "152px");
 		
 		
 		/*
@@ -101,8 +110,8 @@ public class TelaLogado extends Composite {
 				
 			}
 		});
-		PainelLogado.add(PublicarStatus, 88, 458);
-		PublicarStatus.setSize("70px", "28px");
+		PainelLogado.add(PublicarStatus, 88, 386);
+		PublicarStatus.setSize("78px", "28px");
 		
 		
 		
@@ -120,7 +129,7 @@ public class TelaLogado extends Composite {
 		
 		
 		PainelLogado.add(BotaoEditarPerfil, 24, 232);
-		BotaoEditarPerfil.setSize("134px", "28px");
+		BotaoEditarPerfil.setSize("142px", "28px");
 		
 		TextButton BotaoCadastrarCarona = new TextButton("Cadastrar Carona");
 		BotaoCadastrarCarona.addClickHandler(new ClickHandler() {
@@ -131,7 +140,7 @@ public class TelaLogado extends Composite {
 			}
 		});
 		PainelLogado.add(BotaoCadastrarCarona, 24, 266);
-		BotaoCadastrarCarona.setSize("134px", "28px");
+		BotaoCadastrarCarona.setSize("142px", "28px");
 		
 		verticalPanel = new VerticalPanel();
 		PainelLogado.add(verticalPanel, 283, 160);
@@ -140,7 +149,7 @@ public class TelaLogado extends Composite {
 		painelCadastrarCarona = new CaptionPanel("New panel");
 		painelCadastrarCarona.setVisible(false);
 		painelCadastrarCarona.setCaptionHTML("Cadastrar");
-		PainelLogado.add(painelCadastrarCarona, 217, 101);
+		PainelLogado.add(painelCadastrarCarona, 357, 145);
 		painelCadastrarCarona.setSize("331px", "376px");
 		
 		FlexTable flexTable = new FlexTable();
@@ -196,8 +205,8 @@ public class TelaLogado extends Composite {
 		caixaDeTexto = new TextBox();
 		caixaDeTexto.setDirectionEstimator(true);
 		caixaDeTexto.setText("what's up?");
-		PainelLogado.add(caixaDeTexto, 24, 413);
-		caixaDeTexto.setSize("122px", "31px");
+		PainelLogado.add(caixaDeTexto, 24, 341);
+		caixaDeTexto.setSize("134px", "31px");
 		textoParaMural = caixaDeTexto.getText().toUpperCase();
 		stocks.add(textoParaMural);
 		
@@ -205,6 +214,10 @@ public class TelaLogado extends Composite {
 		mural = new FlexTable();
 		verticalPanel.add(mural);
 		mural.setSize("457px", "536px");
+		
+		DatePicker datePicker = new DatePicker();
+		PainelLogado.add(datePicker, 24, 459);
+		datePicker.setSize("132px", "169px");
 		
 	}
 }
