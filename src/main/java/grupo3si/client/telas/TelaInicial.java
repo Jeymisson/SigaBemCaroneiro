@@ -104,7 +104,7 @@ public class TelaInicial extends Composite{
 		image.setSize("600px", "416px");
 		
 		
-//		final IButton stretchButton = new IButton("Stretch Button");  
+//		IButton stretchButton = new IButton("Stretch Button");  
 //        stretchButton.setWidth(150);  
 //        stretchButton.setShowRollOver(true);  
 //        stretchButton.setShowDisabled(true);  
@@ -112,7 +112,6 @@ public class TelaInicial extends Composite{
 //        stretchButton.setTitleStyle("stretchTitle");  
 //        absolutePanel.add(stretchButton,0,0);
 		
-		IButton botao = new IButton();
-		absolutePanel.add(botao);
+		
 	}
 }

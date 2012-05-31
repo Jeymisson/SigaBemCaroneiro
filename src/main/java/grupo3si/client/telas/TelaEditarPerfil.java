@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.FileUpload;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.ListBox;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ValueListBox;
 import com.google.gwt.text.client.IntegerRenderer;
 import com.google.gwt.user.client.ui.RadioButton;
@@ -136,6 +137,17 @@ public class TelaEditarPerfil extends Composite {
 		});
 		PainelEditarPerfil.add(BotaoSalvar, 589, 576);
 		BotaoSalvar.setSize("79px", "28px");
+		
+		TextButton txtbtnCancelar = new TextButton("Cancelar");
+		txtbtnCancelar.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				TelaLogado telalogado = new TelaLogado();
+				telalogado.setVisible(true);
+				RootPanel.get("centro").clear();
+				RootPanel.get("centro").add(telalogado);
+			}
+		});
+		PainelEditarPerfil.add(txtbtnCancelar, 492, 576);
 		
 		
 		
