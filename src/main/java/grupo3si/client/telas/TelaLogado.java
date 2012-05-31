@@ -1,5 +1,7 @@
 package grupo3si.client.telas;
 
+import java.util.ArrayList;
+
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Label;
@@ -10,6 +12,8 @@ import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TextArea;
@@ -19,18 +23,26 @@ import com.google.gwt.user.client.ui.VerticalSplitPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.validation.client.constraints.MaxValidatorForNumber;
 import com.google.gwt.user.client.ui.LongBox;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.DeckPanel;
+import com.smartgwt.client.widgets.IButton;
 
 public class TelaLogado extends Composite {
 	private FlexTable mural;
-	private int contador=0;
+	private int contador;
 	private TextBox caixaDeTexto;
+	private ArrayList<String> stocks = new ArrayList<String>();
+	private String textoParaMural;
+	
 
 	public TelaLogado() {
-		
+	
+		/*
+		 * Criando painel principal
+		 */
 		AbsolutePanel PainelLogado = new AbsolutePanel();
 		initWidget(PainelLogado);
 		PainelLogado.setSize("1024px", "720px");
@@ -54,18 +66,39 @@ public class TelaLogado extends Composite {
 		PainelLogado.add(fotoPerfil, 24, 41);
 		fotoPerfil.setSize("134px", "150px");
 		
+		
+		/*
+		 * Momento em que o usuario publica ou remove alguma coisa no mural
+		 */
 		TextButton PublicarStatus = new TextButton("Publicar");
 		PublicarStatus.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-			
-				//Pegar o que foi escrito na caixa de te
-				mural.setText(contador++, 0, caixaDeTexto.getValue());
 				
+				textoParaMural = caixaDeTexto.getText().toUpperCase();
+				stocks.add(textoParaMural);
+				
+			
+				//Pegar o que foi escrito na caixa de texto
+				mural.setText(contador++, 0, textoParaMural);
+				
+				//Logica pra remover um elemento do mural
+				Button removerMural = new Button("remover");
+				int contadorAux = contador-1; 
+				mural.setWidget(contadorAux, 1, removerMural);
+				removerMural.addClickHandler(new ClickHandler() {
+					public void onClick(ClickEvent event) {
+					int removeIndex = stocks.indexOf(textoParaMural);
+					stocks.remove(removeIndex);
+					mural.removeRow(removeIndex+1);
+				}
+				});
 				
 			}
 		});
 		PainelLogado.add(PublicarStatus, 88, 458);
 		PublicarStatus.setSize("70px", "28px");
+		
+		
 		
 		TextButton BotaoEditarPerfil = new TextButton("Editar Perfil");
 		BotaoEditarPerfil.addClickHandler(new ClickHandler() {
@@ -76,6 +109,10 @@ public class TelaLogado extends Composite {
 				RootPanel.get("centro").add(perfil);
 			}
 		});
+		
+		
+		
+		
 		PainelLogado.add(BotaoEditarPerfil, 24, 232);
 		BotaoEditarPerfil.setSize("134px", "28px");
 		
@@ -96,6 +133,11 @@ public class TelaLogado extends Composite {
 		caixaDeTexto.setText("what's up?");
 		PainelLogado.add(caixaDeTexto, 24, 413);
 		caixaDeTexto.setSize("122px", "31px");
+		
+		contador = mural.getRowCount();
+		textoParaMural = caixaDeTexto.getText().toUpperCase();
+		stocks.add(textoParaMural);
+		
 		
 		
 		

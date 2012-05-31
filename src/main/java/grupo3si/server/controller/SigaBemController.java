@@ -7,6 +7,7 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Stack;
 import java.util.TreeMap;
 
 import javax.naming.InvalidNameException;
@@ -18,6 +19,7 @@ public class SigaBemController {
 	ControladorDeNegociacoes controladorDeNegociacoes;
 	private final String USERS_FILE = "src/main/resources/usuarios.xml";
 	private final String NEGOCIACOES_FILE = "src/main/resources/negociacoes.xml";
+	private Stack<Carona> pilha;
 
 	// Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
@@ -30,6 +32,7 @@ public class SigaBemController {
 		sessoesAbertas = new TreeMap<String, Usuario>();
 		controladorDeNegociacoes = new ControladorDeNegociacoes();
 		ri = RepositorioDeInteresses.getInstance();
+		pilha = new Stack<Carona>();
 	}
 
 	/**
@@ -771,5 +774,16 @@ public class SigaBemController {
 		
 		Email email = new Email(destino, message);
 		return email.run();
+	}
+	
+	/**
+	 * Retorna uma pilha de caronas
+	 * @param Carano carona
+	 * @return Stack pilha
+	 */
+	public Stack<Carona> pilhaDeCaronas(Carona carona){
+		pilha.add(carona);
+		return pilha;
+		
 	}
 }

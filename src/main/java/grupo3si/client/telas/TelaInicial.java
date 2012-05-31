@@ -23,6 +23,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.user.client.ui.Image;
+import com.smartgwt.client.widgets.IButton;
 
 public class TelaInicial extends Composite{
 	public TelaInicial() {
@@ -101,5 +102,17 @@ public class TelaInicial extends Composite{
 		Image image = new Image("imagens/carona.jpg");
 		absolutePanel.add(image, 32, 94);
 		image.setSize("600px", "416px");
+		
+		
+//		final IButton stretchButton = new IButton("Stretch Button");  
+//        stretchButton.setWidth(150);  
+//        stretchButton.setShowRollOver(true);  
+//        stretchButton.setShowDisabled(true);  
+//        stretchButton.setShowDown(true);  
+//        stretchButton.setTitleStyle("stretchTitle");  
+//        absolutePanel.add(stretchButton,0,0);
+		
+		IButton botao = new IButton();
+		absolutePanel.add(botao);
 	}
 }

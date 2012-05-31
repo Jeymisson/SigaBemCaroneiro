@@ -156,8 +156,7 @@ public class Usuario implements Interessado {
 	 */
 	public int cadastraCarona(String origem, String destino, String data,
 			String hora, Integer vagas) throws Exception {
-		Carona carona = new CaronaSimples(origem, destino, data, hora, vagas,
-				false);
+		Carona carona = new CaronaSimples(origem, destino, data, hora, vagas,false);
 		perfil.add(carona);
 		return Integer.valueOf(carona.getId());
 	}
