@@ -1,4 +1,4 @@
-﻿package grupo3si.server.model;
+package grupo3si.server.model;
 
 public interface Interessado {
 
