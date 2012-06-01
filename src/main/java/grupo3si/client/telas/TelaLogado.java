@@ -1,4 +1,6 @@
 package grupo3si.client.telas;
+import grupo3si.client.gui.SigaBemServerAsync;
+
 import java.util.ArrayList;
 
 import com.google.gwt.user.client.ui.Composite;
@@ -6,6 +8,7 @@ import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.AttachEvent.Handler;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.widget.client.TextButton;
@@ -35,6 +38,7 @@ import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 import java.util.ArrayList;
 import com.google.gwt.user.datepicker.client.DatePicker;
+import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class TelaLogado extends Composite {
 	private int contador;
@@ -43,7 +47,10 @@ public class TelaLogado extends Composite {
 	private String textoParaMural;
 	private CaptionPanel  painelCadastrarCarona;
 	private VerticalPanel verticalPanel;
-	private FlexTable mural;
+	private FlexTable mural,solicitacoes;
+	private TextButton botaoVoltar;
+	
+	
 
 	public TelaLogado() {
 	
@@ -110,7 +117,7 @@ public class TelaLogado extends Composite {
 				
 			}
 		});
-		PainelLogado.add(PublicarStatus, 88, 386);
+		PainelLogado.add(PublicarStatus, 88, 408);
 		PublicarStatus.setSize("78px", "28px");
 		
 		
@@ -137,6 +144,7 @@ public class TelaLogado extends Composite {
 				verticalPanel.setVisible(false);
 				painelCadastrarCarona.setVisible(true);
 				
+				
 			}
 		});
 		PainelLogado.add(BotaoCadastrarCarona, 24, 266);
@@ -148,6 +156,13 @@ public class TelaLogado extends Composite {
 		
 		painelCadastrarCarona = new CaptionPanel("New panel");
 		painelCadastrarCarona.setVisible(false);
+		
+		solicitacoes = new FlexTable();
+		PainelLogado.add(solicitacoes, 285, 121);
+		solicitacoes.setVisible(false);
+		solicitacoes.setSize("457px", "536px");
+		
+		
 		painelCadastrarCarona.setCaptionHTML("Cadastrar");
 		PainelLogado.add(painelCadastrarCarona, 357, 145);
 		painelCadastrarCarona.setSize("331px", "376px");
@@ -215,7 +230,7 @@ public class TelaLogado extends Composite {
 		caixaDeTexto = new TextBox();
 		caixaDeTexto.setDirectionEstimator(true);
 		caixaDeTexto.setText("what's up?");
-		PainelLogado.add(caixaDeTexto, 24, 341);
+		PainelLogado.add(caixaDeTexto, 24, 363);
 		caixaDeTexto.setSize("134px", "31px");
 		textoParaMural = caixaDeTexto.getText().toUpperCase();
 		stocks.add(textoParaMural);
@@ -226,8 +241,52 @@ public class TelaLogado extends Composite {
 		mural.setSize("457px", "536px");
 		
 		DatePicker datePicker = new DatePicker();
-		PainelLogado.add(datePicker, 24, 459);
+		PainelLogado.add(datePicker, 24, 481);
 		datePicker.setSize("132px", "169px");
+		
+		TextButton botaoSolicitacoes = new TextButton("Solicitacoes");
+		botaoSolicitacoes.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				mural.setVisible(false);
+				solicitacoes.setVisible(true);
+				painelCadastrarCarona.setVisible(false);
+				botaoVoltar.setVisible(true);
+				
+				textoParaMural = caixaDeTexto.getText().toUpperCase();
+				
+				
+			
+				//Pegar o que foi escrito na caixa de texto
+				solicitacoes.setText(contador++, 0, textoParaMural);
+				
+				//Logica pra remover um elemento do mural
+				Button aceitarSolicitacao = new Button("aceitar");
+				Button recusarSolicitacao = new Button("recusar");
+				int contadorAux = contador-1; 
+				solicitacoes.setWidget(contadorAux, 1, aceitarSolicitacao);
+				solicitacoes.setWidget(contadorAux, 2, recusarSolicitacao);
+				aceitarSolicitacao.addClickHandler(new ClickHandler() {
+					public void onClick(ClickEvent event) {
+					int removeIndex = stocks.indexOf(textoParaMural);
+					solicitacoes.removeRow(removeIndex+1);
+				}
+				});
+				
+			}
+		});
+		PainelLogado.add(botaoSolicitacoes, 24, 300);
+		botaoSolicitacoes.setSize("142px", "28px");
+		
+		botaoVoltar = new TextButton("Voltar");
+		botaoVoltar.setVisible(false);
+		botaoVoltar.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				mural.setVisible(true);
+				solicitacoes.setVisible(false);
+				painelCadastrarCarona.setVisible(false);
+			}
+		});
+		PainelLogado.add(botaoVoltar, 283, 682);
 		
 	}
 }
