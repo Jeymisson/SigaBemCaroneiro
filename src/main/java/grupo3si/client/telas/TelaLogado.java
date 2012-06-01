@@ -1,46 +1,30 @@
 package grupo3si.client.telas;
-import grupo3si.client.gui.SigaBemServerAsync;
+import grupo3si.client.SigaBemServerAsync;
 
 import java.util.ArrayList;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.Hyperlink;
+
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.logical.shared.AttachEvent.Handler;
-import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ClickListener;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Tree;
-import com.google.gwt.user.client.ui.TextArea;
-import com.google.gwt.user.client.ui.TreeItem;
-import com.google.gwt.user.client.ui.MenuBar;
-import com.google.gwt.user.client.ui.VerticalSplitPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.Widget;
-import com.google.gwt.validation.client.constraints.MaxValidatorForNumber;
-import com.google.gwt.user.client.ui.LongBox;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.DeckPanel;
-import com.smartgwt.client.widgets.IButton;
 import com.google.gwt.user.client.ui.CaptionPanel;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
-
-
-import java.util.ArrayList;
 import com.google.gwt.user.datepicker.client.DatePicker;
-import com.google.gwt.user.client.ui.HorizontalPanel;
 
 public class TelaLogado extends Composite {
+	
+	private SigaBemServerAsync controllerServer;
 	private int contador;
 	private TextBox caixaDeTexto;
 	private ArrayList<String> stocks = new ArrayList<String>();
@@ -52,8 +36,9 @@ public class TelaLogado extends Composite {
 	
 	
 
-	public TelaLogado() {
+	public TelaLogado(SigaBemServerAsync controller) {
 	
+		controllerServer = controller;
 		/*
 		 * Criando painel principal
 		 */
@@ -67,7 +52,7 @@ public class TelaLogado extends Composite {
 		TextButton txtbtnSair = new TextButton("Sair");
 		txtbtnSair.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaInicial inicio = new TelaInicial();
+				TelaInicial inicio = new TelaInicial(controllerServer);
 				inicio.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(inicio);
@@ -125,7 +110,7 @@ public class TelaLogado extends Composite {
 		TextButton BotaoEditarPerfil = new TextButton("Editar Perfil");
 		BotaoEditarPerfil.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaEditarPerfil perfil = new TelaEditarPerfil();
+				TelaEditarPerfil perfil = new TelaEditarPerfil(controllerServer);
 				perfil.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(perfil);

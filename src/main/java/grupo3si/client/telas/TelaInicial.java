@@ -1,41 +1,40 @@
 package grupo3si.client.telas;
 
+import grupo3si.client.SigaBemServerAsync;
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.DockPanel;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
-import com.google.gwt.user.client.ui.HasVerticalAlignment;
-import com.google.gwt.user.client.ui.DockLayoutPanel;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.CheckBox;
-import com.google.gwt.user.client.ui.Grid;
-import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.LayoutPanel;
-import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.user.client.ui.Image;
-import com.smartgwt.client.widgets.IButton;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 
 public class TelaInicial extends Composite{
 	
+	private SigaBemServerAsync controllerServer;
+	private TextBox textBoxNome;
+	private TextBox textBoxLogin;
+	private TextBox textBoxEndereco;
+	private TextBox textBoxEmail;
+	private PasswordTextBox passwordTextBox;
 	
-	
-	public TelaInicial() {
+	public TelaInicial(SigaBemServerAsync controller) {
 		
+		controllerServer = controller;
 		AbsolutePanel absolutePanel = new AbsolutePanel();
 		initWidget(absolutePanel);
 		absolutePanel.setSize("1024px", "600px");
 		
-		Label lblNewLabel = new Label("Usuario");
+		Label lblNewLabel = new Label("Login");
 		absolutePanel.add(lblNewLabel, 766, 10);
 		
 		Label lblSenha = new Label("Senha");
@@ -58,7 +57,7 @@ public class TelaInicial extends Composite{
 		TextButton btnEntrar = new TextButton("Entrar");
 		btnEntrar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaLogado telaLogado = new TelaLogado();
+				TelaLogado telaLogado = new TelaLogado(controllerServer);
 				telaLogado.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(telaLogado);
@@ -66,56 +65,75 @@ public class TelaInicial extends Composite{
 		});
 		absolutePanel.add(btnEntrar, 766, 84);
 		
-		Label lblCadastrese = new Label("Cadastre-se");
-		absolutePanel.add(lblCadastrese, 681, 142);
-		
-		Label lblNome = new Label("Nome:");
-		absolutePanel.add(lblNome, 681, 173);
-		
-		Label lblEndereo = new Label("Endere\u00E7o:");
-		absolutePanel.add(lblEndereo, 681, 238);
-		
-		Label lblEmail = new Label("E-mail:");
-		absolutePanel.add(lblEmail, 681, 272);
-		
-		Label lblNewLabel_1 = new Label("Senha:");
-		absolutePanel.add(lblNewLabel_1, 681, 304);
-		
-		TextBox textBox_2 = new TextBox();
-		absolutePanel.add(textBox_2, 746, 173);
-		
-		TextBox textBox_3 = new TextBox();
-		absolutePanel.add(textBox_3, 746, 206);
-		
-		TextBox textBox_4 = new TextBox();
-		absolutePanel.add(textBox_4, 746, 238);
-		
-		TextBox textBox_5 = new TextBox();
-		absolutePanel.add(textBox_5, 746, 272);
-		
-		TextBox textBox_6 = new TextBox();
-		absolutePanel.add(textBox_6, 746, 304);
-		
-		Label lblUsuario = new Label("Usuario:");
-		absolutePanel.add(lblUsuario, 681, 206);
-		
-		TextButton txtbtnCadastra = new TextButton("Cadastrar");
-		absolutePanel.add(txtbtnCadastra, 746, 359);
-		txtbtnCadastra.setSize("131px", "28px");
-		
 		Image image = new Image("imagens/carona.jpg");
 		absolutePanel.add(image, 32, 94);
 		image.setSize("600px", "416px");
 		
+		FlexTable flexTable = new FlexTable();
+		absolutePanel.add(flexTable, 700, 148);
+		flexTable.setSize("253px", "202px");
 		
-//		IButton stretchButton = new IButton("Stretch Button");  
-//        stretchButton.setWidth(150);  
-//        stretchButton.setShowRollOver(true);  
-//        stretchButton.setShowDisabled(true);  
-//        stretchButton.setShowDown(true);  
-//        stretchButton.setTitleStyle("stretchTitle");  
-//        absolutePanel.add(stretchButton,0,0);
+		Label lblCadastrese = new Label("Cadastre-se");
+		flexTable.setWidget(0, 0, lblCadastrese);
 		
+		Label lblNome = new Label("Nome:");
+		flexTable.setWidget(1, 0, lblNome);
+		
+		textBoxNome = new TextBox();
+		flexTable.setWidget(1, 1, textBoxNome);
+		
+		Label lblUsuario = new Label("Login:");
+		flexTable.setWidget(2, 0, lblUsuario);
+		
+		textBoxLogin = new TextBox();
+		flexTable.setWidget(2, 1, textBoxLogin);
+		
+		Label lblEndereo = new Label("Endere\u00E7o:");
+		flexTable.setWidget(3, 0, lblEndereo);
+		
+		textBoxEndereco = new TextBox();
+		flexTable.setWidget(3, 1, textBoxEndereco);
+		
+		Label lblEmail = new Label("E-mail:");
+		flexTable.setWidget(4, 0, lblEmail);
+		
+		textBoxEmail = new TextBox();
+		flexTable.setWidget(4, 1, textBoxEmail);
+		
+		Label lblNewLabel_1 = new Label("Senha:");
+		flexTable.setWidget(5, 0, lblNewLabel_1);
+		
+		passwordTextBox = new PasswordTextBox();
+		flexTable.setWidget(5, 1, passwordTextBox);
+		
+		TextButton txtbtnCadastra = new TextButton("Cadastrar");
+		flexTable.setWidget(6, 1, txtbtnCadastra);
+		txtbtnCadastra.addClickHandler(new ClickHandler() {
+			
+
+			public void onClick(ClickEvent event) {
+				controllerServer.criarUsuario(textBoxLogin.getText(), passwordTextBox.getText(), 
+						textBoxNome.getText(),textBoxEndereco.getText(),textBoxEmail.getText(), new AsyncCallback<Void>() {
+							public void onSuccess(Void result) {
+								Window.alert("TA LINDO, GOSTOSO");
+								limparTextBox(textBoxNome, textBoxLogin, textBoxEndereco,textBoxEmail, passwordTextBox);
+							}
+							public void onFailure(Throwable caught) {
+							  Window.alert(caught.getMessage());
+							}
+						});
+			}
+		});
+		txtbtnCadastra.setSize("131px", "28px");
+		flexTable.getCellFormatter().setHorizontalAlignment(6, 1, HasHorizontalAlignment.ALIGN_RIGHT);
 		
 	}
+	
+	private void limparTextBox(TextBox nome,TextBox login, TextBox endereco, TextBox email,PasswordTextBox senha){
+		nome.setText("");
+		endereco.setText("");
+		email.setText("");
+		login.setText("");
+		senha.setText("");
+	}	
 }

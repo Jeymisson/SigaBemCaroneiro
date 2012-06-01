@@ -3,6 +3,7 @@ package grupo3si.server.controller;
 import grupo3.si.mail.Email;
 import grupo3si.server.model.*;
 
+import java.rmi.server.UnicastRemoteObject;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,6 +15,7 @@ import javax.naming.InvalidNameException;
 
 public class SigaBemController {
 
+	private static SigaBemController unicaInstancia;
 	RepositorioDeUsuarios rep;
 	RepositorioDeInteresses ri;
 	ControladorDeNegociacoes controladorDeNegociacoes;
@@ -27,12 +29,20 @@ public class SigaBemController {
 	/**
 	 * Construtor de SigaBemController
 	 */
-	public SigaBemController() {
+	protected SigaBemController() {
 		rep = RepositorioDeUsuarios.getInstance();
 		sessoesAbertas = new TreeMap<String, Usuario>();
 		controladorDeNegociacoes = new ControladorDeNegociacoes();
 		ri = RepositorioDeInteresses.getInstance();
 		pilha = new Stack<Carona>();
+	}
+	
+	public static SigaBemController getInstance(){
+		if(unicaInstancia == null){
+			System.out.println("nam");
+			unicaInstancia = new SigaBemController();
+		}
+		return unicaInstancia;
 	}
 
 	/**

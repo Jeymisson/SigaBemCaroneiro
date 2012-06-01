@@ -1,5 +1,7 @@
 package grupo3si.client.telas;
 
+import grupo3si.client.SigaBemServerAsync;
+
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Image;
@@ -8,8 +10,6 @@ import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.IntegerBox;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.ValueListBox;
-import com.google.gwt.text.client.IntegerRenderer;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.widget.client.TextButton;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -19,12 +19,13 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 
 public class TelaEditarPerfil extends Composite {
 	
+	private SigaBemServerAsync controllerServer;
 	private Image imagePerfil;
 	private FileUpload fileUpload;
 
-	public TelaEditarPerfil() {
+	public TelaEditarPerfil(SigaBemServerAsync controller) {
 		
-		
+		controllerServer = controller;
 		
 		AbsolutePanel PainelEditarPerfil = new AbsolutePanel();
 		initWidget(PainelEditarPerfil);
@@ -141,7 +142,7 @@ public class TelaEditarPerfil extends Composite {
 		TextButton txtbtnCancelar = new TextButton("Cancelar");
 		txtbtnCancelar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaLogado telalogado = new TelaLogado();
+				TelaLogado telalogado = new TelaLogado(controllerServer);
 				telalogado.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(telalogado);
