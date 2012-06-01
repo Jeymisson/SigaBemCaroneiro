@@ -226,12 +226,12 @@ public class RepositorioDeUsuarios {
 	public List<Carona> localizaCaronaMunicipioOrigemDestino(String cidade,
 			String origem, String destino) throws OrigemInvalidaException, DestinoInvalidaException, CidadeInexistenteException {
 		if (origem == null
-				|| origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+				|| origem.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%¨&*0-9].*")) {
 			throw new OrigemInvalidaException();
 		}
 		if (destino == null
 				|| destino
-				.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%Â¨&*0-9].*")) {
+						.matches("[\\-/.\\[_\\]()!\"+,:;<=>{|}#@$%¨&*0-9].*")) {
 			throw new DestinoInvalidaException();
 		}
 
@@ -261,8 +261,6 @@ public class RepositorioDeUsuarios {
 			}
 		}
 
-
 		return caronasLocalizadas;
-
 	}
 }
