@@ -4,7 +4,16 @@
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-
+  <servlet>
+    <servlet-name>fachadaServlet</servlet-name>
+    <servlet-class>grupo3si.server.SigaBemServer</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>fachadaServlet</servlet-name>
+    <url-pattern>/SigaBemCaroneiro/SigaBemServer</url-pattern>
+  </servlet-mapping>
+  
 	<!-- Default page to serve -->
 	<welcome-file-list>
 		<welcome-file>sigabemcaroneiro.html</welcome-file>
