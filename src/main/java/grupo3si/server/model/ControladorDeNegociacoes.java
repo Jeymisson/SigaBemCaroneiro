@@ -6,8 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.management.AttributeNotFoundException;
+
 /**
- * Classe que controla as negociações de Carona.
+ * Classe que controla as negociaÃ§Ãµes de Carona.
  * @author Jeymisson
  *
  */
@@ -125,7 +127,7 @@ public class ControladorDeNegociacoes {
 	}
 
 	/**
-	 * Método que retorna uma carona buscada pelo id De uma solicitação
+	 * MÃ©todo que retorna uma carona buscada pelo id De uma solicitaÃ§Ã£o
 	 * @param idSolicitacao
 	 * @return Carona
 	 */
@@ -184,7 +186,7 @@ public class ControladorDeNegociacoes {
 		}
 
 		if(atributo == null || atributo.equals("")){
-			throw new InvalidAtributeException();
+			throw new AttributeNotFoundException("Atributo inválido");
 		}
 
 		String resp = null;
@@ -200,7 +202,7 @@ public class ControladorDeNegociacoes {
 		}else if(AtributosDeSolicitacao.PONTO_DE_DESTINO.getatribute().equalsIgnoreCase(atributo)) {
 			resp = solicitacao.getPontosDeEncontro().toString().replace("[", "").replace("]", "");
 		}else
-			throw new InexistentAtributeException();
+			throw new AttributeNotFoundException("Atributo inexistente");
 
 		return resp;
 	}

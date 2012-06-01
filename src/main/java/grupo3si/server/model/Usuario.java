@@ -3,6 +3,8 @@ package grupo3si.server.model;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 public class Usuario implements Interessado {
 
 	private Perfil perfil;
@@ -181,22 +183,23 @@ public class Usuario implements Interessado {
 	 * @param nome
 	 * @param endereco
 	 * @param email
+	 * @throws InvalidEnderecoException 
 	 * @throws Exception
 	 */
 	private void checkUserData(String login, String nome, String endereco,
-			String email) throws Exception {
+			String email) throws InvalidAttributeValueException {
 
 		if ((login == null) || (login.equals(""))) {
-			throw new InvalidLoginException();
+			throw new InvalidAttributeValueException("Login inválido");
 		}
 		if ((nome == null) || (nome.equals(""))) {
-			throw new InvalidNameException();
+			throw new InvalidAttributeValueException("Nome inválido");
 		}
 		if ((endereco == null) || (endereco.equals(""))) {
-			throw new InvalidEnderecoException();
+			throw new InvalidAttributeValueException("Endereço inválido");
 		}
 		if ((email == null) || (email.equals(""))) {
-			throw new InvalidEmailException();
+			throw new InvalidAttributeValueException("Email inválido");
 		}
 	}
 

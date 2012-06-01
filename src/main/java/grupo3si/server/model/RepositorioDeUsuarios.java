@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
 
+import javax.naming.directory.InvalidAttributeValueException;
+
 public class RepositorioDeUsuarios {
 
 	private AbstractMap<String, Usuario> userRep;
@@ -27,14 +29,16 @@ public class RepositorioDeUsuarios {
 	 * Metodo que pesquisa um usuario
 	 * @param login
 	 * @return Usuario
+	 * @throws InvalidAttributeValueException 
+	 * @throws InexistentLoginException 
 	 * @throws Exception
 	 */
-	public Usuario getUser(String login) throws Exception {
+	public Usuario getUser(String login) throws InvalidAttributeValueException, InexistentLoginException {
 
 		Usuario user = null;
 
 		if(login == null || login.equals("")){
-			throw new InvalidLoginException();
+			throw new InvalidAttributeValueException("Login inválido");
 
 		}else if(userRep.containsKey(login)) {
 			user = userRep.get(login);

@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.Stack;
 import java.util.TreeMap;
 
+import javax.management.AttributeNotFoundException;
 import javax.naming.InvalidNameException;
+import javax.naming.directory.InvalidAttributeValueException;
 
 public class SigaBemController {
 
@@ -116,7 +118,7 @@ public class SigaBemController {
 		}
 		Carona carona = rep.getCarona(idCarona);
 		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
+			throw new AttributeNotFoundException("Atributo inválido");
 		}
 
 		String resp = null;
@@ -143,7 +145,7 @@ public class SigaBemController {
 				.equalsIgnoreCase(atributo)) {
 			resp = carona.ehMunicipal() + "";
 		} else
-			throw new InexistentAtributeException();
+			throw new AttributeNotFoundException("Atributo inexistente");
 
 		return resp;
 
@@ -163,7 +165,7 @@ public class SigaBemController {
 		Usuario user = rep.getUser(login);
 		String resp = "";
 		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
+			throw new AttributeNotFoundException("Atributo inválido");
 		}
 
 		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
@@ -175,7 +177,7 @@ public class SigaBemController {
 				atributo)) {
 			resp = user.getEmail();
 		} else
-			throw new InexistentAtributeException();
+			throw new AttributeNotFoundException("Atributo inexistente");
 
 		return resp;
 
@@ -514,7 +516,7 @@ public class SigaBemController {
 			sessoesAbertas.put(id, user);
 
 		} else
-			throw new InvalidLoginException();
+			throw new InvalidAttributeValueException("Login inválido");
 
 		return id;
 	}
@@ -593,7 +595,7 @@ public class SigaBemController {
 		Usuario user = rep.getUser(login);
 		String resp = "";
 		if (atributo == null || atributo.equals("")) {
-			throw new InvalidAtributeException();
+			throw new AttributeNotFoundException("Atributo inválido");
 		}
 
 		if (AtributosDePerfil.NOME.getAtribute().equalsIgnoreCase(atributo)) {
@@ -624,7 +626,7 @@ public class SigaBemController {
 				.equalsIgnoreCase(atributo)) {
 			resp = user.getPresencaEmVagaDeCarona() + "";
 		} else
-			throw new InexistentAtributeException();
+			throw new AttributeNotFoundException("Atributo inexistente");;
 
 		return resp;
 	}
@@ -637,10 +639,10 @@ public class SigaBemController {
 	 * @throws InvalidLoginException
 	 */
 	public void visualizarPerfil(String idsessao, String login)
-			throws InvalidLoginException {
+			throws InvalidAttributeValueException {
 		Usuario user = rep.getUserPorId(idsessao);
 		if (!user.getLogin().trim().equals(login.trim())) {
-			throw new InvalidLoginException();
+			throw new InvalidAttributeValueException("Login inválido");
 		}
 	}
 

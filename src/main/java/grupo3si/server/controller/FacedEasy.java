@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.naming.InvalidNameException;
+import javax.naming.directory.InvalidAttributeValueException;
 
 public class FacedEasy {
 	
@@ -185,7 +186,7 @@ public class FacedEasy {
 	public String getAtributoPerfil(String login, String atributo)throws Exception {
 		return controller.getAtributoPerfil(login, atributo);
 	}
-	public void visualizarPerfil(String idsessao, String login)throws InvalidLoginException {
+	public void visualizarPerfil(String idsessao, String login)throws InvalidAttributeValueException {
 		controller.visualizarPerfil(idsessao, login);
 	}
 

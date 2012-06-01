@@ -1,8 +1,7 @@
 package grupo3si.testes;
 
-import grupo3si.server.model.InvalidEmailException;
-import grupo3si.server.model.InvalidLoginException;
-import grupo3si.server.model.InvalidNameException;
+import javax.naming.directory.InvalidAttributeValueException;
+
 import grupo3si.server.model.Usuario;
 import junit.framework.Assert;
 
@@ -32,14 +31,14 @@ public class TestaUsuario {
 		try {
 			userInvalido = new Usuario(null, "123", "Fulano", "sem casa",
 					"zeNinguem@bol.com");
-		} catch (InvalidLoginException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Login inválido", e.getMessage());
 		}
 
 		try {
 			userInvalido = new Usuario("", "123", "Fulano", "sem casa",
 					"zeNinguem@bol.com");
-		} catch (InvalidLoginException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Login inválido", e.getMessage());
 		}
 	}
@@ -51,7 +50,7 @@ public class TestaUsuario {
 			userInvalido = new Usuario("fulano123", "1", "", "sem casa",
 					"zeNinguem@bol.com");
 
-		} catch (InvalidNameException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Nome inválido", e.getMessage());
 		}
 
@@ -70,7 +69,7 @@ public class TestaUsuario {
 		try {
 			userInvalido = new Usuario("fulano123", "123", "Fulano",
 					"sem casa", "zeNinguem@bol.com");
-		} catch (InvalidEmailException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
 
@@ -79,14 +78,14 @@ public class TestaUsuario {
 					"sem casa", "zeNinguem@bol.com");
 			Usuario userInvalido2 = new Usuario("fuu", "1200e", "SeiLa",
 					"sem casa", "zeNinguem@bol.com");
-		} catch (InvalidEmailException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
 
 		try {
 			userInvalido = new Usuario("fulano123", "123", "Fulano",
 					"sem casa", "");
-		} catch (InvalidEmailException e) {
+		} catch (InvalidAttributeValueException e) {
 			Assert.assertEquals("Email inválido", e.getMessage());
 		}
 	}
