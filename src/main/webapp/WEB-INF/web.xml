@@ -5,13 +5,13 @@
 
 <web-app>
   <servlet>
-    <servlet-name>fachadaServlet</servlet-name>
-    <servlet-class>grupo3si.server.SigaBemServer</servlet-class>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>grupo3si.server.SigaBemServerImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>fachadaServlet</servlet-name>
-    <url-pattern>/SigaBemCaroneiro/SigaBemServer</url-pattern>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/SigaBemCaroneiro/greet</url-pattern>
   </servlet-mapping>
   
 	<!-- Default page to serve -->

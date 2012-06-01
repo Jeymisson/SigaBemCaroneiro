@@ -1,6 +1,7 @@
 <module>
-	
 	<inherits name="com.google.gwt.user.User"/>
 	<inherits name="com.google.gwt.user.theme.standard.Standard"/>
 	<entry-point class="grupo3si.client.gui.SigaBemCaroneiroView"/>
+	<source path='client' />
+	<source path='shared' />
 </module>

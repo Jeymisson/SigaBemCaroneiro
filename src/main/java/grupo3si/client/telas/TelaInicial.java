@@ -1,7 +1,5 @@
 package grupo3si.client.telas;
 
-import grupo3si.server.controller.SigaBemController;
-
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
