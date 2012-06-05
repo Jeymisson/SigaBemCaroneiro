@@ -121,7 +121,7 @@ public class FacedEasy {
 	}
 
 	
-	public String getTodasCaronasUsuario(String idSessao) {
+	public String getTodasCaronasUsuario(String idSessao) throws Exception {
 		List<String> listaIdsCarona = new ArrayList<String>();
 		List<Carona> listaCaronas = controller.getTodasCaronasUsuario(idSessao);
 

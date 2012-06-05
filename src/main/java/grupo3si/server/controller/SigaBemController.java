@@ -3,13 +3,10 @@ package grupo3si.server.controller;
 import grupo3.si.mail.Email;
 import grupo3si.server.model.*;
 
-import java.rmi.server.UnicastRemoteObject;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
-import java.util.TreeMap;
 
 import javax.management.AttributeNotFoundException;
 import javax.naming.InvalidNameException;
@@ -18,25 +15,24 @@ import javax.naming.directory.InvalidAttributeValueException;
 public class SigaBemController {
 
 	private static SigaBemController unicaInstancia;
-	RepositorioDeUsuarios rep;
+	
 	RepositorioDeInteresses ri;
+	ControllerUser controlerDeUser;
 	ControladorDeNegociacoes controladorDeNegociacoes;
+
 	private final String USERS_FILE = "src/main/resources/usuarios.xml";
 	private final String NEGOCIACOES_FILE = "src/main/resources/negociacoes.xml";
 	private Stack<Carona> pilha;
 
-	// Map <idUser, User>
-	AbstractMap<String, Usuario> sessoesAbertas;
 
 	/**
 	 * Construtor de SigaBemController
 	 */
 	protected SigaBemController() {
-		rep = RepositorioDeUsuarios.getInstance();
-		sessoesAbertas = new TreeMap<String, Usuario>();
 		controladorDeNegociacoes = new ControladorDeNegociacoes();
 		ri = RepositorioDeInteresses.getInstance();
 		pilha = new Stack<Carona>();
+		controlerDeUser = new ControllerUser();
 	}
 	
 	public static SigaBemController getInstance(){
@@ -57,11 +53,8 @@ public class SigaBemController {
 	 * @param email
 	 * @throws Exception
 	 */
-	public void criarUsuario(String login, String senha, String nome,
-			String endereco, String email) throws Exception {
-		Usuario user = new Usuario(login, senha, nome, endereco, email);
-		rep.addUser(login, user);
-
+	public void criarUsuario(String login, String senha, String nome, String endereco, String email) throws Exception {
+		controlerDeUser.criarUsuario(login, senha, nome, endereco, email);
 	}
 
 	/**
@@ -73,11 +66,8 @@ public class SigaBemController {
 	 * @param email
 	 * @throws Exception
 	 */
-	public void criarUsuario(String login, String nome, String endereco,
-			String email) throws Exception {
-
+	public void criarUsuario(String login, String nome, String endereco, String email) throws Exception {
 		criarUsuario(login, "", nome, endereco, email);
-
 	}
 
 	/**
@@ -88,11 +78,8 @@ public class SigaBemController {
 	 * @param endereco
 	 * @throws Exception
 	 */
-	public void criarUsuario(String login, String nome, String endereco)
-			throws Exception {
-
-		criarUsuario(login, "", nome, endereco,
-				String.valueOf(login.hashCode()));
+	public void criarUsuario(String login, String nome, String endereco)throws Exception {
+		criarUsuario(login, "", nome, endereco, String.valueOf(login.hashCode()));
 
 	}
 
@@ -116,7 +103,9 @@ public class SigaBemController {
 				atributo)) {
 			return controladorDeNegociacoes.getPontosDeEmbarque(idCarona);
 		}
-		Carona carona = rep.getCarona(idCarona);
+
+		Carona carona = controlerDeUser.getCarona(idCarona);
+		
 		if (atributo == null || atributo.equals("")) {
 			throw new AttributeNotFoundException("Atributo inválido");
 		}
@@ -162,7 +151,7 @@ public class SigaBemController {
 	public String getAtributoUsuario(String login, String atributo)
 			throws Exception {
 
-		Usuario user = rep.getUser(login);
+		Usuario user = controlerDeUser.getUser(login);
 		String resp = "";
 		if (atributo == null || atributo.equals("")) {
 			throw new AttributeNotFoundException("Atributo inválido");
@@ -197,7 +186,7 @@ public class SigaBemController {
 		if (!idCarona.matches("\\d+"))
 			throw new TrajetoInexistenteException();
 
-		Carona carona = rep.getCarona(idCarona);
+		Carona carona = controlerDeUser.getCarona(idCarona);
 		return carona.getTrajeto();
 	}
 
@@ -215,7 +204,7 @@ public class SigaBemController {
 		if (!idCarona.matches("\\d+"))
 			throw new CaronaInexistenteException();
 
-		Carona carona = rep.getCarona(idCarona);
+		Carona carona = controlerDeUser.getCarona(idCarona);
 		return carona;
 	}
 
@@ -385,13 +374,12 @@ public class SigaBemController {
 		if (solicitacao == null)
 			throw new SolicaticaoInexistenteException();
 
-		Usuario usuarioDonoDaSolicitacao = rep.getUserPorId(solicitacao
-				.getIdSessao());
-		Carona carona = rep.getCarona(solicitacao.getIdCarona());
+		Usuario usuarioDonoDaSolicitacao = controlerDeUser.getUserPorId(solicitacao.getIdSessao());
+		Carona carona = controlerDeUser.getCarona(solicitacao.getIdCarona());
 
 		usuarioDonoDaSolicitacao.getPerfil().addMeuHistorico(carona);
 
-		if (rep.getDonoDe(carona.getId()).getUserID().equals(idSessao)) {
+		if (controlerDeUser.getDonoDe(carona.getId()).getUserID().equals(idSessao)) {
 			carona.preencheVagas();
 			controladorDeNegociacoes.removerSolicitacoesPendentes(carona
 					.getId());
@@ -423,8 +411,7 @@ public class SigaBemController {
 	 * @return String de caronas
 	 */
 	public Carona getCaronaUsuario(String idSessao, int index) {
-		return rep.getUserPorId(idSessao).getPerfil().getHistoricoDeCaronas()
-				.get(index - 1);// index - 1,pois o array comeca em 0.
+		return controlerDeUser.getUserPorId(idSessao).getHistoricoDeCaronas().get(index-1);
 	}
 
 	/**
@@ -433,9 +420,10 @@ public class SigaBemController {
 	 * 
 	 * @param idSessao
 	 * @return String Caronas
+	 * @throws Exception 
 	 */
-	public List<Carona> getTodasCaronasUsuario(String idSessao) {
-		return rep.getUserPorId(idSessao).getPerfil().getHistoricoDeCaronas();
+	public List<Carona> getTodasCaronasUsuario(String idSessao) throws Exception {
+		return controlerDeUser.getHistoricoDeCaronas(idSessao);
 	}
 
 	/**
@@ -467,8 +455,8 @@ public class SigaBemController {
 	 * Método que zera o sistema, deleta tudo que existe no arquivo de dados
 	 */
 	public void zerarSistema() {
-		rep.clear();
-		sessoesAbertas.clear();
+		controlerDeUser.clear();
+		controlerDeUser.sessoesAbertasClear();
 		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
 		gerenciaDadosEmXML.zeraArquivo(USERS_FILE);
 		gerenciaDadosEmXML.zeraArquivo(NEGOCIACOES_FILE);
@@ -480,11 +468,10 @@ public class SigaBemController {
 	 */
 	public void encerrarSistema() {
 		GerenciaDadosEmXML gerenciadorDeDados = new GerenciaDadosEmXML();
-		gerenciadorDeDados.salvaUsuariosXML(USERS_FILE, rep.getRepositorio());
-		gerenciadorDeDados.salvaNegociacoesXML(NEGOCIACOES_FILE,
-				controladorDeNegociacoes);
-		rep.clear();
-		sessoesAbertas.clear();
+		gerenciadorDeDados.salvaUsuariosXML(USERS_FILE, controlerDeUser.getRepositorio());
+		gerenciadorDeDados.salvaNegociacoesXML(NEGOCIACOES_FILE,controladorDeNegociacoes);
+		controlerDeUser.clear();
+		controlerDeUser.sessoesAbertasClear();
 	}
 
 	/**
@@ -492,10 +479,8 @@ public class SigaBemController {
 	 */
 	public void reiniciarSistema() {
 		GerenciaDadosEmXML gerenciaDadosEmXML = new GerenciaDadosEmXML();
-		rep.setRepositorio(gerenciaDadosEmXML
-				.getRepositorioUsuarios(USERS_FILE));
-		controladorDeNegociacoes = gerenciaDadosEmXML
-				.getControladorDeNegociacoes(NEGOCIACOES_FILE);
+		controlerDeUser.setRepositorio(gerenciaDadosEmXML.getRepositorioUsuarios(USERS_FILE));
+		controladorDeNegociacoes = gerenciaDadosEmXML.getControladorDeNegociacoes(NEGOCIACOES_FILE);
 	}
 
 	/**
@@ -508,12 +493,12 @@ public class SigaBemController {
 	 */
 	public String abrirSessao(String login, String senha) throws Exception {
 
-		Usuario user = rep.getUser(login);
+		Usuario user = controlerDeUser.getUser(login);
 		String id = null;
 
 		if (user.checkSenha(senha) || user.checkSenha("")) {
 			id = user.getUserID();
-			sessoesAbertas.put(id, user);
+			controlerDeUser.sessoesAbertasPut(id,user);
 
 		} else
 			throw new InvalidAttributeValueException("Login inválido");
@@ -528,8 +513,8 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public void encerrarSessao(String login) throws Exception {
-		Usuario user = rep.getUser(login);
-		sessoesAbertas.remove(user.getUserID());
+		Usuario user = controlerDeUser.getUser(login);
+		controlerDeUser.removeSessoesAbertas(user.getUserID());
 
 	}
 
@@ -560,7 +545,7 @@ public class SigaBemController {
 		if (!vagas.matches("\\d+"))
 			throw new VagaInvalidaException();
 
-		Usuario user = sessoesAbertas.get(id);
+		Usuario user = controlerDeUser.getUserSessaoAberta(id);
 		if (user == null) throw new SessaoInexistenteException();
 		
 		ri.verificaSeExisteInteresse(origem, destino, data, hora, user.getEmail());
@@ -579,7 +564,7 @@ public class SigaBemController {
 	 * @throws Exception
 	 */
 	public List<Carona> localizarCarona(String idSessao, String origem, String destino)throws Exception {
-		return rep.localizaCaronaOrigemDestino(origem, destino);
+		return controlerDeUser.localizaCaronaOrigemDestino(origem,destino);
 	}
 
 	/**
@@ -592,7 +577,7 @@ public class SigaBemController {
 	 */
 	public String getAtributoPerfil(String login, String atributo)
 			throws Exception {
-		Usuario user = rep.getUser(login);
+		Usuario user = controlerDeUser.getUser(login);
 		String resp = "";
 		if (atributo == null || atributo.equals("")) {
 			throw new AttributeNotFoundException("Atributo inválido");
@@ -638,9 +623,9 @@ public class SigaBemController {
 	 * @param login
 	 * @throws InvalidLoginException
 	 */
-	public void visualizarPerfil(String idsessao, String login)
+	public void visualizarPerfil(String idSessao, String login)
 			throws InvalidAttributeValueException {
-		Usuario user = rep.getUserPorId(idsessao);
+		Usuario user = controlerDeUser.getUserPorId(idSessao);
 		if (!user.getLogin().trim().equals(login.trim())) {
 			throw new InvalidAttributeValueException("Login inválido");
 		}
@@ -657,7 +642,7 @@ public class SigaBemController {
 	public void reviewCarona(String idSessao, String idCarona, String review)
 			throws Exception {
 
-		Usuario usuario = rep.getDonoDe(idCarona);
+		Usuario usuario = controlerDeUser.getDonoDe(idCarona);
 
 		if (usuario != null) {
 			List<String> list = controladorDeNegociacoes.getSolicitacoesConfirmadas(usuario.getUserID(), idCarona);
@@ -684,7 +669,7 @@ public class SigaBemController {
 	public void reviewVagaEmCarona(String idSessao, String idCarona,
 			String loginCaroneiro, String review) throws Exception {
 
-		Usuario userReview = rep.getUser(loginCaroneiro);
+		Usuario userReview = controlerDeUser.getUser(loginCaroneiro);
 		List<String> vagasConfirmadas = controladorDeNegociacoes
 				.getSolicitacoesConfirmadas(idSessao, idCarona);
 		List<String> idsSolicitacoes = new ArrayList<String>();
@@ -725,7 +710,7 @@ public class SigaBemController {
 		if (!vagas.matches("\\d+"))
 			throw new VagaInvalidaException();
 
-		Usuario user = sessoesAbertas.get(idSessao);
+		Usuario user = controlerDeUser.getUserSessaoAberta(idSessao);
 		if (user == null)
 			throw new SessaoInexistenteException();
 
@@ -749,7 +734,7 @@ public class SigaBemController {
 	 */
 	public List<Carona> localizarCaronaMunicipal(String idSessao,
 			String cidade, String origem, String destino) throws OrigemInvalidaException, DestinoInvalidaException, CidadeInexistenteException {
-		return rep.localizaCaronaMunicipioOrigemDestino(cidade,origem,destino);
+		return controlerDeUser.localizaCaronaMunicipioOrigemDestino(cidade,origem,destino);
 		
 	}
 	
@@ -766,22 +751,23 @@ public class SigaBemController {
 	 */
 	public String cadastrarInteresse(String idSessao, String origem, String destino, String data, String horaInicio, String horaFim) throws Exception {
 		
-		List<Carona> caronas = rep.localizaCaronaOrigemDestino(origem, destino);
+		List<Carona> caronas = controlerDeUser.localizaCaronaOrigemDestino(origem, destino);
 		if(caronas != null && caronas.size() > 0){
 			throw new Exception("Caronas com esse perfil ja estao cadastradas");
 			//TODO
 		}
-		Usuario interessado = rep.getUserPorId(idSessao);
+		Usuario interessado = controlerDeUser.getUserPorId(idSessao);
 		return ri.adicionaInteresse(interessado, origem, destino, data, horaInicio, horaFim);
 	}
 	
 	public List<String> verificarMensagensPerfil(String idSessao) throws Exception {
-		Usuario usuario = rep.getUserPorId(idSessao);
+		Usuario usuario = controlerDeUser.getUserPorId(idSessao);
 		return usuario.getMensagens();
 	}
 	
 	public boolean enviarEmail(String idSessao, String destino, String message) throws InvalidNameException, NullPointerException, InexistentLoginException{
-		Usuario usuario = sessoesAbertas.get(idSessao);
+		Usuario usuario = controlerDeUser.getUserSessaoAberta(idSessao);
+		
 		if(usuario == null) throw new InexistentLoginException();
 		
 		Email email = new Email(destino, message);
