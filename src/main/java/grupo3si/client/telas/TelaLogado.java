@@ -1,8 +1,11 @@
 package grupo3si.client.telas;
 import grupo3si.client.SigaBemServerAsync;
+import grupo3si.server.model.Usuario;
 
 import java.util.ArrayList;
 
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Label;
@@ -33,12 +36,27 @@ public class TelaLogado extends Composite {
 	private VerticalPanel verticalPanel;
 	private FlexTable mural,solicitacoes;
 	private TextButton botaoVoltar;
+	private Usuario user = null;
 	
 	
 
-	public TelaLogado(SigaBemServerAsync controller) {
+	public TelaLogado(SigaBemServerAsync controller, String login) {
 	
 		controllerServer = controller;
+//		controller.getUsuario(login, new AsyncCallback<Usuario>() {
+//			
+//			public void onSuccess(Usuario result) {
+//				user = result;
+//				Window.alert(user.getNome());
+//				
+//			}
+//			
+//			public void onFailure(Throwable caught) {
+//				Window.alert("Deu errado!");
+//				
+//			}
+//		});
+		
 		/*
 		 * Criando painel principal
 		 */

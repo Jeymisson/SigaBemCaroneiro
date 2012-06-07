@@ -784,4 +784,15 @@ public class SigaBemController {
 		return pilha;
 		
 	}
+	
+	/**
+	 * Retorna o objeto Usu‡rio
+	 * @param login
+	 * @return Usuario user
+	 * @throws InvalidAttributeValueException
+	 * @throws InexistentLoginException
+	 */
+	public  Usuario getUser(String login) throws InvalidAttributeValueException, InexistentLoginException {
+		return controlerDeUser.getUser(login);
+	}
 }

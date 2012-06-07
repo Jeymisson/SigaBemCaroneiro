@@ -67,7 +67,7 @@ public class TelaInicial extends Composite{
 					public void onSuccess(Void result) {
 						textlogin.setText("");
 						textsenha.setText("");
-						TelaLogado telaLogado = new TelaLogado(controllerServer);
+						TelaLogado telaLogado = new TelaLogado(controllerServer,textlogin.getValue());
 						telaLogado.setVisible(true);
 						RootPanel.get("centro").clear();
 						RootPanel.get("centro").add(telaLogado);

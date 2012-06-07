@@ -142,7 +142,7 @@ public class TelaEditarPerfil extends Composite {
 		TextButton txtbtnCancelar = new TextButton("Cancelar");
 		txtbtnCancelar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaLogado telalogado = new TelaLogado(controllerServer);
+				TelaLogado telalogado = new TelaLogado(controllerServer, "lucasaa");
 				telalogado.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(telalogado);

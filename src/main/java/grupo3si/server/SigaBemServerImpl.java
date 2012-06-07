@@ -3,8 +3,10 @@ package grupo3si.server;
 import javax.naming.directory.InvalidAttributeValueException;
 
 import grupo3si.client.SigaBemServer;
+import grupo3si.server.controller.ControllerUser;
 import grupo3si.server.controller.SigaBemController;
 import grupo3si.server.model.InexistentLoginException;
+import grupo3si.server.model.Usuario;
 
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
@@ -35,6 +37,20 @@ public class SigaBemServerImpl extends RemoteServiceServlet implements SigaBemSe
 		
 		
 	}
+
+//	public Usuario getUsuario(String login) throws Exception {
+//		try{
+//			 return controller.getUser(login);
+//		}catch (Exception e) {
+//			throw new Exception(e);
+//		}
+//		
+//		
+//		
+//	}
+
+	
+	
 
 
 }

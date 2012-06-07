@@ -1,6 +1,6 @@
 package grupo3si.client;
 
-import grupo3si.server.model.Usuario;
+//import grupo3si.server.model.Usuario;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
@@ -11,6 +11,8 @@ public interface SigaBemServerAsync  {
 
 	void entrar(String text, String text2, AsyncCallback<Void> asyncCallback);
 
-	//void getUsuario(String id,AsyncCallback<Usuario> callback);
+//	void getUsuario(String login, AsyncCallback<Usuario> asyncCallback);
+
+	
 
 }
