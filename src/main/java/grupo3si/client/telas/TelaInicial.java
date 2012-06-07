@@ -22,10 +22,10 @@ public class TelaInicial extends Composite{
 	
 	private SigaBemServerAsync controllerServer;
 	private TextBox textBoxNome;
-	private TextBox textBoxLogin;
+	private TextBox textBoxLogin,textlogin;
 	private TextBox textBoxEndereco;
 	private TextBox textBoxEmail;
-	private PasswordTextBox passwordTextBox;
+	private PasswordTextBox passwordTextBox,textsenha;
 	
 	public TelaInicial(SigaBemServerAsync controller) {
 		
@@ -40,13 +40,13 @@ public class TelaInicial extends Composite{
 		Label lblSenha = new Label("Senha");
 		absolutePanel.add(lblSenha, 877, 10);
 		
-		TextBox textBox = new TextBox();
-		absolutePanel.add(textBox, 766, 30);
-		textBox.setSize("85px", "16px");
+		textlogin = new TextBox();
+		absolutePanel.add(textlogin, 766, 30);
+		textlogin.setSize("85px", "16px");
 		
-		TextBox textBox_1 = new TextBox();
-		absolutePanel.add(textBox_1, 877, 30);
-		textBox_1.setSize("85px", "16px");
+		textsenha = new PasswordTextBox();
+		absolutePanel.add(textsenha, 877, 30);
+		textsenha.setSize("85px", "16px");
 		
 		CheckBox chckbxLembrarme = new CheckBox("Lembrar-me");
 		absolutePanel.add(chckbxLembrarme, 766, 59);
@@ -57,10 +57,26 @@ public class TelaInicial extends Composite{
 		TextButton btnEntrar = new TextButton("Entrar");
 		btnEntrar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaLogado telaLogado = new TelaLogado(controllerServer);
-				telaLogado.setVisible(true);
-				RootPanel.get("centro").clear();
-				RootPanel.get("centro").add(telaLogado);
+				controllerServer.entrar(textlogin.getText(), textsenha.getText(), new AsyncCallback<Void>() {
+
+					public void onFailure(Throwable caught) {
+						Window.alert(caught.getMessage());
+						
+					}
+
+					public void onSuccess(Void result) {
+						textlogin.setText("");
+						textsenha.setText("");
+						TelaLogado telaLogado = new TelaLogado(controllerServer);
+						telaLogado.setVisible(true);
+						RootPanel.get("centro").clear();
+						RootPanel.get("centro").add(telaLogado);
+						
+					}
+
+				});
+				
+				
 			}
 		});
 		absolutePanel.add(btnEntrar, 766, 84);
@@ -115,17 +131,17 @@ public class TelaInicial extends Composite{
 				controllerServer.criarUsuario(textBoxLogin.getText(), passwordTextBox.getText(), 
 						textBoxNome.getText(),textBoxEndereco.getText(),textBoxEmail.getText(), new AsyncCallback<Void>() {
 							public void onSuccess(Void result) {
-								Window.alert("TA LINDO, GOSTOSO");
+								Window.alert("Usu‡rio cadastrado com sucesso!");
 								limparTextBox(textBoxNome, textBoxLogin, textBoxEndereco,textBoxEmail, passwordTextBox);
 							}
 							public void onFailure(Throwable caught) {
-							  Window.alert(caught.getMessage());
+							  Window.alert("Dados inv‡lidos");
 							}
 						});
 			}
 		});
 		txtbtnCadastra.setSize("131px", "28px");
-		flexTable.getCellFormatter().setHorizontalAlignment(6, 1, HasHorizontalAlignment.ALIGN_RIGHT);
+		flexTable.getCellFormatter().setHorizontalAlignment(6, 1, HasHorizontalAlignment.ALIGN_LEFT);
 		
 	}
 	
@@ -135,5 +151,6 @@ public class TelaInicial extends Composite{
 		email.setText("");
 		login.setText("");
 		senha.setText("");
+		
 	}	
 }

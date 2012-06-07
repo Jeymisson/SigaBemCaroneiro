@@ -1,5 +1,7 @@
 package grupo3si.client;
 
+
+
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -7,5 +9,9 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 public interface SigaBemServer extends RemoteService{
 
 	void criarUsuario(String login, String senha, String nome,
-			String endereco, String email);
+			String endereco, String email) throws Exception;
+
+	void entrar(String text, String text2) throws Exception;
+	
+	//Usuario getUsuario(String id) throws Exception;
 }
