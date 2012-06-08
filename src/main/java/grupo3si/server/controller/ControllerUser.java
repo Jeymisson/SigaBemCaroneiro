@@ -9,22 +9,21 @@ import javax.naming.directory.InvalidAttributeValueException;
 import grupo3si.server.model.*;
 
 public class ControllerUser implements IntefaceControllerUser{
-	
+
 	private  RepositorioDeUsuarios rep;
-	
+
 	// Map <idUser, User>
 	AbstractMap<String, Usuario> sessoesAbertas;
-	
+
 	public ControllerUser() {
 		this.rep = RepositorioDeUsuarios.getInstance();
 		sessoesAbertas = new TreeMap<String, Usuario>();
 	}
-	
+
 	public void criarUsuario(String login, String senha, String nome,
 			String endereco, String email) throws Exception {
 		Usuario user = new Usuario(login, senha, nome, endereco, email);
 		rep.addUser(login, user);
-
 	}
 	public Carona getCarona(String idCarona) {
 		return rep.getCarona(idCarona);
@@ -60,12 +59,12 @@ public class ControllerUser implements IntefaceControllerUser{
 
 	public void sessoesAbertasClear() {
 		sessoesAbertas.clear();
-		
+
 	}
 
 	public void sessoesAbertasPut(String id, Usuario user) {
 		sessoesAbertas.put(id,user);
-		
+
 	}
 
 	public void removeSessoesAbertas(String userID) {
@@ -75,5 +74,5 @@ public class ControllerUser implements IntefaceControllerUser{
 	public Usuario getUserSessaoAberta(String id) {
 		return sessoesAbertas.get(id);
 	}
-	
+
 }

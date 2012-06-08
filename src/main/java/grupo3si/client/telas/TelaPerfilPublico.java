@@ -63,7 +63,7 @@ public class TelaPerfilPublico extends Composite {
 	mural.setSize("450px", "515px");
 	
 	informacoes = new AbsolutePanel();
-	painelInformacoes.add(informacoes, "Informações", false);
+	painelInformacoes.add(informacoes, "InformaÔøΩ‚Ä∫es", false);
 	informacoes.setSize("450px", "515px");
 	
 	painelCaronasPegas = new AbsolutePanel();
@@ -121,5 +121,9 @@ public class TelaPerfilPublico extends Composite {
 	PainelLogado.add(botaoNewButton, 24, 374);
 	botaoNewButton.setSize("142px", "28px");
 	
+	}
+	
+	private void adicionaCaronaPainelMotorista(){
+		
 	}
 }

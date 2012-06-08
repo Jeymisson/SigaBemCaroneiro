@@ -80,7 +80,6 @@ public class SigaBemController {
 	 */
 	public void criarUsuario(String login, String nome, String endereco)throws Exception {
 		criarUsuario(login, "", nome, endereco, String.valueOf(login.hashCode()));
-
 	}
 
 	/**
