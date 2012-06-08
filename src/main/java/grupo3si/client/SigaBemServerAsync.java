@@ -11,8 +11,8 @@ public interface SigaBemServerAsync  {
 
 	void entrar(String text, String text2, AsyncCallback<Void> asyncCallback);
 
-//	void getUsuario(String login, AsyncCallback<Usuario> asyncCallback);
+	void getAtributoDeUsuario(String login, String string,
+			AsyncCallback<String> atributoCallback);
 
-	
 
 }

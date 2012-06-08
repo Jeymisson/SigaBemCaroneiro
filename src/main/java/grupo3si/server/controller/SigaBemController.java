@@ -146,10 +146,12 @@ public class SigaBemController {
 	 * @param login
 	 * @param atributo
 	 * @return String atributo
-	 * @throws Exception
+	 * @throws AttributeNotFoundException 
+	 * @throws InexistentLoginException 
+	 * @throws InvalidAttributeValueException 
 	 */
-	public String getAtributoUsuario(String login, String atributo)
-			throws Exception {
+	public String getAtributoUsuario(String login, String atributo) throws AttributeNotFoundException, InvalidAttributeValueException, InexistentLoginException
+			 {
 
 		Usuario user = controlerDeUser.getUser(login);
 		String resp = "";
@@ -786,7 +788,7 @@ public class SigaBemController {
 	}
 	
 	/**
-	 * Retorna o objeto Usu‡rio
+	 * Retorna o objeto Usuï¿½rio
 	 * @param login
 	 * @return Usuario user
 	 * @throws InvalidAttributeValueException

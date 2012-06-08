@@ -36,26 +36,27 @@ public class TelaLogado extends Composite {
 	private VerticalPanel verticalPanel;
 	private FlexTable mural,solicitacoes;
 	private TextButton botaoVoltar;
-	private Usuario user = null;
-	
+	private Label lblBemVindo;
 	
 
 	public TelaLogado(SigaBemServerAsync controller, String login) {
 	
 		controllerServer = controller;
-//		controller.getUsuario(login, new AsyncCallback<Usuario>() {
-//			
-//			public void onSuccess(Usuario result) {
-//				user = result;
-//				Window.alert(user.getNome());
-//				
-//			}
-//			
-//			public void onFailure(Throwable caught) {
-//				Window.alert("Deu errado!");
-//				
-//			}
-//		});
+		lblBemVindo = new Label();
+		
+		controller.getAtributoDeUsuario(login,"nome", new AsyncCallback<String>() {
+
+			public void onFailure(Throwable caught) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void onSuccess(String result) {
+				lblBemVindo.setText("Bem Vindo " + result);
+			}
+
+			
+		});
 		
 		/*
 		 * Criando painel principal
@@ -64,7 +65,6 @@ public class TelaLogado extends Composite {
 		initWidget(PainelLogado);
 		PainelLogado.setSize("1024px", "720px");
 		
-		Label lblBemVindo = new Label("Bem Vindo");
 		PainelLogado.add(lblBemVindo, 60, 10);
 		
 		TextButton txtbtnSair = new TextButton("Sair");

@@ -15,7 +15,7 @@ public interface SigaBemServer extends RemoteService{
 
 	void entrar(String text, String text2) throws Exception;
 
-//	Usuario getUsuario(String login) throws Exception;
-	
+	String getAtributoDeUsuario(String login, String atributo) throws Exception;
+
 	
 }

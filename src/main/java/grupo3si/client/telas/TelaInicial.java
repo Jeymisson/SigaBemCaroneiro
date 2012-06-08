@@ -57,7 +57,8 @@ public class TelaInicial extends Composite{
 		TextButton btnEntrar = new TextButton("Entrar");
 		btnEntrar.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				controllerServer.entrar(textlogin.getText(), textsenha.getText(), new AsyncCallback<Void>() {
+				final String login = textlogin.getText();
+				controllerServer.entrar(login, textsenha.getText(), new AsyncCallback<Void>() {
 
 					public void onFailure(Throwable caught) {
 						Window.alert(caught.getMessage());
@@ -67,7 +68,7 @@ public class TelaInicial extends Composite{
 					public void onSuccess(Void result) {
 						textlogin.setText("");
 						textsenha.setText("");
-						TelaLogado telaLogado = new TelaLogado(controllerServer,textlogin.getValue());
+						TelaLogado telaLogado = new TelaLogado(controllerServer,login);
 						telaLogado.setVisible(true);
 						RootPanel.get("centro").clear();
 						RootPanel.get("centro").add(telaLogado);
@@ -131,11 +132,11 @@ public class TelaInicial extends Composite{
 				controllerServer.criarUsuario(textBoxLogin.getText(), passwordTextBox.getText(), 
 						textBoxNome.getText(),textBoxEndereco.getText(),textBoxEmail.getText(), new AsyncCallback<Void>() {
 							public void onSuccess(Void result) {
-								Window.alert("Usu‡rio cadastrado com sucesso!");
+								Window.alert("Usuï¿½rio cadastrado com sucesso!");
 								limparTextBox(textBoxNome, textBoxLogin, textBoxEndereco,textBoxEmail, passwordTextBox);
 							}
 							public void onFailure(Throwable caught) {
-							  Window.alert("Dados inv‡lidos");
+							  Window.alert("Dados invï¿½lidos");
 							}
 						});
 			}

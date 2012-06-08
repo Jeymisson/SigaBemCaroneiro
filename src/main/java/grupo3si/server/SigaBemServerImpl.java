@@ -38,19 +38,9 @@ public class SigaBemServerImpl extends RemoteServiceServlet implements SigaBemSe
 		
 	}
 
-//	public Usuario getUsuario(String login) throws Exception {
-//		try{
-//			 return controller.getUser(login);
-//		}catch (Exception e) {
-//			throw new Exception(e);
-//		}
-//		
-//		
-//		
-//	}
-
-	
-	
+	public String getAtributoDeUsuario(String login, String atributo) throws Exception {
+		return controller.getAtributoUsuario(login, atributo);
+	}
 
 
 }
