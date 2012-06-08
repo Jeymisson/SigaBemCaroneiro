@@ -1,5 +1,11 @@
 package grupo3si.client.telas;
 
+import java.util.List;
+
+import grupo3si.client.SigaBemServerAsync;
+
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Label;
@@ -11,12 +17,19 @@ import com.google.gwt.user.client.ui.Image;
 
 import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.datepicker.client.DatePicker;
+import com.google.gwt.event.logical.shared.AttachEvent.Handler;
+import com.google.gwt.event.logical.shared.AttachEvent;
 
 public class TelaPerfilPublico extends Composite {
+	
 	private AbsolutePanel painelCaronasPegas,painelMotorista,mural,informacoes;
 	private DecoratedTabPanel painelHistorico,painelMural,painelInformacoes;
+	private SigaBemServerAsync controllerServer;
+	private final String login;
 	
-	public TelaPerfilPublico() {
+	public TelaPerfilPublico(SigaBemServerAsync controller, String login) {
+		this.login = login;
+		this.controllerServer = controller;
 		
 		/*
 		 * Criando painel principal
@@ -73,6 +86,7 @@ public class TelaPerfilPublico extends Composite {
 	painelMotorista = new AbsolutePanel();
 	painelHistorico.add(painelMotorista, "Motorista", false);
 	painelMotorista.setSize("450px", "515px");
+	caronasPainelMotorista();
 	
 	DatePicker calendario = new DatePicker();
 	PainelLogado.add(calendario, 24, 461);
@@ -123,7 +137,26 @@ public class TelaPerfilPublico extends Composite {
 	
 	}
 	
-	private void adicionaCaronaPainelMotorista(){
-		
+	private void caronasPainelMotorista(){
+		controllerServer.getMensagensMotorista(this.login, new AsyncCallback<List<String>>() {
+			public void onSuccess(List<String> result) {
+				addPainelMotorista(result);
+			}
+			
+			public void onFailure(Throwable caught) {
+				Window.alert("falhou visualizar caronas motoristas.");
+				
+			}
+		});
+	}
+	
+	private void addPainelMotorista(List<String> mensagens){
+		Label labelMensagem;
+		System.out.println("metodo");
+		for (String mensagem : mensagens) {
+			System.out.println(mensagens);
+			labelMensagem = new Label(mensagem);
+			painelMotorista.add(labelMensagem);
+		}
 	}
 }

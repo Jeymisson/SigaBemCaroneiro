@@ -1,4 +1,6 @@
 package grupo3si.client;
+import java.util.List;
+
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
@@ -14,5 +16,6 @@ public interface SigaBemServer extends RemoteService{
 
 	void cadastrarCarona(String id, String origem, String destino,
 			String data, String hora, Integer vagas) throws Exception;
+	List<String> getMensagensMotorista(String login);
 	
 }

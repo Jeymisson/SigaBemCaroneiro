@@ -1,5 +1,7 @@
 package grupo3si.server;
 
+import java.util.List;
+
 import javax.naming.directory.InvalidAttributeValueException;
 
 import grupo3si.client.SigaBemServer;
@@ -48,5 +50,19 @@ public class SigaBemServerImpl extends RemoteServiceServlet implements SigaBemSe
 		Usuario user = controller.getUser(id);
 		user.cadastraCarona( origem, destino, data, hora, vagas);
 		//controller.cadastrarCarona(user.getUserID(), origem, destino, data, hora, vagas);
+	}
+
+	public List<String> getMensagensMotorista(String login) {
+		List<String> mensagens = null;
+		try {
+			Usuario user = controller.getUser(login);
+			mensagens = user.getPerfil().getMensagensMotorista();
+		} catch (InvalidAttributeValueException e) {
+			e.printStackTrace();
+		} catch (InexistentLoginException e) {
+			e.printStackTrace();
+		}
+		return mensagens;
+		
 	}
 }

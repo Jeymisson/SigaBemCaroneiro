@@ -16,6 +16,7 @@ public class Perfil {
 	private Integer FaltaEmVagaDeCarona;
 	private Integer presencaEmVagaDeCarona;
 	private List<String> mensagens;
+	private List<String> mensagensMotorista;
 
 	/**
 	 * construtor de perfil
@@ -36,6 +37,8 @@ public class Perfil {
 		historicoDeCaronas = new LinkedList<Carona>();
 		historicoEmVagasDeCaronas = new LinkedList<Carona>();
 		mensagens = new ArrayList<String>();
+		mensagensMotorista = new ArrayList<String>();
+		
 	}
 
 	/**
@@ -244,6 +247,8 @@ public class Perfil {
 	 */
 	public void add(Carona carona) {
 		historicoDeCaronas.add(carona);
+		System.out.println(carona.getCarona());
+		addMensagemMotorista(carona.getCarona());
 	}
 
 	public void addMensagem(String mensagem) {
@@ -252,6 +257,15 @@ public class Perfil {
 	
 	public List<String> getMensagens(){
 		return mensagens;
+	}
+
+	private void addMensagemMotorista(String mensagem) {
+		mensagensMotorista.add(mensagem);
+		
+	}
+	
+	public List<String> getMensagensMotorista(){
+		return mensagensMotorista;
 	}
 
 }

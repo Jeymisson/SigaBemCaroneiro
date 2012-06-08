@@ -1,5 +1,7 @@
 package grupo3si.client;
 
+import java.util.List;
+
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
 public interface SigaBemServerAsync  {
@@ -13,5 +15,8 @@ public interface SigaBemServerAsync  {
 			AsyncCallback<String> atributoCallback);
 	void cadastrarCarona(String id, String origem, String destino, String data,
 			String hora, Integer vagas, AsyncCallback<Void> callback);
+
+	void getMensagensMotorista(String login,
+			AsyncCallback<List<String>> callback);
 
 }

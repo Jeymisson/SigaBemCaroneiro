@@ -1,6 +1,5 @@
 package grupo3si.client.telas;
 import grupo3si.client.SigaBemServerAsync;
-import grupo3si.server.model.Usuario;
 
 import java.util.ArrayList;
 
@@ -88,7 +87,7 @@ public class TelaLogado extends Composite {
 		Image fotoPerfil = new Image("imagens/fEIA.jpg");
 		fotoPerfil.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				TelaPerfilPublico perfilpublico = new TelaPerfilPublico();
+				TelaPerfilPublico perfilpublico = new TelaPerfilPublico(controllerServer, login);
 				perfilpublico.setVisible(true);
 				RootPanel.get("centro").clear();
 				RootPanel.get("centro").add(perfilpublico);

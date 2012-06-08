@@ -264,6 +264,5 @@ public class Usuario implements Interessado {
 	public List<String> getMensagens() {
 		return perfil.getMensagens();
 	}
-
-
+	
 }
