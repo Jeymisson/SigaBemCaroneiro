@@ -177,41 +177,41 @@ public class TelaLogado extends Composite {
 		Label lblNewLabel = new Label("Origem:");
 		flexTable.setWidget(0, 0, lblNewLabel);
 		
-		TextBox textBox = new TextBox();
-		flexTable.setWidget(0, 1, textBox);
+		TextBox boxCaronaOrigem = new TextBox();
+		flexTable.setWidget(0, 1, boxCaronaOrigem);
 		
 		Label lblDestino = new Label("Destino:");
 		flexTable.setWidget(1, 0, lblDestino);
 		
-		TextBox textBox_1 = new TextBox();
-		flexTable.setWidget(1, 1, textBox_1);
+		TextBox boxCaronaDestino = new TextBox();
+		flexTable.setWidget(1, 1, boxCaronaDestino);
 		
 		Label lblData = new Label("Data:");
 		flexTable.setWidget(2, 0, lblData);
 		
-		TextBox textBox_2 = new TextBox();
-		flexTable.setWidget(2, 1, textBox_2);
+		TextBox boxCaronaData = new TextBox();
+		flexTable.setWidget(2, 1, boxCaronaData);
 		
 		Label lblHora = new Label("Hora:");
 		flexTable.setWidget(3, 0, lblHora);
 		
-		TextBox textBox_3 = new TextBox();
-		flexTable.setWidget(3, 1, textBox_3);
+		TextBox boxCaronaHora = new TextBox();
+		flexTable.setWidget(3, 1, boxCaronaHora);
 		
 		Label lblVagas = new Label("Vagas:");
 		flexTable.setWidget(4, 0, lblVagas);
 		
-		ListBox listBox = new ListBox();
-		listBox.addItem("1");
-		listBox.addItem("2");
-		listBox.addItem("3");
-		listBox.addItem("4");
-		listBox.addItem("5");
-		flexTable.setWidget(4, 1, listBox);
-		listBox.setVisibleItemCount(1);
+		ListBox listCaronaVagas = new ListBox();
+		listCaronaVagas.addItem("1");
+		listCaronaVagas.addItem("2");
+		listCaronaVagas.addItem("3");
+		listCaronaVagas.addItem("4");
+		listCaronaVagas.addItem("5");
+		flexTable.setWidget(4, 1, listCaronaVagas);
+		listCaronaVagas.setVisibleItemCount(1);
 		
-		TextButton txtbtnCadastrar = new TextButton("Cadastrar");
-		txtbtnCadastrar.addClickHandler(new ClickHandler() {
+		TextButton botaoCadastrarCarona = new TextButton("Cadastrar");
+		botaoCadastrarCarona.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				painelCadastrarCarona.setVisible(false);
 				verticalPanel.setVisible(true);
@@ -226,7 +226,7 @@ public class TelaLogado extends Composite {
 			}
 		});
 		flexTable.setWidget(5, 0, txtbtnCancelar);
-		flexTable.setWidget(5, 1, txtbtnCadastrar);
+		flexTable.setWidget(5, 1, botaoCadastrarCarona);
 		flexTable.getCellFormatter().setHorizontalAlignment(5, 1, HasHorizontalAlignment.ALIGN_LEFT);
 		flexTable.getCellFormatter().setHorizontalAlignment(5, 0, HasHorizontalAlignment.ALIGN_LEFT);
 		
